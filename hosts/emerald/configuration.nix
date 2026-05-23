@@ -34,6 +34,7 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+  hardware.graphics {enable=true; enable32Bit=true;};
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -123,6 +124,7 @@
     nix-ld
     btop
     cmatrix
+    discord
   ];
   neovim-mod.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
