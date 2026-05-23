@@ -34,7 +34,15 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  hardware.graphics {enable=true; enable32Bit=true;};
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
+    open = true;
+    modesetting.enable = true;
+    nvidiaSettings = true; # <--- This enables the GUI tool
+    package = config.boot.kernelPackages.nvidiaPackages.stable; # or beta/production
+  };
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
