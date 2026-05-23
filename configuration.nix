@@ -95,7 +95,10 @@
     #  thunderbird
     ];
   };
-
+  environment.sessionVariables = {
+   NH_FLAKE="/home/hactuss/nixos-configuration";
+   NIXOS_OZONE_WL = "1";
+  };
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -109,6 +112,8 @@
     alacritty
     nh 
     git
+    vscode
+    nix-ld
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
