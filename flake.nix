@@ -17,6 +17,7 @@
        modules = [
         ./hosts/emerald/configuration.nix
         ./modules/nixos/neovim.nix
+        ./modules/nixos/steam.nix
         # inputs.home-manager.nixosModules.default
        ];
       };
