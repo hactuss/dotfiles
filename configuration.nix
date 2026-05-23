@@ -5,10 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./modules/apps/neovim.nix
+  ];
 
   # Bootloader.
   boot.loader.limine.enable = true;
@@ -27,7 +28,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -89,15 +93,18 @@
   users.users.hactuss = {
     isNormalUser = true;
     description = "hactuss";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
   environment.sessionVariables = {
-   NH_FLAKE="/home/hactuss/nixos-configuration";
-   NIXOS_OZONE_WL = "1";
+    NH_FLAKE = "/home/hactuss/nixos-configuration";
+    NIXOS_OZONE_WL = "1";
   };
   # Install firefox.
   programs.firefox.enable = true;
@@ -108,15 +115,21 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     alacritty
-    nh 
+    nixfmt
+    nh
+    fastfetch
     git
     vscode
     nix-ld
     btop
+    cmatrix
   ];
-
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    defaultEditor = true;
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
