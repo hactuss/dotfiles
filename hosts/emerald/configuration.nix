@@ -34,11 +34,7 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  hardware.graphics = {
-    enable = true;
-    driSupport = true;
-    #driSupport32Bit = true;
-  };
+  hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     open = true;
