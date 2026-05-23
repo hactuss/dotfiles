@@ -15,7 +15,15 @@
       emerald = nixpkgs.lib.nixosSystem {
        specialArgs = {inherit inputs;};
        modules = [
-        ./configuration.nix
+        ./hosts/emerald/configuration.nix
+        ./modules/nixos/neovim.nix
+        # inputs.home-manager.nixosModules.default
+       ];
+      };
+      opal = nixpkgs.lib.nixosSystem {
+       specialArgs = {inherit inputs;};
+       modules = [
+        ./hosts/opal/configuration.nix
         # inputs.home-manager.nixosModules.default
        ];
       };
