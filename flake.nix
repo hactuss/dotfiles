@@ -11,7 +11,9 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations = { 
+    nixosConfigurations = {
+
+      # Desktop config
       emerald = nixpkgs.lib.nixosSystem {
        specialArgs = {inherit inputs;};
        modules = [
@@ -21,6 +23,8 @@
         # inputs.home-manager.nixosModules.default
        ];
       };
+
+      # Thinkpad config
       opal = nixpkgs.lib.nixosSystem {
        specialArgs = {inherit inputs;};
        modules = [

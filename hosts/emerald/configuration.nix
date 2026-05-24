@@ -8,8 +8,10 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+ #   ./../../modules/nixos/prism.nix
   ];
-
+  steam-mod.enable = true;
+#  prism-mod.enable = true;
   # Bootloader.
   boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -133,6 +135,9 @@
     btop
     cmatrix
     discord
+    tmux
+    r2modman
+    prismlauncher
   ];
   neovim-mod.enable = true;
   # Some programs need SUID wrappers, can be configured further or are

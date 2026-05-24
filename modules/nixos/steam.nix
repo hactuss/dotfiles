@@ -17,7 +17,8 @@
     gamemode.enable = true;
     };
     environment.systemPackages = [
-        pkgs.protonup
+        pkgs.protonup-ng
+	pkgs.mangohud
     ];
     environment.sessionVariables = {
         STEAM_EXTRA_COMPAT_TOOLS_PATHS =
