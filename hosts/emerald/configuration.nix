@@ -8,7 +8,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # inputs.home-manager.nixosModules.default
+    inputs.home-manager.nixosModules.default
     inputs.stylix.nixosModules.stylix
  #   ./../../modules/nixos/prism.nix
   ];
@@ -155,7 +155,12 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
+  home-manager = {
+    specialArgs = {inherit inputs;};
+    users = {
+      "hactuss" = import ./home.nix;
+    };
+  };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
