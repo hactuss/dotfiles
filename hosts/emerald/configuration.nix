@@ -12,6 +12,7 @@
     #inputs.stylix.nixosModules.stylix
   ];
   steam-mod.enable = true;
+  desktopManager.enable = true;
 #  prism-mod.enable = true;
   # Bootloader.
   boot.loader.limine.enable = true;
