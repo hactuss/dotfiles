@@ -2,12 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs ... }:
 
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+    inputs.stylix.nixosModules.stylix
  #   ./../../modules/nixos/prism.nix
   ];
   steam-mod.enable = true;
@@ -140,6 +142,7 @@
     prismlauncher
   ];
   neovim-mod.enable = true;
+  stylix.image = ./img.jpg;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -159,6 +162,8 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+
+  home-manager
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
