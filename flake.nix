@@ -20,14 +20,13 @@ in
 
       # Desktop config
       emerald = nixpkgs.lib.nixosSystem {
-       specialArgs = {inherit inputs;};
+       extraSpecialArgs = {inherit inputs;};
        modules = [
         ./hosts/emerald/configuration.nix
         ./modules/nixos/neovim.nix
         ./modules/nixos/steam.nix
         inputs.home-manager.nixosModules.default
-        inputs.stylix.nixosModules.stylix
-        
+        inputs.stylix.nixosModules.stylix 
        ];
       };
 
