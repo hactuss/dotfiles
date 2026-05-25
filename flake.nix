@@ -3,10 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    #home-manager = {
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    home-manager = {
+       url = "github:nix-community/home-manager";
+       inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix.url = "github:nix-community/stylix/release-25.11";
   };
 
@@ -26,7 +26,6 @@ in
         ./modules/nixos/neovim.nix
         ./modules/nixos/steam.nix
         ./modules/nixos/desktopManager.nix
-        #inputs.home-manager.nixosModules.default
         inputs.stylix.nixosModules.stylix 
        ];
       };
