@@ -18,6 +18,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.loader.limine.style.wallpaperStyle = "centered";
+  boot.plymouth.enable = true; 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -37,7 +38,14 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+  extraPackages = with pkgs; [
+      mesa.opencl # Enables Rusticl (OpenCL) support
+    ];
+  };
+
+
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     open = true;
@@ -116,6 +124,7 @@
   environment.sessionVariables = {
     NH_FLAKE = "/home/hactuss/nixos-configuration";
     NIXOS_OZONE_WL = "1";
+    RUSTICL_ENABLE = "radeonsi";
   };
   # Install firefox.
   programs.firefox.enable = true;
@@ -129,8 +138,11 @@
     alacritty
     nixfmt
     nh
+    feh
+    waypaper
     fastfetch
     git
+    ffmpeg
     vscode
     nix-ld
     btop
@@ -139,6 +151,9 @@
     tmux
     r2modman
     prismlauncher
+    rofi
+    alejandra
+    davinci-resolve
   ];
   neovim-mod.enable = true;
   # stylix.image = ./img.jpg;
@@ -153,13 +168,13 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-  home-manager = {
-    specialArgs = {inherit inputs;};
-    users = {
-      "hactuss" = import ./home.nix;
-    };
-  };
+  services.openssh.enable = true;
+  #home-manager = {
+  #  specialArgs = {inherit inputs;};
+  #  users = {
+  #    "hactuss" = import ./home.nix;
+  #  };
+  #};
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
