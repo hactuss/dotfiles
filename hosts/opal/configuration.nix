@@ -6,8 +6,7 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -169,7 +168,7 @@
       "users"
       "docker"
     ];
-    packages = with pkgs; [ ];
+    packages = with pkgs; [];
   };
 
   programs.zsh.enable = true;
@@ -179,9 +178,9 @@
   programs.zsh.autosuggestions.enable = true;
   # programs.niri.enable = true;
   programs.sway.enable = true;
-virtualisation.docker = {
-enable = true;
-};
+  virtualisation.docker = {
+    enable = true;
+  };
   environment.systemPackages = with pkgs; [
     pulseaudio
     papirus-nord
@@ -326,7 +325,7 @@ enable = true;
   # $ nix search wget
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "hactuss" = import ./home.nix;
     };
@@ -353,7 +352,7 @@ enable = true;
       PasswordAuthentication = true;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ "hactuss" ];
+      AllowUsers = ["hactuss"];
     };
   };
   programs.ssh.askPassword = "askPassword";

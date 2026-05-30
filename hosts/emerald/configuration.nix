@@ -1,10 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -12,13 +14,13 @@
   ];
   steam-mod.enable = true;
   desktopManager.enable = true;
-#  prism-mod.enable = true;
+  #  prism-mod.enable = true;
   # Bootloader.
   boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.loader.limine.style.wallpaperStyle = "centered";
-  boot.plymouth.enable = true; 
+  boot.plymouth.enable = true;
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -40,13 +42,12 @@
 
   hardware.graphics = {
     enable = true;
-  extraPackages = with pkgs; [
+    extraPackages = with pkgs; [
       mesa.opencl # Enables Rusticl (OpenCL) support
     ];
   };
 
-
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
@@ -55,7 +56,7 @@
   };
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "de_DE.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
@@ -153,7 +154,8 @@
     prismlauncher
     rofi
     alejandra
-    davinci-resolve
+    # davinci-resolve
+    xmrig
   ];
   neovim-mod.enable = true;
   # stylix.image = ./img.jpg;
@@ -166,6 +168,26 @@
   # };
 
   # List services that you want to enable:
+
+  services.xmrig = {
+    enable = true;
+    settings = {
+      autosave = true;
+      cpu = true;
+      opencl = true;
+      cuda = false;
+      pools = [
+        {
+          url = "pool.supportxmr.com:3333";
+          user = "44kBjERLZSR5syNjVyqxthMuZqZ79tPah8GcxsQxoaNP3T1g5qwGLUUGVcmT3o2y6FcBUEhsMesPxCzqR9ueYibBRfpMLeu";
+          keepalive = true;
+          tls = true;
+        }
+      ];
+      donate-level = 0;
+      donate-over-proxy = 0;
+    };
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -188,5 +210,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }

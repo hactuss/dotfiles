@@ -1,42 +1,43 @@
 {
-  description = "Nixos config flake";
+  description = "latest Nixos config flake by hactuss";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-       url = "github:nix-community/home-manager";
-       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:nix-community/stylix/release-25.11";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: 
-  let 
-  system = "x86_64-linux";
-  pkgs = nixpkgs.legacyPackages.${system};
-in  
-{
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
     nixosConfigurations = {
-
       # Desktop config
       emerald = nixpkgs.lib.nixosSystem {
-       specialArgs = {inherit inputs;};
-       modules = [
-        ./hosts/emerald/configuration.nix
-        ./modules/nixos/neovim.nix
-        ./modules/nixos/steam.nix
-        ./modules/nixos/desktopManager.nix
-        inputs.stylix.nixosModules.stylix 
-       ];
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/emerald/configuration.nix
+          ./modules/nixos/neovim.nix
+          ./modules/nixos/steam.nix
+          ./modules/nixos/desktopManager.nix
+          # inputs.stylix.nixosModules.stylix
+        ];
       };
 
       # Thinkpad config
       opal = nixpkgs.lib.nixosSystem {
-       specialArgs = {inherit inputs;};
-       modules = [
-        ./hosts/opal/configuration.nix
-        inputs.home-manager.nixosModules.default
-       ];
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/opal/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
       };
     };
   };

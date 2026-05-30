@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   options = {
     tmux-mod.enable = lib.mkEnableOption "enables tmux-mod";
   };

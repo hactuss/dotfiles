@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   options = {
     prism-mod.enable = lib.mkEnableOption "enables prism-mod";
   };
