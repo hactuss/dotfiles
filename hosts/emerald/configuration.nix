@@ -155,9 +155,10 @@
     rofi
     alejandra
     # davinci-resolve
-    xmrig
+    #xmrig
   ];
   neovim-mod.enable = true;
+  programs.kdeconnect.enable = true;
   # stylix.image = ./img.jpg;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -168,7 +169,7 @@
   # };
 
   # List services that you want to enable:
-
+ /*
   services.xmrig = {
     enable = true;
     settings = {
@@ -188,7 +189,7 @@
       donate-over-proxy = 0;
     };
   };
-
+*/
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   #home-manager = {

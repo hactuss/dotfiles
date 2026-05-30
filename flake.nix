@@ -26,6 +26,7 @@
           ./modules/nixos/neovim.nix
           ./modules/nixos/steam.nix
           ./modules/nixos/desktopManager.nix
+          ./modules/nixos/obs-studio.nix
           # inputs.stylix.nixosModules.stylix
         ];
       };
