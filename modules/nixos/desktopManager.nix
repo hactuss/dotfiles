@@ -14,12 +14,6 @@
       #hyprland.enable = true;
       #waybar.enable = true;
     };
-    services.xserver = {
-      desktopManager = {
-        #cinnamon.enable = true;
-        #xfce.enable = true;
-      };
-      #windowManager.i3.enable = true;
-    };
+    services.desktopManager.plasma6.enable = true;
   };
 }

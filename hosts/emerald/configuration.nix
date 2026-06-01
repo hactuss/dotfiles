@@ -12,14 +12,13 @@
     ./hardware-configuration.nix
   ];
   steam-mod.enable = true;
-  desktopManager.enable = true;
+  #desktopManager.enable = true;
   #  prism-mod.enable = true;
   # Bootloader.
   boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   boot.loader.limine.style.wallpaperStyle = "centered";
-  boot.plymouth.enable = true;
+  #boot.plymouth.enable = true;
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -122,7 +121,7 @@
     ];
   };
   environment.sessionVariables = {
-    NH_FLAKE = "/home/hactuss/nixos-configuration";
+    NH_FLAKE = "/home/hactuss/dotfiles";
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "radeonsi";
   };
