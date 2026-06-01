@@ -10,7 +10,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    #inputs.stylix.nixosModules.stylix
   ];
   steam-mod.enable = true;
   desktopManager.enable = true;
@@ -149,16 +148,22 @@
     btop
     cmatrix
     discord
+    vlc
     tmux
-    r2modman
     prismlauncher
     rofi
     alejandra
     # davinci-resolve
     #xmrig
+    r2modman
+    unrar
   ];
   neovim-mod.enable = true;
   programs.kdeconnect.enable = true;
+  services.tailscale = {
+	enable = true;
+	openFirewall = true;
+  };
   # stylix.image = ./img.jpg;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
