@@ -23,10 +23,10 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/emerald/configuration.nix
-          ./modules/nixos/neovim.nix
-          ./modules/nixos/steam.nix
-          ./modules/nixos/desktopManager.nix
-          ./modules/nixos/obs-studio.nix
+          ./modules/neovim.nix
+          ./modules/steam.nix
+          ./modules/desktopManager.nix
+          ./modules/obs-studio.nix
           # inputs.stylix.nixosModules.stylix
         ];
       };
