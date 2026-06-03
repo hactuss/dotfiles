@@ -1,5 +1,6 @@
 # NIXOS RULES!!!!
 All my machines are named after gemstones, because I find that pretty cool.
+
 Emerald: desktop pc i built
 - steam games
 - configuring nixos
