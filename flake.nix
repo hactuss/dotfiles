@@ -24,7 +24,7 @@
         modules = [
           ./hosts/emerald/configuration.nix
           ./modules/neovim.nix
-          ./modules/steam.nix
+          ./modules/steam
           ./modules/desktopManager.nix
           ./modules/obs-studio.nix
           # inputs.stylix.nixosModules.stylix
