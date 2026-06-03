@@ -28,7 +28,7 @@
           ./modules/desktopManager.nix
           ./modules/obs-studio.nix
           # inputs.stylix.nixosModules.stylix
-	  ./modules/tailscale
+          ./modules/tailscale
         ];
       };
 

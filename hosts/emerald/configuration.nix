@@ -37,14 +37,12 @@
   ];
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
-
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       mesa.opencl # Enables Rusticl (OpenCL) support
     ];
   };
-
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     open = true;
@@ -52,43 +50,35 @@
     nvidiaSettings = true; # <--- This enables the GUI tool
     package = config.boot.kernelPackages.nvidiaPackages.stable; # or beta/production
   };
-
   # Select internationalisation properties.
-  i18n.defaultLocale = "de_DE.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
+  i18n = {
+    defaultLocale = "de_DE.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "de_DE.UTF-8";
+      LC_IDENTIFICATION = "de_DE.UTF-8";
+      LC_MEASUREMENT = "de_DE.UTF-8";
+      LC_MONETARY = "de_DE.UTF-8";
+      LC_NAME = "de_DE.UTF-8";
+      LC_NUMERIC = "de_DE.UTF-8";
+      LC_PAPER = "de_DE.UTF-8";
+      LC_TELEPHONE = "de_DE.UTF-8";
+      LC_TIME = "de_DE.UTF-8";
+    };
   };
-
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
     variant = "";
   };
-
   # Configure console keymap
   console.keyMap = "de";
-
-  # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  hardware.bluetooth.enable = true;
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -118,7 +108,6 @@
     ];
     packages = with pkgs; [
       kdePackages.kate
-      #  thunderbird
     ];
   };
   environment.sessionVariables = {
@@ -126,16 +115,11 @@
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "radeonsi";
   };
-  # Install firefox.
   programs.firefox.enable = true;
-
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     alacritty
+    zed-editor
     nixfmt
     nh
     feh
@@ -143,7 +127,6 @@
     fastfetch
     git
     ffmpeg
-    vscode
     nix-ld
     btop
     cmatrix
