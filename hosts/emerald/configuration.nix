@@ -88,6 +88,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  hardware.bluetooth.enable = true;
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -156,6 +157,7 @@
     #xmrig
     r2modman
     unrar
+    hollywood
   ];
   neovim-mod.enable = true;
   programs.kdeconnect.enable = true;
