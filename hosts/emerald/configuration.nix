@@ -161,10 +161,6 @@
   ];
   neovim-mod.enable = true;
   programs.kdeconnect.enable = true;
-  services.tailscale = {
-    enable = true;
-    openFirewall = true;
-  };
   # stylix.image = ./img.jpg;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
