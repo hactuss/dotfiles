@@ -119,6 +119,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     alacritty
+    ghostty
     librewolf
     zed-editor
     nixfmt
@@ -147,7 +148,10 @@
   neovim-mod.enable = true;
   programs.kdeconnect.enable = true;
   #services.asusd
-  programs.xwayland.enable = true;
+  programs.xwayland = {
+    enable = true;
+    package = pkgs.xwayland-satellite;
+  };
   programs.niri.enable = true;
   # stylix.image = ./img.jpg;
   # Some programs need SUID wrappers, can be configured further or are
