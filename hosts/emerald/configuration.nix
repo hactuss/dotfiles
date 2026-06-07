@@ -119,6 +119,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     alacritty
+    librewolf
     zed-editor
     nixfmt
     nh
@@ -141,9 +142,13 @@
     r2modman
     unrar
     hollywood
+    xwayland-satellite
   ];
   neovim-mod.enable = true;
   programs.kdeconnect.enable = true;
+  #services.asusd
+  programs.xwayland.enable = true;
+  programs.niri.enable = true;
   # stylix.image = ./img.jpg;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
