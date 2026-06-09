@@ -29,6 +29,7 @@
           ./modules/obs-studio.nix
           # inputs.stylix.nixosModules.stylix
           ./modules/tailscale
+	  ./modules/fonts.nix
         ];
       };
 

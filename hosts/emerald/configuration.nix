@@ -124,7 +124,7 @@
     zed-editor
     nixfmt
     nh
-    feh
+    xeyes
     waypaper
     fastfetch
     git
@@ -144,6 +144,12 @@
     unrar
     hollywood
     xwayland-satellite
+    # niri wallpaper 
+    swaybg
+    swaylock
+    awww
+    imagemagick
+    waybar
   ];
   neovim-mod.enable = true;
   programs.kdeconnect.enable = true;
