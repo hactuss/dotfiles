@@ -5,6 +5,7 @@
   config,
   pkgs,
   inputs,
+  wrappers,
   ...
 }: {
   imports = [
@@ -119,6 +120,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     alacritty
+    flameshot
     ghostty
     librewolf
     zed-editor
@@ -144,14 +146,14 @@
     unrar
     hollywood
     xwayland-satellite
-    # niri wallpaper 
+    # niri wallpaper
     swaybg
     swaylock
     awww
     imagemagick
     waybar
   ];
-  neovim-mod.enable = true;
+    neovim-mod.enable = true;
   programs.kdeconnect.enable = true;
   #services.asusd
   programs.xwayland = {
@@ -159,7 +161,7 @@
     package = pkgs.xwayland-satellite;
   };
   programs.niri.enable = true;
-  # stylix.image = ./img.jpg;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

@@ -7,11 +7,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wrappers.url = "github:Lassulus/wrappers";
   };
 
   outputs = {
     self,
     nixpkgs,
+    wrappers,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -29,7 +31,8 @@
           ./modules/obs-studio.nix
           # inputs.stylix.nixosModules.stylix
           ./modules/tailscale
-	  ./modules/fonts.nix
+          ./modules/fonts.nix
+          #./modules/ba.nix
         ];
       };
 
