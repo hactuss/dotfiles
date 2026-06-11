@@ -152,6 +152,7 @@
     awww
     imagemagick
     waybar
+    tree
 
 
     (inputs.wrappers.lib.wrapPackage {

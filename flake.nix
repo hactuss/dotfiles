@@ -25,13 +25,13 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/emerald/configuration.nix
-          ./modules/neovim.nix
+          ./modules/neovim
           ./modules/steam
-          ./modules/desktopManager.nix
-          ./modules/obs-studio.nix
+          ./modules/windowManager
+          ./modules/obs
           # inputs.stylix.nixosModules.stylix
           ./modules/tailscale
-          ./modules/fonts.nix
+          ./modules/fonts
           #./modules/ba.nix
         ];
       };
