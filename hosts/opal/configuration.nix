@@ -33,7 +33,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-windowManager.enable = true;
+desktopManager.enable = true;
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
