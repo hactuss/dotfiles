@@ -33,7 +33,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-desktopManager.enable = true;
+  desktopManager.enable = true;
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
@@ -48,7 +48,7 @@ desktopManager.enable = true;
       4533
     ];
   };
-  
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -376,46 +376,4 @@ desktopManager.enable = true;
     };
   };
   programs.ssh.askPassword = "askPassword";
-
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      "smbshare" = {
-        "path" = "/";
-        "valid users" = "hactuss";
-        "public" = "yes";
-        "writeable" = "yes";
-        "browseable" = "yes";
-        "read only" = "no";
-        "guest ok" = "no";
-        "force user" = "hactuss";
-      };
-    };
-  };
-  services.samba.settings.global.security = "user";
-
-  # selfhosting
-  services = {
-    jellyfin = {
-      enable = true;
-      openFirewall = true;
-      user = "hactuss";
-    };
-    navidrome = {
-      enable = true;
-      openFirewall = true;
-      user = "hactuss";
-      settings = {
-        Address = "0.0.0.0";
-        Port = 4533;
-        MusicFolder = "./music";
-        Scanner.PurgeMissing = "always";
-      };
-    };
-    tailscale = {
-      enable = true;
-      openFirewall = true;
-    };
-  };
 }

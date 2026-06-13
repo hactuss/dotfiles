@@ -34,7 +34,10 @@
           ./modules/fonts
           #./modules/ba.nix
           ./modules/samba
-	  ./modules/fuzzel
+          ./modules/jellyfin
+          ./modules/navidrome
+          ./modules/nix
+          ./modules/Terminal/ghostty
         ];
       };
 
@@ -44,7 +47,8 @@
         modules = [
           ./hosts/opal/configuration.nix
           inputs.home-manager.nixosModules.default
-	  ./modules/windowManager
+          ./modules/windowManager
+          ./modules/samba
         ];
       };
     };

@@ -121,7 +121,6 @@
   environment.systemPackages = with pkgs; [
     alacritty
     flameshot
-    ghostty
     librewolf
     zed-editor
     nixfmt
@@ -158,14 +157,14 @@
     swaylock-effects
 
     /*
-    (inputs.wrappers.lib.wrapPackage {
-      inherit pkgs;
-      package = pkgs.niri;
-      flags = {
-        "--config" = config;
-      };
-})
-*/
+        (inputs.wrappers.lib.wrapPackage {
+          inherit pkgs;
+          package = pkgs.niri;
+          flags = {
+            "--config" = config;
+          };
+    })
+    */
 
     (inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
