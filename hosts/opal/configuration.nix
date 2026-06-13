@@ -182,7 +182,6 @@
   virtualisation.docker = {
     enable = true;
   };
-  programs.niri.enable = true;
   environment.systemPackages = with pkgs; [
     pulseaudio
     papirus-nord
