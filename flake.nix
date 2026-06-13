@@ -43,6 +43,7 @@
         modules = [
           ./hosts/opal/configuration.nix
           inputs.home-manager.nixosModules.default
+	  ./modules/windowManager
         ];
       };
     };
