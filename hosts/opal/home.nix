@@ -198,8 +198,8 @@ in {
     # fastfetch conflict
     #"/home/hactuss/.config/fastfetch/config.jsonc".source = ./homefiles/fastfetch/config.txt;
     #"/home/hactuss/.config/fastfetch/config.jsonc".force = true;
-    "/home/hactuss/.gtkrc-2.0".source = ./homefiles/gtk/2-0.txt;
-    "/home/hactuss/.gtkrc-2.0".force = true;
+    #"/home/hactuss/.gtkrc-2.0".source = ./homefiles/gtk/2-0.txt;
+    #"/home/hactuss/.gtkrc-2.0".force = true;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
