@@ -240,7 +240,6 @@
     netcat
     gnome-tweaks
     neovim
-    neofetch
     fastfetch
     btop
     wget
