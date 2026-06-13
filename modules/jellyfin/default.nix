@@ -3,6 +3,9 @@
     enable = true;
     openFirewall = true;
     user = "hactuss";
-    hardwareAcceleration.enable = true;
+    hardwareAcceleration = {
+      enable = true;
+      device = "/dev/dri/renderD128";
+    };
   };
 }

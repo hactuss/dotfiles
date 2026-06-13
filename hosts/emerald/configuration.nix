@@ -5,15 +5,14 @@
   config,
   pkgs,
   inputs,
-  wrappers,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
   steam-mod.enable = true;
-  #desktopManager.enable = true;
   #  prism-mod.enable = true;
   # Bootloader.
   boot.loader.limine.enable = true;
@@ -44,7 +43,7 @@
       mesa.opencl # Enables Rusticl (OpenCL) support
     ];
   };
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
@@ -70,8 +69,17 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  programs = {
+    niri.enable = true;
+    #sway.enable = true;
+    #hyprland.enable = true;
+    #waybar.enable = true;
+  };
   services.desktopManager.plasma6.enable = true;
+  programs.xwayland = {
+    enable = true;
+    package = pkgs.xwayland-satellite;
+  };
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
@@ -125,12 +133,14 @@
     zed-editor
     nixfmt
     nh
+    ghostty
     xeyes
     waypaper
     fastfetch
     git
     ffmpeg
     nix-ld
+    nixd
     btop
     cmatrix
     discord
@@ -157,19 +167,19 @@
     swaylock-effects
 
     /*
-        (inputs.wrappers.lib.wrapPackage {
-          inherit pkgs;
-          package = pkgs.niri;
-          flags = {
-            "--config" = config;
-          };
-    })
+          (inputs.wrappers.lib.wrapPackage {
+            inherit pkgs;
+            package = pkgs.niri;
+            flags = {
+              "--config" = config;
+            };
+      })
     */
 
     (inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
       package = pkgs.curl;
-      runtimeInputs = [pkgs.jq];
+      runtimeInputs = [ pkgs.jq ];
       env = {
         CURL_CA_BUNDLE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
       };
@@ -188,11 +198,6 @@
   neovim-mod.enable = true;
   programs.kdeconnect.enable = true;
   #services.asusd
-  programs.xwayland = {
-    enable = true;
-    package = pkgs.xwayland-satellite;
-  };
-  programs.niri.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -204,25 +209,25 @@
 
   # List services that you want to enable:
   /*
-  services.xmrig = {
-    enable = true;
-    settings = {
-      autosave = true;
-      cpu = true;
-      opencl = true;
-      cuda = false;
-      pools = [
-        {
-          url = "pool.supportxmr.com:3333";
-          user = "44kBjERLZSR5syNjVyqxthMuZqZ79tPah8GcxsQxoaNP3T1g5qwGLUUGVcmT3o2y6FcBUEhsMesPxCzqR9ueYibBRfpMLeu";
-          keepalive = true;
-          tls = true;
-        }
-      ];
-      donate-level = 0;
-      donate-over-proxy = 0;
+    services.xmrig = {
+      enable = true;
+      settings = {
+        autosave = true;
+        cpu = true;
+        opencl = true;
+        cuda = false;
+        pools = [
+          {
+            url = "pool.supportxmr.com:3333";
+            user = "44kBjERLZSR5syNjVyqxthMuZqZ79tPah8GcxsQxoaNP3T1g5qwGLUUGVcmT3o2y6FcBUEhsMesPxCzqR9ueYibBRfpMLeu";
+            keepalive = true;
+            tls = true;
+          }
+        ];
+        donate-level = 0;
+        donate-over-proxy = 0;
+      };
     };
-  };
   */
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
