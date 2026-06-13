@@ -1,0 +1,3 @@
+https://github.com/fastfetch-cli/fastfetch/wiki/Migrate-Neofetch-Logo-To-Fastfetch
+https://github.com/roadkell/ascii-logos/tree/main
+https://mynixos.com/home-manager/options/home.file.%3Cname%3E

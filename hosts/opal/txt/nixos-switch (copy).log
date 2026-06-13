@@ -1,0 +1,37 @@
+warning: Git tree '/etc/nixos' is dirty
+building the system configuration...
+warning: Git tree '/etc/nixos' is dirty
+error:
+       … while calling the 'head' builtin
+         at /nix/store/jd3y5kfy3ywv9lc229nz8vxqbrcyv93d-source/lib/attrsets.nix:1696:13:
+         1695|           if length values == 1 || pred here (elemAt values 1) (head values) then
+         1696|             head values
+             |             ^
+         1697|           else
+
+       … while evaluating the attribute 'value'
+         at /nix/store/jd3y5kfy3ywv9lc229nz8vxqbrcyv93d-source/lib/modules.nix:1118:7:
+         1117|     // {
+         1118|       value = addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |       ^
+         1119|       inherit (res.defsFinal') highestPrio;
+
+       … while evaluating the option `system.build.toplevel':
+
+       … while evaluating definitions from `/nix/store/jd3y5kfy3ywv9lc229nz8vxqbrcyv93d-source/nixos/modules/system/activation/top-level.nix':
+
+       … while evaluating the option `assertions':
+
+       … while evaluating definitions from `/nix/store/rlwwf4m6vdcbm3gi0a4fdmihcxr3l9ss-source/nixos/common.nix':
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: The option `home-manager.users.hactuss.qt.qt5ctSettings' does not exist. Definition values:
+       - In `/nix/store/mka07kciqmq3b7p80c1ipyp0fzppxw4l-source/modules/qt/hm.nix':
+           {
+             _type = "if";
+             condition = true;
+             content = {
+               _type = "if";
+           ...
+Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths '/etc/nixos#nixosConfigurations."nixos".config.system.build.toplevel' --no-link' returned non-zero exit status 1.

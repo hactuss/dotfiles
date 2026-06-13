@@ -1,0 +1,59 @@
+warning: Git tree '/etc/nixos' is dirty
+building the system configuration...
+warning: Git tree '/etc/nixos' is dirty
+these 13 derivations will be built:
+  /nix/store/8r2pgmxjcyzb73xy3sa0lw0aziaphxv6-sdrpp-1.1.0-unstable-2024-01-22.drv
+  /nix/store/kxgm9yn7vidgxa2nmjxaqlja7lv61q8v-system-path.drv
+  /nix/store/76hxk2zaqzqk6hvxvxnnv7jy1p35a0zq-dbus-1.drv
+  /nix/store/kg5cwn8sfhcykz4zayh7i2ph78r64hwm-X-Restart-Triggers-dbus.drv
+  /nix/store/cvg84z42a46crka5gl77na8psvlvmdpq-unit-dbus.service.drv
+  /nix/store/kq4848vwzmfsz2479k2l6pwg7vn4c853-X-Restart-Triggers-polkit.drv
+  /nix/store/gybsi6337b7n6qs26wif3xlcgjv632kv-unit-polkit.service.drv
+  /nix/store/ps50mkwrzw2ksl1xsnkhldfdh89c10ql-unit-accounts-daemon.service.drv
+  /nix/store/mlm2f31096vvj7zyr6n4zqw8dg4zyk13-system-units.drv
+  /nix/store/9yqpl4zplpwz9kml1mzy7dnch7ij5gij-unit-dbus.service.drv
+  /nix/store/z6m50r280h9kq9ihvmr598xlh9yfj9g3-user-units.drv
+  /nix/store/rbd9lnv5fvf2nlgppsgik6y2i5136ryd-etc.drv
+  /nix/store/419mfrl7imy5scyyw7ggr6yrl0fwqkss-nixos-system-nixos-25.11.20251025.6a08e6b.drv
+building '/nix/store/8r2pgmxjcyzb73xy3sa0lw0aziaphxv6-sdrpp-1.1.0-unstable-2024-01-22.drv'...
+error: Cannot build '/nix/store/8r2pgmxjcyzb73xy3sa0lw0aziaphxv6-sdrpp-1.1.0-unstable-2024-01-22.drv'.
+       Reason: builder failed with exit code 1.
+       Output paths:
+         /nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22
+       Last 25 log lines:
+       > Running phase: configurePhase
+       > cmake flags: -DCMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY=OFF -DCMAKE_FIND_USE_PACKAGE_REGISTRY=OFF -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DCMAKE_INSTALL_LOCALEDIR=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22/share/locale -DCMAKE_INSTALL_LIBEXECDIR=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22/libexec -DCMAKE_INSTALL_LIBDIR=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22/lib -DCMAKE_INSTALL_DOCDIR=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22/share/doc/sdrpp -DCMAKE_INSTALL_INFODIR=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22/share/info -DCMAKE_INSTALL_MANDIR=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22/share/man -DCMAKE_INSTALL_INCLUDEDIR=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22/include -DCMAKE_INSTALL_SBINDIR=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22/sbin -DCMAKE_INSTALL_BINDIR=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22/bin -DCMAKE_INSTALL_NAME_DIR=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22/lib -DCMAKE_POLICY_DEFAULT_CMP0025=NEW -DCMAKE_FIND_FRAMEWORK=LAST -DCMAKE_STRIP=/nix/store/x8mydcgbry214s802nzvy7fdljx404ym-gcc-wrapper-14.3.0/bin/strip -DCMAKE_RANLIB=/nix/store/x8mydcgbry214s802nzvy7fdljx404ym-gcc-wrapper-14.3.0/bin/ranlib -DCMAKE_AR=/nix/store/x8mydcgbry214s802nzvy7fdljx404ym-gcc-wrapper-14.3.0/bin/ar -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_INSTALL_PREFIX=/nix/store/cn7dfv9hvkqgi6hplsbc37mja6zvrg91-sdrpp-1.1.0-unstable-2024-01-22 -DOPT_BUILD_AIRSPYHF_SOURCE:BOOL=TRUE -DOPT_BUILD_AIRSPY_SOURCE:BOOL=TRUE -DOPT_BUILD_BLADERF_SOURCE:BOOL=TRUE -DOPT_BUILD_FILE_SOURCE:BOOL=TRUE -DOPT_BUILD_HACKRF_SOURCE:BOOL=TRUE -DOPT_BUILD_LIMESDR_SOURCE:BOOL=TRUE -DOPT_BUILD_PERSEUS_SOURCE:BOOL=FALSE -DOPT_BUILD_PLUTOSDR_SOURCE:BOOL=TRUE -DOPT_BUILD_RFSPACE_SOURCE:BOOL=TRUE -DOPT_BUILD_RTL_SDR_SOURCE:BOOL=TRUE -DOPT_BUILD_RTL_TCP_SOURCE:BOOL=TRUE -DOPT_BUILD_SDRPLAY_SOURCE:BOOL=FALSE -DOPT_BUILD_SOAPY_SOURCE:BOOL=TRUE -DOPT_BUILD_SPYSERVER_SOURCE:BOOL=TRUE -DOPT_BUILD_USRP_SOURCE:BOOL=FALSE -DOPT_BUILD_AUDIO_SINK:BOOL=TRUE -DOPT_BUILD_NETWORK_SINK:BOOL=TRUE -DOPT_BUILD_NEW_PORTAUDIO_SINK:BOOL=FALSE -DOPT_BUILD_FALCON9_DECODER:BOOL=FALSE -DOPT_BUILD_M17_DECODER:BOOL=FALSE -DOPT_BUILD_METEOR_DEMODULATOR:BOOL=TRUE -DOPT_BUILD_RADIO:BOOL=TRUE -DOPT_BUILD_WEATHER_SAT_DECODER:BOOL=FALSE -DOPT_BUILD_DISCORD_PRESENCE:BOOL=TRUE -DOPT_BUILD_FREQUENCY_MANAGER:BOOL=TRUE -DOPT_BUILD_RECORDER:BOOL=TRUE -DOPT_BUILD_RIGCTL_SERVER:BOOL=TRUE -DOPT_BUILD_SCANNER:BOOL=TRUE
+       > -- The C compiler identification is GNU 14.3.0
+       > -- The CXX compiler identification is GNU 14.3.0
+       > -- Detecting C compiler ABI info
+       > -- Detecting C compiler ABI info - done
+       > -- Check for working C compiler: /nix/store/x8mydcgbry214s802nzvy7fdljx404ym-gcc-wrapper-14.3.0/bin/gcc - skipped
+       > -- Detecting C compile features
+       > -- Detecting C compile features - done
+       > -- Detecting CXX compiler ABI info
+       > -- Detecting CXX compiler ABI info - done
+       > -- Check for working CXX compiler: /nix/store/x8mydcgbry214s802nzvy7fdljx404ym-gcc-wrapper-14.3.0/bin/g++ - skipped
+       > -- Detecting CXX compile features
+       > -- Detecting CXX compile features - done
+       > CMake Error at core/libcorrect/CMakeLists.txt:1 (cmake_minimum_required):
+       >   Compatibility with CMake < 3.5 has been removed from CMake.
+       >
+       >   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+       >   to tell CMake that the project requires at least <min> but has been updated
+       >   to work with policies introduced by <max> or earlier.
+       >
+       >   Or, add -DCMAKE_POLICY_VERSION_MINIMUM=3.5 to try configuring anyway.
+       >
+       > 
+       > -- Configuring incomplete, errors occurred!
+       For full logs, run:
+         nix log /nix/store/8r2pgmxjcyzb73xy3sa0lw0aziaphxv6-sdrpp-1.1.0-unstable-2024-01-22.drv
+error: Cannot build '/nix/store/kxgm9yn7vidgxa2nmjxaqlja7lv61q8v-system-path.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/ygzfnwckds93ipdslffxzsr33isjhp9i-system-path
+error: Cannot build '/nix/store/419mfrl7imy5scyyw7ggr6yrl0fwqkss-nixos-system-nixos-25.11.20251025.6a08e6b.drv'.
+       Reason: 1 dependency failed.
+       Output paths:
+         /nix/store/s039fk9pxkammbfmmrlc6krlyywi9d2c-nixos-system-nixos-25.11.20251025.6a08e6b
+Command 'nix --extra-experimental-features 'nix-command flakes' build --print-out-paths '/etc/nixos#nixosConfigurations."nixos".config.system.build.toplevel' --no-link' returned non-zero exit status 1.
