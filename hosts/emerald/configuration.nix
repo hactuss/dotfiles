@@ -157,6 +157,16 @@
     swaylock-fancy
     swaylock-effects
 
+    /*
+    (inputs.wrappers.lib.wrapPackage {
+      inherit pkgs;
+      package = pkgs.niri;
+      flags = {
+        "--config" = config;
+      };
+})
+*/
+
     (inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
       package = pkgs.curl;

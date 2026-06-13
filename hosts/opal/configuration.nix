@@ -330,7 +330,8 @@
       /*
       defaultFonts = {
         monospace = "Jetbrains-mono";
-      };*/
+      };
+      */
     };
   };
 
