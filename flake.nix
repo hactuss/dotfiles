@@ -33,6 +33,7 @@
           ./modules/tailscale
           ./modules/fonts
           #./modules/ba.nix
+          ./modules/samba
         ];
       };
 

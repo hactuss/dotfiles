@@ -153,7 +153,9 @@
     imagemagick
     waybar
     tree
-
+    swaylock-plugin
+    swaylock-fancy
+    swaylock-effects
 
     (inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
@@ -174,7 +176,7 @@
       '';
     })
   ];
-    neovim-mod.enable = true;
+  neovim-mod.enable = true;
   programs.kdeconnect.enable = true;
   #services.asusd
   programs.xwayland = {

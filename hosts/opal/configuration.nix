@@ -24,7 +24,8 @@
   boot.loader.grub.backgroundColor = "#000000";
 
   boot.loader.limine.enable = true;
-  networking.hostName = "opal"; # Define your hostname.
+  system.name = "nixos";
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -40,15 +41,14 @@
     allowedTCPPorts = [
       139
       445
+      4533
     ];
     allowedUDPPorts = [
       137
       138
+      4533
     ];
   };
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -109,7 +109,6 @@
   # Enable the KDE Plasma Desktop Environment.
   services.desktopManager = {
     plasma6.enable = true;
-    gnome.enable = true;
   };
   # displayManager.sddm.wayland.enable = true;
   services.displayManager.ly = {
@@ -119,6 +118,8 @@
       animation = "matrix";
       battery_id = "BAT0";
       bigclock = "en";
+      show_tty = true;
+      lang = "de";
     };
   };
 
@@ -184,11 +185,11 @@
   environment.systemPackages = with pkgs; [
     pulseaudio
     papirus-nord
-    winboat
     autotiling-rs
     deadnix
     spotify-cli-linux
     #lix
+    puddletag
     dzen2
     libnotify
     powertop
@@ -230,7 +231,6 @@
     polybarFull
     lemonbar
     eww
-    davinci-resolve
     pavucontrol
     # cli
     zsh
@@ -301,21 +301,39 @@
       enable = true;
     };
   };
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
+  /*
+  services.xmrig = {
+    enable = true;
+  };
+  */
 
-    liberation_ttf
-    fira-code
-    fira-code-symbols
-    mplus-outline-fonts.githubRelease
-    dina-font
-    proggyfonts
-    jetbrains-mono
-    nerd-fonts.fira-code
-    nerd-fonts.droid-sans-mono
-  ];
-  fonts.enableDefaultPackages = true;
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      mplus-outline-fonts.githubRelease
+      dina-font
+      proggyfonts
+      jetbrains-mono
+      nerd-fonts.fira-code
+      nerd-fonts.droid-sans-mono
+    ];
+
+    enableGhostscriptFonts = true;
+    enableDefaultPackages = true;
+    fontconfig = {
+      enable = true;
+      /*
+      defaultFonts = {
+        monospace = "Jetbrains-mono";
+      };*/
+    };
+  };
+
   programs.neovim.defaultEditor = true;
 
   # Allow unfree packages
@@ -331,6 +349,9 @@
     };
   };
 
+  console = {
+    font = "jetbrains-mono";
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -362,7 +383,7 @@
     openFirewall = true;
     settings = {
       "smbshare" = {
-        "path" = "/home/hactuss/";
+        "path" = "/";
         "valid users" = "hactuss";
         "public" = "yes";
         "writeable" = "yes";
@@ -374,4 +395,28 @@
     };
   };
   services.samba.settings.global.security = "user";
+
+  # selfhosting
+  services = {
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+      user = "hactuss";
+    };
+    navidrome = {
+      enable = true;
+      openFirewall = true;
+      user = "hactuss";
+      settings = {
+        Address = "0.0.0.0";
+        Port = 4533;
+        MusicFolder = "./music";
+        Scanner.PurgeMissing = "always";
+      };
+    };
+    tailscale = {
+      enable = true;
+      openFirewall = true;
+    };
+  };
 }
