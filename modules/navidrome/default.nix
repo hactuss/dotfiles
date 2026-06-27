@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   services.navidrome = {
     enable = true;
     openFirewall = true;
@@ -8,6 +8,12 @@
       Port = 4533;
       MusicFolder = "./music";
       Scanner.PurgeMissing = "always";
+      Scanner.ScanOnStartup = true;
+      DefaultTheme = "Dark";
+      Plugins.Enable = true;
     };
+    plugins = with pkgs.navidromePlugins; [
+      listenbrainz-daily-playlist
+    ];
   };
 }
