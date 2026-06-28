@@ -185,6 +185,10 @@
   virtualisation.docker = {
     enable = true;
   };
+  environment.sessionVariables = {
+NH_FLAKE = "/home/hactuss/dotfiles";
+NIXOS_OZONE_WL = "1";
+  };
   environment.systemPackages = with pkgs; [
     pulseaudio
     papirus-nord
@@ -195,6 +199,8 @@
     puddletag
     dzen2
     libnotify
+    xwayland-satellite
+    onefetch
 
     powerstat
     flameshot
@@ -213,6 +219,7 @@
     # GUI apps
     alacritty
     ghostty
+    waybar
     brave
     vivaldi
     discord
