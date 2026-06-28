@@ -33,7 +33,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  desktopManager.enable = true;
+  #desktopManager.enable = true;
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
@@ -171,6 +171,10 @@
     packages = with pkgs; [];
   };
 
+  #services.tlp.enable = true;
+  services.thermald.enable = true;
+  powerManagement.powertop.enable = true;
+
   programs.zsh.enable = true;
   programs.zsh.shellInit = "echo Kernel by Linus Torvalds | cowsay -f tux";
   # services.tor.enable = true;
@@ -191,7 +195,7 @@
     puddletag
     dzen2
     libnotify
-    powertop
+
     powerstat
     flameshot
     pscircle
@@ -208,6 +212,7 @@
     foremost
     # GUI apps
     alacritty
+    ghostty
     brave
     vivaldi
     discord
@@ -283,6 +288,7 @@
     #slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     mako # notification system developed by swaywm maintainer
+    waypaper
   ];
 
   # environment.

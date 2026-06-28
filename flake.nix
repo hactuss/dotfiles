@@ -38,7 +38,7 @@
           ./modules/jellyfin
           ./modules/navidrome
           ./modules/Nix
-          ./modules/Terminal/ghostty
+          #./modules/Terminal/ghostty does not work
           ./modules/termusic
           ./modules/obsidian
         ];
@@ -52,6 +52,9 @@
           inputs.home-manager.nixosModules.default
           ./modules/windowManager
           ./modules/samba
+          #./modules/Terminal/ghostty does not work
+          ./modules/Browser/librewolf
+          ./modules/random-packages
         ];
       };
     };
