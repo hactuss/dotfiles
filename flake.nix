@@ -41,6 +41,7 @@
           #./modules/Terminal/ghostty does not work
           ./modules/termusic
           ./modules/obsidian
+	  ./modules/synthv1
         ];
       };
 
