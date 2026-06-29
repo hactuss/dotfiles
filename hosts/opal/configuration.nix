@@ -193,7 +193,7 @@
     EDITOR = "neovim";
   };
   environment.systemPackages = with pkgs; [
-  librewolf
+    librewolf
     pulseaudio
     papirus-nord
     autotiling-rs
@@ -304,7 +304,7 @@
 
   programs.nix-ld.enable = true;
 
- /*
+  /*
   services.xmrig = {
     enable = true;
   };
@@ -337,7 +337,6 @@
       */
     };
   };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

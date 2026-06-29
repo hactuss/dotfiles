@@ -56,7 +56,22 @@
           #./modules/Terminal/ghostty does not work
           #./modules/Browser/librewolf
           ./modules/random-packages
-	  ./modules/neovim
+          ./modules/neovim
+        ];
+      };
+    };
+    devShells."x86_64-linux" = {
+      svelte = pkgs.mkShell {
+        packages = with pkgs; [
+          pnpm
+        ];
+      };
+      rust = pkgs.mkShell {
+        packages = with pkgs; [
+          rustc
+          cargo
+          rust-analyzer
+          clippy
         ];
       };
     };

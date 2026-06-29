@@ -1,3 +1,3 @@
-{inputs,...}:{
-programs.librewolf.enable = true;
+{inputs, ...}: {
+  programs.librewolf.enable = true;
 }
