@@ -14,5 +14,5 @@ options = {
       vimAlias = true;
       defaultEditor = true;
     };
-  };
+  }
 #}

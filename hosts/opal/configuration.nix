@@ -240,7 +240,6 @@
     #filemanagers choice
     #nautilus
     #nemo
-    dolphin
     #polybarFull
     #lemonbar
     eww
