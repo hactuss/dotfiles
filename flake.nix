@@ -20,6 +20,8 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
+  imports = [ <home-manager/nixos> ];
+
     nixosConfigurations = {
       # Desktop config
       emerald = nixpkgs.lib.nixosSystem {
