@@ -12,7 +12,11 @@ options = {
     */programs.neovim = {
       enable = true;
       vimAlias = true;
+      viAlias = true;
       defaultEditor = true;
+      withNodeJs = false;
+      withPython3 = false;
+      withRuby= false;
     };
   }
 #}
