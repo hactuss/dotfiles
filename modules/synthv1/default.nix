@@ -1,6 +1,5 @@
-{pkgs,...}:{
-environment.systemPackages = with pkgs; [
-synthv1
-];
-
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    synthv1
+  ];
 }

@@ -186,8 +186,8 @@
     enable = true;
   };
   environment.sessionVariables = {
-NH_FLAKE = "/home/hactuss/dotfiles";
-NIXOS_OZONE_WL = "1";
+    NH_FLAKE = "/home/hactuss/dotfiles";
+    NIXOS_OZONE_WL = "1";
   };
   environment.systemPackages = with pkgs; [
     pulseaudio
