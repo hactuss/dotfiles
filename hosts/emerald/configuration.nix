@@ -137,6 +137,7 @@
     ghostty
     xeyes
     waypaper
+    feh
     fastfetch
     onefetch
     git
