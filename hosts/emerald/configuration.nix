@@ -141,6 +141,7 @@
     fuzzel
     fastfetch
     onefetch
+    screenfetch
     git
     ffmpeg
     nix-ld
