@@ -56,6 +56,7 @@
           #./modules/Terminal/ghostty does not work
           ./modules/Browser/librewolf
           ./modules/random-packages
+	  ./modules/neovim
         ];
       };
     };

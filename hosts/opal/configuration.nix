@@ -188,6 +188,9 @@
   environment.sessionVariables = {
     NH_FLAKE = "/home/hactuss/dotfiles";
     NIXOS_OZONE_WL = "1";
+    DEFAULT_BROWSER = "librewolf";
+    DEFAULT_EDITOR = "neovim";
+    EDITOR = "neovim";
   };
   environment.systemPackages = with pkgs; [
     pulseaudio
@@ -206,9 +209,7 @@
     flameshot
     pscircle
     blueman
-    mangohud
     unrar
-    r2modman
     speedtest
     exif
     nixfmt
@@ -217,40 +218,41 @@
     exiftool
     foremost
     # GUI apps
-    alacritty
+    #alacritty
     ghostty
     waybar
-    brave
-    vivaldi
+    #brave
+    #vivaldi
     discord
-    spotify
+    #spotify
     libreoffice
     obs-studio
-    krita
+    #krita
     vlc
     zed-editor
     obsidian
     #giada
-    firefox
+    #firefox
     rofi
     feh
     mpv
     cmake
     #filemanagers choice
-    nautilus
-    nemo
-    polybarFull
-    lemonbar
+    #nautilus
+    #nemo
+    dolphin
+    #polybarFull
+    #lemonbar
     eww
     pavucontrol
     # cli
-    zsh
+    #zsh
     gnupg
     metasploit
     nmap
     netcat
     gnome-tweaks
-    neovim
+    #neovim
     fastfetch
     btop
     wget
@@ -302,17 +304,7 @@
 
   programs.nix-ld.enable = true;
 
-  programs = {
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
-    neovim = {
-      enable = true;
-    };
-  };
-  /*
+ /*
   services.xmrig = {
     enable = true;
   };
@@ -346,7 +338,6 @@
     };
   };
 
-  programs.neovim.defaultEditor = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

@@ -195,7 +195,6 @@
       '';
     })
   ];
-  neovim-mod.enable = true;
   programs.kdeconnect.enable = true;
   #services.asusd
 
