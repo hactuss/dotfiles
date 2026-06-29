@@ -54,7 +54,7 @@
           ./modules/windowManager
           ./modules/samba
           #./modules/Terminal/ghostty does not work
-          ./modules/Browser/librewolf
+          #./modules/Browser/librewolf
           ./modules/random-packages
 	  ./modules/neovim
         ];

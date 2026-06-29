@@ -176,7 +176,7 @@
   powerManagement.powertop.enable = true;
 
   programs.zsh.enable = true;
-  programs.zsh.shellInit = "echo Kernel by Linus Torvalds | cowsay -f tux";
+  #programs.zsh.shellInit = "echo Kernel by Linus Torvalds | cowsay -f tux";
   # services.tor.enable = true;
   # services.h2o.enable = true;
   programs.zsh.autosuggestions.enable = true;
@@ -193,6 +193,7 @@
     EDITOR = "neovim";
   };
   environment.systemPackages = with pkgs; [
+  librewolf
     pulseaudio
     papirus-nord
     autotiling-rs
