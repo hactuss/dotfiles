@@ -138,6 +138,7 @@
     xeyes
     waypaper
     feh
+    fuzzel
     fastfetch
     onefetch
     git
