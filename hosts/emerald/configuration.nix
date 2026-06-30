@@ -10,6 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
   ];
   steam-mod.enable = true;
   #  prism-mod.enable = true;
@@ -234,12 +235,12 @@
   */
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  #home-manager = {
-  #  specialArgs = {inherit inputs;};
-  #  users = {
-  #    "hactuss" = import ./home.nix;
-  #  };
-  #};
+  home-manager = {
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "hactuss" = import ./home.nix;
+    };
+  };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
