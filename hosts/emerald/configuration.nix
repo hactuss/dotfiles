@@ -156,6 +156,7 @@
     alejandra
     # davinci-resolve
     #xmrig
+    blockbench
     r2modman
     unrar
     hollywood
