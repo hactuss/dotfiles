@@ -20,13 +20,14 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-  imports = [ <home-manager/nixos> ];
+    imports = [<home-manager/nixos>];
 
     nixosConfigurations = {
       # Desktop config
       emerald = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
+          inputs.home-manager.nixosModules.default
           ./hosts/emerald/configuration.nix
           ./modules/neovim
           ./modules/steam
@@ -53,6 +54,7 @@
         modules = [
           ./hosts/opal/configuration.nix
           inputs.home-manager.nixosModules.default
+
           ./modules/windowManager
           ./modules/samba
           #./modules/Terminal/ghostty does not work

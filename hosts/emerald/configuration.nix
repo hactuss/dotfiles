@@ -10,7 +10,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-
   ];
   steam-mod.enable = true;
   #  prism-mod.enable = true;
@@ -123,7 +122,7 @@
     NH_FLAKE = "/home/hactuss/dotfiles";
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "radeonsi";
-    PS1="\[\e[1m\][\u@\h:\w]\\$\[\e[0m\]";
+    PS1 = "\[\e[1m\][\u@\h:\w]\\$\[\e[0m\]";
   };
   programs.firefox.enable = true;
   nixpkgs.config.allowUnfree = true;
