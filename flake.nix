@@ -9,6 +9,10 @@
     };
     wrappers.url = "github:Lassulus/wrappers";
     import-tree.url = "github:denful/import-tree";
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   ###########################################################################
   outputs = {
@@ -42,6 +46,7 @@
               };
             }
             ./hosts/emerald/configuration.nix
+            inputs.hjem.nixosModules.default
             ./modules/neovim
             ./modules/steam
             #./modules/windowManager
