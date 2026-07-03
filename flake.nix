@@ -68,7 +68,6 @@
           modules = [
             ./hosts/opal/configuration.nix
             inputs.home-manager.nixosModules.default
-
             ./modules/windowManager
             ./modules/samba
             #./modules/Terminal/ghostty does not work
