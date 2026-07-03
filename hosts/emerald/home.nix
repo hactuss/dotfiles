@@ -25,8 +25,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-  ".bashrc".source = /home/hactuss/dotfiles/configfiles/.bashrc;
-  #".config/niri/config.kdl".source = /home/hactuss/dotfiles/configfiles/niri/config.kdl;
+    ".bashrc".source = ./../../configfiles/.bashrc;
+    #".config/niri/config.kdl".source = /home/hactuss/dotfiles/configfiles/niri/config.kdl;
   };
   home.sessionVariables = {
   };
