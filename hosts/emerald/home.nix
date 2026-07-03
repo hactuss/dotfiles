@@ -2,11 +2,13 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  username = "hactuss";
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "hactuss";
-  home.homeDirectory = "/home/hactuss";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -25,10 +27,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".bashrc".source = ./../../configfiles/.bashrc;
-    #".config/niri/config.kdl".source = /home/hactuss/dotfiles/configfiles/niri/config.kdl;
-  };
-  home.sessionVariables = {
+    "./.bashrc".source = ./../../configfiles/.bashrc;
+    "./.config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
   };
   programs.home-manager.enable = true;
 }

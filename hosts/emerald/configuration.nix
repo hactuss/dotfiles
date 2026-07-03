@@ -135,6 +135,7 @@
     nixfmt
     nh
     ghostty
+    pavucontrol
     xeyes
     waypaper
     feh

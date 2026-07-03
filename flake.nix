@@ -30,7 +30,17 @@
         emerald = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
           modules = [
-            inputs.home-manager.nixosModules.default
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-bak";
+              home-manager.users.hactuss = {...}: {
+                imports = [
+                  ./hosts/emerald/home.nix
+                ];
+              };
+            }
             ./hosts/emerald/configuration.nix
             ./modules/neovim
             ./modules/steam
