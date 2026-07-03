@@ -51,7 +51,6 @@ in {
   programs = {
     git = {
       enable = true;
-      package = pkgs.gitFull;
       settings = {
         user = {
           name = "Hactus";
@@ -79,12 +78,6 @@ in {
         shut = "shutdown -P now";
         rebuild-flake = "sudo nixos-rebuild switch --flake /home/hactuss/dotfiles";
       };
-    };
-
-    neovim = {
-      enable = true;
-      vimAlias = true;
-      viAlias = true;
     };
 
     rofi = {
@@ -200,8 +193,14 @@ in {
     #"/home/hactuss/.config/fastfetch/config.jsonc".force = true;
     #"/home/hactuss/.gtkrc-2.0".source = ./homefiles/gtk/2-0.txt;
     #"/home/hactuss/.gtkrc-2.0".force = true;
-    "~/.bashrc".source = /home/hactuss/dotfiles/configfiles/.bashrc;
+    # ".bashrc".source = ./../../configfiles/.bashrc;
+    ".config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
   };
+  programs.bash = {
+    enable = true;
+    bashrcExtra = "PS1='\n\[\e[97m\]\[\e[0m\][\u@\h()\w] ' \n";
+  };
+  programs.zsh.initContent = ''cal'';
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
