@@ -39,6 +39,7 @@
           ./modules/jellyfin
           ./modules/navidrome
           ./modules/Nix
+	  ./modules/Nix/nh
           #./modules/Terminal/ghostty does not work
           ./modules/termusic
           ./modules/obsidian
@@ -59,6 +60,7 @@
           #./modules/Browser/librewolf
           ./modules/random-packages
           ./modules/neovim
+./modules/Nix/nh
         ];
       };
     };
