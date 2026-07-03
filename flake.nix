@@ -67,8 +67,17 @@
           specialArgs = {inherit inputs;};
           modules = [
             ./hosts/opal/configuration.nix
-            inputs.home-manager.nixosModules.default
-
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-bak";
+              home-manager.users.hactuss = {...}: {
+                imports = [
+                  ./hosts/opal/home.nix
+                ];
+              };
+            }
             ./modules/windowManager
             ./modules/samba
             #./modules/Terminal/ghostty does not work

@@ -159,7 +159,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hactuss = {
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
     isNormalUser = true;
     description = "hactuss";
     extraGroups = [
@@ -247,7 +247,6 @@
     eww
     pavucontrol
     # cli
-    #zsh
     gnupg
     metasploit
     nmap
