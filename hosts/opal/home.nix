@@ -200,7 +200,7 @@ in {
     #"/home/hactuss/.config/fastfetch/config.jsonc".force = true;
     #"/home/hactuss/.gtkrc-2.0".source = ./homefiles/gtk/2-0.txt;
     #"/home/hactuss/.gtkrc-2.0".force = true;
-    "~/.bashrc".source = /home/hactuss/.bashrc;
+    "~/.bashrc".source = /home/hactuss/dotfiles/configfiles/.bashrc;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

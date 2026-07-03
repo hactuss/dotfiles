@@ -205,6 +205,7 @@
     libnotify
     xwayland-satellite
     onefetch
+    fuzzel
 
     powerstat
     flameshot
