@@ -9,10 +9,12 @@
     };
     wrappers.url = "github:Lassulus/wrappers";
     import-tree.url = "github:denful/import-tree";
-    hjem = {
-      url = "github:feel-co/hjem";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    /*
+        hjem = {
+        url = "github:feel-co/hjem";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+    */
   };
   ###########################################################################
   outputs =
@@ -34,7 +36,6 @@
       hostsPath = ./hosts;
       desktopPath = hostsPath + ("/" + desktopName);
       thinkpadPath = hostsPath + ("/" + thinkpadName);
-
       # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
     in
     #########################################################################
@@ -56,7 +57,7 @@
                 ];
               };
             }
-            inputs.hjem.nixosModules.default
+            #inputs.hjem.nixosModules.default
             (desktopPath + "/configuration.nix")
             #./hosts/emerald/configuration.nix
             ./modules/neovim

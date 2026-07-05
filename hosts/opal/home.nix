@@ -2,10 +2,12 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   USERNAME = "hactuss";
   GTK_ICONS_NAME = "yet-another-monochrome-icon-set";
-in {
+in
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = USERNAME;
@@ -126,14 +128,14 @@ in {
     };
   };
   /*
-  gtk = {
-    enable = true;
+    gtk = {
+      enable = true;
 
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      iconTheme = {
+        name = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
+      };
     };
-  };
   */
 
   # services.picom.enable = true;
@@ -141,24 +143,24 @@ in {
   # these set options for i3 dont work, only the imported config files from source
   #xsession.windowManager.i3.enable = true;
   /*
-   xsession.windowManager.i3.config.menu = "rofi";
-  xsession.windowManager.i3.config = {
-    startup = [
-      {
-        command = "feh --bg-fill /etc/nixos/assets/vapor.png";
-        always = true;
-      }
-    ];
-    terminal = "alacritty";
-    gaps.smartBorders = "on";
-    colors.focused = {
-      background = "#800080";
-      border = "#fcf802";
-      childBorder = "#285577";
-      indicator = "#2e9ef4";
-      text = "#555555";
+     xsession.windowManager.i3.config.menu = "rofi";
+    xsession.windowManager.i3.config = {
+      startup = [
+        {
+          command = "feh --bg-fill /etc/nixos/assets/vapor.png";
+          always = true;
+        }
+      ];
+      terminal = "alacritty";
+      gaps.smartBorders = "on";
+      colors.focused = {
+        background = "#800080";
+        border = "#fcf802";
+        childBorder = "#285577";
+        indicator = "#2e9ef4";
+        text = "#555555";
+      };
     };
-  };
   */
   services.flameshot.settings = {
     General = {
@@ -200,7 +202,7 @@ in {
     enable = true;
     bashrcExtra = "PS1='\n\[\e[97m\]\[\e[0m\][\u@\h()\w] ' \n";
   };
-  programs.zsh.initContent = ''cal'';
+  programs.zsh.initContent = "cal";
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell

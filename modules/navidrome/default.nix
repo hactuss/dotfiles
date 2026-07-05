@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   services.navidrome = {
     enable = true;
     openFirewall = true;
