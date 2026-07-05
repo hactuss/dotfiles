@@ -5,5 +5,6 @@ PS1='\n\[\e[97m\]\[\e[0m\][\u@\h()\w] '
 alias ga='git add .';
 alias gc='git commit -am'
 alias gs='git status'
+alias gp='git push'
 
 cal
