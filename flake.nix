@@ -33,7 +33,7 @@
       modulesPath = ./modules;
       hostsPath = ./hosts;
       desktopPath = hostsPath + ("/" + desktopName);
-      thinkpadPath = hostsPath ++ thinkpadName;
+      thinkpadPath = hostsPath + ("/" + thinkpadName);
 
       # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
     in
