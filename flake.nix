@@ -28,7 +28,7 @@
   in
     #########################################################################
     {
-      formatter.system = "alejandra";
+      formatter.system = pkgs.alejandra;
       nixosConfigurations = {
         # Desktop config
         emerald = nixpkgs.lib.nixosSystem {
@@ -64,6 +64,7 @@
             ./modules/termusic
             ./modules/obsidian
             ./modules/synthv1
+	    ./modules/swaylock
           ];
         };
 
@@ -72,9 +73,7 @@
           specialArgs = {inherit inputs;};
           modules = [
             ./hosts/opal/configuration.nix
-<<<<<<< HEAD
             inputs.home-manager.nixosModules.default
-=======
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -86,7 +85,6 @@
                 ];
               };
             }
->>>>>>> 2a2b2cc17b22fbe76c3ca4d49eebcd438ac2737c
             ./modules/windowManager
             ./modules/samba
             #./modules/Terminal/ghostty does not work
