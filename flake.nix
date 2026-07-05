@@ -15,43 +15,53 @@
     };
   };
   ###########################################################################
-  outputs = {
-    self,
-    nixpkgs,
-    wrappers,
-    ...
-  } @ inputs:
-  #################################################################
-  let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in
+  outputs =
+    {
+      self,
+      nixpkgs,
+      wrappers,
+      ...
+    }@inputs:
+    #################################################################
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+
+      username = "hactuss";
+      desktopName = "emerald";
+      thinkpadName = "opal";
+      modulesPath = ./modules;
+      hostsPath = ./hosts;
+      desktopPath = hostsPath + ("/" + desktopName);
+      thinkpadPath = hostsPath ++ thinkpadName;
+
+      # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
+    in
     #########################################################################
     {
       formatter.system = pkgs.alejandra;
       nixosConfigurations = {
         # Desktop config
         emerald = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
+          specialArgs = { inherit inputs; };
           modules = [
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "hm-bak";
-              home-manager.users.hactuss = {...}: {
+              home-manager.users.hactuss = { ... }: {
                 imports = [
                   ./hosts/emerald/home.nix
                 ];
               };
             }
-            ./hosts/emerald/configuration.nix
             inputs.hjem.nixosModules.default
+            (desktopPath + "/configuration.nix")
+            #./hosts/emerald/configuration.nix
             ./modules/neovim
             ./modules/steam
-            #./modules/windowManager
             ./modules/obs
-            # inputs.stylix.nixosModules.stylix
             ./modules/tailscale
             ./modules/fonts
             #./modules/ba.nix
@@ -64,13 +74,13 @@
             ./modules/termusic
             ./modules/obsidian
             ./modules/synthv1
-	    ./modules/swaylock
+            ./modules/swaylock
           ];
         };
 
         # Thinkpad config
         opal = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/opal/configuration.nix
             inputs.home-manager.nixosModules.default
@@ -79,7 +89,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "hm-bak";
-              home-manager.users.hactuss = {...}: {
+              home-manager.users.hactuss = { ... }: {
                 imports = [
                   ./hosts/opal/home.nix
                 ];

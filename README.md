@@ -10,8 +10,9 @@ Opal: thinkpad for mobility
 - text editing 
 - browsing 
 - file transfer
-
+<!--
 Dolomite: generic server setup
 - hosting services
 - Jellyfin
 - Navidrome
+-->
