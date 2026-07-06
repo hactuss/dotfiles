@@ -121,6 +121,7 @@
   };
   environment.sessionVariables = {
     NH_FLAKE = /home/hactuss/dotfiles;
+    NH_OS_FLAKE = /home/hactuss/dotfiles;
     NH_HOME_FLAKE = /home/hactuss/dotfiles;
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "radeonsi";

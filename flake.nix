@@ -52,6 +52,7 @@
         "synthv1"
         "swaylock"
         "wireshark"
+	"dolphin"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "windowManager"

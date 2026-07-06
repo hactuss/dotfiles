@@ -41,6 +41,7 @@ in {
   home.file = {
     "./.bashrc".source = ./../../configfiles/.bashrc;
     "./.config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
+    "./.gitconfig".source = ./../../configfiles/.gitconfig;
   };
   programs.home-manager.enable = true;
 }

@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[user]
+	email = hactuss@proton.me
+	name = hactuss
+[safe]
+	directory = *
