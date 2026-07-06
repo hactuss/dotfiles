@@ -9,18 +9,14 @@
     };
     wrappers.url = "github:Lassulus/wrappers";
     import-tree.url = "github:denful/import-tree";
-    /*
-      hjem = {
-      url = "github:feel-co/hjem";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    */
+    hjem.url = "github:feel-co/hjem";
+    hjem.inputs.nixpkgs.follows = "nixpkgs";
   };
   ###########################################################################
   outputs = {
     self,
     nixpkgs,
-    wrappers,
+    #wrappers,
     ...
   } @ inputs:
   #################################################################
@@ -39,7 +35,7 @@
   in
     #########################################################################
     {
-      formatter.system = pkgs.alejandra;
+      # formatter.system = pkgs.alejandra;
       nixosConfigurations = {
         # Desktop config
         emerald = nixpkgs.lib.nixosSystem {
