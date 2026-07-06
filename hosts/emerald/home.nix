@@ -11,7 +11,7 @@ in
   # manage.
   home.username = username;
   home.homeDirectory = "/home/${username}";
-
+/* gtk doe not work
   gtk = {
     enable = true;
     gtk4 = {
@@ -21,7 +21,7 @@ in
         name = "gruvbox dark";
       };
     };
-  };
+  };*/
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.

@@ -55,6 +55,7 @@
             #inputs.hjem.nixosModules.default
             (desktopPath + "/configuration.nix")
             #./hosts/emerald/configuration.nix
+	    ./modules/ly
             ./modules/neovim
             ./modules/steam
             ./modules/obs
