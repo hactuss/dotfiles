@@ -57,7 +57,6 @@
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "windowManager"
         "samba"
-        "Browser/librewolf"
         "random-packages"
         "neovim"
         "Nix/nh"
