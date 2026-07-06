@@ -1,15 +1,14 @@
-{...}:{
-nix = {
-optimise = {
-automatic = true;
-}
+{...}: {
+  nix = {
+    optimise = {
+      automatic = true;
+    };
+  };
+  settings.auto-optimise-store = true;
 
-};
-settings.auto-optimise-store = true;
-
-gc = {
-automatic = true;
-dates = "weekly";
-options = "--delete-older-than 60d";
-};
+  gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 60d";
+  };
 }

@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   options = {
     steam-mod.enable = lib.mkEnableOption "enables steam-mod";
   };

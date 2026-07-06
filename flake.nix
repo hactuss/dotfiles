@@ -10,48 +10,47 @@
     wrappers.url = "github:Lassulus/wrappers";
     import-tree.url = "github:denful/import-tree";
     /*
-        hjem = {
-        url = "github:feel-co/hjem";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
+      hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     */
   };
   ###########################################################################
-  outputs =
-    {
-      self,
-      nixpkgs,
-      wrappers,
-      ...
-    }@inputs:
-    #################################################################
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+  outputs = {
+    self,
+    nixpkgs,
+    wrappers,
+    ...
+  } @ inputs:
+  #################################################################
+  let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
 
-      username = "hactuss";
-      desktopName = "emerald";
-      thinkpadName = "opal";
-      modulesPath = ./modules;
-      hostsPath = ./hosts;
-      desktopPath = hostsPath + ("/" + desktopName);
-      thinkpadPath = hostsPath + ("/" + thinkpadName);
-      # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
-    in
+    username = "hactuss";
+    desktopName = "emerald";
+    thinkpadName = "opal";
+    modulesPath = ./modules;
+    hostsPath = ./hosts;
+    desktopPath = hostsPath + ("/" + desktopName);
+    thinkpadPath = hostsPath + ("/" + thinkpadName);
+    # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
+  in
     #########################################################################
     {
       formatter.system = pkgs.alejandra;
       nixosConfigurations = {
         # Desktop config
         emerald = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = {inherit inputs;};
           modules = [
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "hm-bak";
-              home-manager.users.hactuss = { ... }: {
+              home-manager.users.hactuss = {...}: {
                 imports = [
                   ./hosts/emerald/home.nix
                 ];
@@ -76,12 +75,13 @@
             ./modules/obsidian
             ./modules/synthv1
             ./modules/swaylock
+            ./modules/wireshark
           ];
         };
 
         # Thinkpad config
         opal = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = {inherit inputs;};
           modules = [
             ./hosts/opal/configuration.nix
             inputs.home-manager.nixosModules.default
@@ -90,7 +90,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "hm-bak";
-              home-manager.users.hactuss = { ... }: {
+              home-manager.users.hactuss = {...}: {
                 imports = [
                   ./hosts/opal/home.nix
                 ];
