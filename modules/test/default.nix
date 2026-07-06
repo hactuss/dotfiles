@@ -1,3 +1,3 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ cbonsai ];
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [cbonsai];
 }

@@ -1,3 +1,3 @@
-{ pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ cowsay ];
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [cowsay];
 }

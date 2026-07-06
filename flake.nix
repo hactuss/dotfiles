@@ -30,13 +30,36 @@
       thinkpadName = "opal";
       modulesPath = ./modules;
       hostsPath = ./hosts;
-      desktopPath = hostsPath + ("/" + desktopName);
-      thinkpadPath = hostsPath + ("/" + thinkpadName);
-      lib = nixpkgs.lib;
+      desktopPath = hostsPath + "/${desktopName}";
+      thinkpadPath = hostsPath + "/${thinkpadName}";
       # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
       desktopModules = map (module: modulesPath + "/${module}") [
         "test"
         "test2"
+        "Nix/nh"
+        "ly"
+        "neovim"
+        "steam"
+        "obs"
+        "tailscale"
+        "fonts"
+        "samba"
+        "jellyfin"
+        "navidrome"
+        "Nix"
+        "termusic"
+        "obsidian"
+        "synthv1"
+        "swaylock"
+        "wireshark"
+      ];
+      thinkpadModules = map (module: modulesPath + "/${module}") [
+        "windowManager"
+        "samba"
+        "Browser/librewolf"
+        "random-packages"
+        "neovim"
+        "Nix/nh"
       ];
     in
     #########################################################################
@@ -44,7 +67,7 @@
       # formatter.system = pkgs.alejandra;
       nixosConfigurations = {
         # Desktop config
-        emerald = nixpkgs.lib.nixosSystem {
+        "${desktopName}" = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
             inputs.home-manager.nixosModules.home-manager
@@ -60,26 +83,6 @@
             }
             #inputs.hjem.nixosModules.default
             (desktopPath + "/configuration.nix")
-            # (lib.map (x: modulesPath + x) [ "/test" ])
-
-            ./modules/ly
-            ./modules/neovim
-            ./modules/steam
-            ./modules/obs
-            ./modules/tailscale
-            ./modules/fonts
-            #./modules/ba.nix
-            ./modules/samba
-            ./modules/jellyfin
-            ./modules/navidrome
-            ./modules/Nix
-            ./modules/Nix/nh
-            #./modules/Terminal/ghostty does not work
-            ./modules/termusic
-            ./modules/obsidian
-            ./modules/synthv1
-            ./modules/swaylock
-            ./modules/wireshark
           ]
           ++ desktopModules;
         };
@@ -88,7 +91,7 @@
         opal = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/opal/configuration.nix
+            (thinkpadPath + "/configuration.nix")
             inputs.home-manager.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
             {
@@ -97,18 +100,12 @@
               home-manager.backupFileExtension = "hm-bak";
               home-manager.users.hactuss = { ... }: {
                 imports = [
-                  ./hosts/opal/home.nix
+                  (thinkpadPath + "/home.nix")
                 ];
               };
             }
-            ./modules/windowManager
-            ./modules/samba
-            #./modules/Terminal/ghostty does not work
-            #./modules/Browser/librewolf
-            ./modules/random-packages
-            ./modules/neovim
-            ./modules/Nix/nh
-          ];
+          ]
+          ++ thinkpadModules;
         };
       };
       ###################################################################
