@@ -206,6 +206,7 @@
     xwayland-satellite
     onefetch
     fuzzel
+    swaybg
 
     powerstat
     flameshot
