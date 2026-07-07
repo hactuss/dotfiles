@@ -195,6 +195,7 @@ in {
     #"/home/hactuss/.gtkrc-2.0".force = true;
     ".bashrc".source = ./../../configfiles/.bashrc;
     ".config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
+    "./.config/fuzzel/fuzzel.ini".source = ./../../configfiles/fuzzel/fuzzel.ini;
   };
   programs.zsh.initContent = "cal";
   # Home Manager can also manage your environment variables through

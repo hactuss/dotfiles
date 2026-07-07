@@ -42,6 +42,7 @@ in {
     "./.bashrc".source = ./../../configfiles/.bashrc;
     "./.config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
     "./.gitconfig".source = ./../../configfiles/.gitconfig;
+    "./.config/fuzzel/fuzzel.ini".source = ./../../configfiles/fuzzel/fuzzel.ini;
   };
   programs.home-manager.enable = true;
 }
