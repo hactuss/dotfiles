@@ -193,12 +193,8 @@ in {
     #"/home/hactuss/.config/fastfetch/config.jsonc".force = true;
     #"/home/hactuss/.gtkrc-2.0".source = ./homefiles/gtk/2-0.txt;
     #"/home/hactuss/.gtkrc-2.0".force = true;
-    # ".bashrc".source = ./../../configfiles/.bashrc;
+    ".bashrc".source = ./../../configfiles/.bashrc;
     ".config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
-  };
-  programs.bash = {
-    enable = true;
-    bashrcExtra = "PS1='\n\[\e[97m\]\[\e[0m\][\u@\h()\w] ' \n";
   };
   programs.zsh.initContent = "cal";
   # Home Manager can also manage your environment variables through

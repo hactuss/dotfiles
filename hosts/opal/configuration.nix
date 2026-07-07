@@ -106,9 +106,9 @@
   # You can disable this if you're only using the Wayland session.
 
   # Enable the KDE Plasma Desktop Environment.
-  services.desktopManager = {
+  /*services.desktopManager = {
     plasma6.enable = true;
-  };
+  };*/
   # displayManager.sddm.wayland.enable = true;
   services.displayManager.ly = {
     enable = true;
