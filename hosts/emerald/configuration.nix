@@ -116,7 +116,6 @@
       "wheel"
     ];
     packages = with pkgs; [
-      kdePackages.kate
     ];
   };
   environment.sessionVariables = {
@@ -134,6 +133,7 @@
     librewolf
     zed-editor
     nixfmt
+    seahorse
     nh
     ghostty
     pavucontrol
