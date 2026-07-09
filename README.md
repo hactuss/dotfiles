@@ -1,18 +1,20 @@
-# NIXOS RULES!!!!
+# NixOS is good 
+
 All my machines are named after gemstones, because I find that pretty cool.
 
-Emerald: desktop pc i built
+## "Emerald" desktop pc i built
 - steam games
 - configuring nixos
-- yeah thats it
+- trying out web development 
 
-Opal: thinkpad for mobility
+## "Opal" thinkpad for mobility
 - text editing 
-- browsing 
-- file transfer
+- surfing on the waves of the web
+
 <!--
-Dolomite: generic server setup
+## "Dolomite" generic server setup
 - hosting services
 - Jellyfin
 - Navidrome
+- runs on Emerald for now
 -->
