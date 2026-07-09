@@ -11,5 +11,7 @@
     font-awesome
     nerd-fonts.lilex
     proggyfonts
+
+    nerdfonts
   ];
 }
