@@ -52,8 +52,9 @@
         "synthv1"
         "swaylock"
         "wireshark"
-	"dolphin"
-	"btop"
+        "dolphin"
+        "btop"
+        # bdiasogfudis
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "windowManager"
@@ -61,7 +62,7 @@
         "random-packages"
         "neovim"
         "Nix/nh"
-	"dolphin"
+        "dolphin"
       ];
     in
     #########################################################################
