@@ -12,6 +12,6 @@
     nerd-fonts.lilex
     proggyfonts
 
-    nerdfonts
+    # nerdfonts
   ];
 }
