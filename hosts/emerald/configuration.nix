@@ -85,7 +85,6 @@
     layout = "de";
     variant = "";
   };
-  services.xserver.layout = "de";
   # Configure console keymap
   console.keyMap = "de";
   services.printing.enable = true;
