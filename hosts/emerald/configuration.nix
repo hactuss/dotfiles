@@ -27,7 +27,7 @@
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+	  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -85,6 +85,7 @@
     layout = "de";
     variant = "";
   };
+  services.xserver.layout = "de";
   # Configure console keymap
   console.keyMap = "de";
   services.printing.enable = true;
