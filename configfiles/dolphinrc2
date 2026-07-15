@@ -1,0 +1,33 @@
+MenuBar=Disabled
+
+[ContextMenu]
+ShowCopyMoveMenu=true
+
+[General]
+ConfirmClosingMultipleTabs=false
+ConfirmClosingTerminalRunningProgram=false
+ModifiedStartupSettings=false
+Version=202
+ViewPropsTimestamp=2026,6,4,16,54,30.154
+
+[IconsMode]
+MaximumTextLines=2
+PreviewSize=96
+
+[InformationPanel]
+previewsAutoPlay=true
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled
+
+[Notification Messages]
+ConfirmOpenManyFolders=false
+ConfirmOpenManyTerminals=false
+ConfirmRenameFileType=false
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,glycin-heif,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,imagethumbnail,glycin-image-rs,jpegthumbnail,glycin-jxl,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,glycin-svg,svgthumbnail

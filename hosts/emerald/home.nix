@@ -43,6 +43,7 @@ in {
     "./.config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
     "./.gitconfig".source = ./../../configfiles/.gitconfig;
     "./.config/fuzzel/fuzzel.ini".source = ./../../configfiles/fuzzel/fuzzel.ini;
+    "./.config/dolphinrc".source = ./../../configfiles/dolphinrc;
   };
   programs.home-manager.enable = true;
 }
