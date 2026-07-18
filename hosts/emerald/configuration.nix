@@ -30,6 +30,7 @@
 	  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
+  security.polkit.enable = true;
   networking.networkmanager.enable = true;
   nix.settings.experimental-features = [
     "nix-command"
