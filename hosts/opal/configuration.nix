@@ -193,6 +193,7 @@
     EDITOR = "neovim";
   };
   environment.systemPackages = with pkgs; [
+  brave
     librewolf
     pulseaudio
     papirus-nord

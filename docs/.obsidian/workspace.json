@@ -20,8 +20,19 @@
               "icon": "lucide-file",
               "title": "Resources"
             }
+          },
+          {
+            "id": "dc6a95d86d16d4db",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -164,13 +175,23 @@
               "icon": "lucide-list",
               "title": "Outline of Resources"
             }
+          },
+          {
+            "id": "25d095551d112c2b",
+            "type": "leaf",
+            "state": {
+              "type": "scratchpad-view",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Scratchpad"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -180,9 +201,12 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "scratchpad:Open scratchpad": false
     }
   },
-  "active": "f3fa431a15f75236",
-  "lastOpenFiles": []
+  "active": "25d095551d112c2b",
+  "lastOpenFiles": [
+    "Resources.md"
+  ]
 }
