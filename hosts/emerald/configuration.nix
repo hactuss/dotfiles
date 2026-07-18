@@ -126,7 +126,6 @@
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "radeonsi";
   };
-  programs.firefox.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     alacritty
