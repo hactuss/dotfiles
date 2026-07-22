@@ -23,12 +23,13 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-
-      username = "hactuss";
+      variables = import ./variables.nix;
+      username = variables.username;
       desktopName = "emerald";
       thinkpadName = "opal";
       modulesPath = ./modules;
       hostsPath = ./hosts;
+      configfilesPath = ./configfilesPath;
       desktopPath = hostsPath + "/${desktopName}";
       thinkpadPath = hostsPath + "/${thinkpadName}";
       # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
@@ -70,7 +71,7 @@
       nixosConfigurations = {
         # Desktop config
         "${desktopName}" = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs; inherit };
           modules = [
             inputs.home-manager.nixosModules.home-manager
             {
