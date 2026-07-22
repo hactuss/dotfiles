@@ -71,7 +71,7 @@
       nixosConfigurations = {
         # Desktop config
         "${desktopName}" = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; inherit };
+          specialArgs = { inherit inputs; inherit variables; };
           modules = [
             inputs.home-manager.nixosModules.home-manager
             {
