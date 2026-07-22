@@ -2,25 +2,27 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   username = "hactuss";
-in {
+in
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = username;
   home.homeDirectory = "/home/${username}";
   /*
-   gtk doe not work
-  gtk = {
-    enable = true;
-    gtk4 = {
+     gtk doe not work
+    gtk = {
       enable = true;
-      theme = {
-        package = pkgs.gruvbox-dark-gtk;
-        name = "gruvbox dark";
+      gtk4 = {
+        enable = true;
+        theme = {
+          package = pkgs.gruvbox-dark-gtk;
+          name = "gruvbox dark";
+        };
       };
     };
-  };
   */
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -44,6 +46,7 @@ in {
     "./.gitconfig".source = ./../../configfiles/.gitconfig;
     "./.config/fuzzel/fuzzel.ini".source = ./../../configfiles/fuzzel/fuzzel.ini;
     "./.config/dolphinrc".source = ./../../configfiles/dolphinrc;
+    "./.config/zed/settings.json".source = ./../../configfiles/zed/settings.json;
   };
   programs.home-manager.enable = true;
 }
