@@ -16,14 +16,20 @@
   steam-mod.enable = true;
   #  prism-mod.enable = true;
   # Bootloader.
-  boot.loader.limine.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.limine.style.wallpaperStyle = "centered";
+  boot.loader = {
+    limine.enable = true;
+    efi.canTouchEfiVariables = true;
+    limine.style.wallpaperStyle = "centered";
+
+  };
+  boot.consoleLogLevel = 0;
   #boot.plymouth.enable = true;
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "quiet"
+    "splash"
+    "rd.systemd.show_status=false"
   ];
 
   networking.hostName = "emerald"; # Define your hostname.
