@@ -12,12 +12,12 @@
 	},
 	"clock": {
 		"format-alt": "{:%a, %d. %b  %H:%M}"
-	}
+	},
 	"custom/pavucontrol": {
     "format": "󰕾",
     "tooltip": false,
     "on-click": "pavucontrol"
-}
+},
 "custom/blueman": {
     "format": "b",
     "tooltip": false,
