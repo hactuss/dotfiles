@@ -173,7 +173,16 @@
 
   #services.tlp.enable = true;
   services.thermald.enable = true;
-  powerManagement.powertop.enable = true;
+  powerManagement = {enable = true; powertop.enable = true;};
+
+services.logind.settings.Login = {
+  HandleLidSwitch = "poweroff";
+  HandleLidSwitchExternalPower = "lock";
+  HandleLidSwitchDocked = "ignore";
+};
+
+# one of "ignore", "poweroff", "reboot", "halt", "kexec", "suspend", "hibernate", "hybrid-sleep", "suspend-then-hibernate", "lock"
+
 
   programs.zsh.enable = true;
   #programs.zsh.shellInit = "echo Kernel by Linus Torvalds | cowsay -f tux";
