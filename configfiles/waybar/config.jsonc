@@ -6,7 +6,7 @@
     "battery",
     "clock",
     "custom/pavucontrol",
-    "custom/shutdown",
+    "group/group-power"
   ],
   "niri/window": {
     "max-length": 50,
@@ -32,4 +32,58 @@
     "format": "shutdown",
     "on-click": "shutdown -P now",
   },
+"group/group-power": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 500,
+        "children-class": "not-power",
+        "transition-left-to-right": false
+    },
+    "modules": [
+        "custom/power", // First element is the "group leader" and won't ever be hidden
+        "custom/quit",
+        "custom/lock",
+        "custom/reboot"
+    ]
+},
+"custom/quit": {
+    "format": "󰗼",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit"
+},
+"custom/lock": {
+    "format": "󰍁",
+    "tooltip": false,
+    "on-click": "swaylock"
+},
+"custom/reboot": {
+    "format": "󰜉",
+    "tooltip": false,
+    "on-click": "reboot"
+},
+"custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "shutdown now"
+},
+"wlr/taskbar": {
+	"format": "{icon}",
+	"icon-size": 14,
+	"icon-theme": "Numix-Circle",
+	"tooltip-format": "{title}",
+	"on-click": "activate",
+	"on-click-middle": "close",
+	"ignore-list": [
+	    "Alacritty"
+	],
+	"app_ids-mapping": {
+		"firefoxdeveloperedition": "firefox-developer-edition"
+	},
+	"rewrite": {
+		"Firefox Web Browser": "Firefox",
+		"Foot Server": "Terminal"
+	}
+},
+
 }
+
