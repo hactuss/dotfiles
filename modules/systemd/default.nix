@@ -1,8 +1,8 @@
 {...}:{
-systemd.hactuss.services.dofiles-pull = {
+systemd.user.services.dofiles-pull = {
   enable = true;
   after = [ "network.target" ];
-  wantedBy = [ "default.target" ];
+  wantedBy = [ "multi-user.target" ];
   description = "Runs git pull on boot";
   serviceConfig = {
       Type = "simple";

@@ -54,7 +54,7 @@
         "wireshark"
         "dolphin"
         "btop"
-        # bdiasogfudis
+	"systemd"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "windowManager"
