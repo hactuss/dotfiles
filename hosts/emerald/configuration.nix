@@ -184,7 +184,11 @@
     swaylock-plugin
     swaylock-fancy
     swaylock-effects
-
+    # #################
+    pywal16
+    cwal
+    hellwal
+    wallust
     /*
           (inputs.wrappers.lib.wrapPackage {
             inherit pkgs;
