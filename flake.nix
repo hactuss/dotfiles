@@ -11,7 +11,7 @@
     import-tree.url = "github:denful/import-tree";
     hjem.url = "github:feel-co/hjem";
     hjem.inputs.nixpkgs.follows = "nixpkgs";
-    inputs.helium.url = "github:tomsch/helium-nix";
+    helium.url = "github:tomsch/helium-nix";
   };
   ###########################################################################
   outputs =
@@ -94,7 +94,7 @@
             (desktopPath + "/configuration.nix")
             {
               environment.systemPackages = [
-                helium.packages.system.default
+                helium.packages.${system}.default
               ];
             }
           ]
