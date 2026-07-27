@@ -11,12 +11,14 @@
     import-tree.url = "github:denful/import-tree";
     hjem.url = "github:feel-co/hjem";
     hjem.inputs.nixpkgs.follows = "nixpkgs";
+    helium.url = "github:tomsch/helium-nix";
   };
   ###########################################################################
   outputs =
     {
       nixpkgs,
       #wrappers,
+      helium,
       ...
     }@inputs:
     #################################################################
@@ -54,7 +56,7 @@
         "wireshark"
         "dolphin"
         "btop"
-        # bdiasogfudis
+        "systemd"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "windowManager"
@@ -63,7 +65,7 @@
         "neovim"
         "Nix/nh"
         "dolphin"
-	"kdeconnect"
+        "kdeconnect"
       ];
     in
     #########################################################################
@@ -72,7 +74,10 @@
       nixosConfigurations = {
         # Desktop config
         "${desktopName}" = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; inherit variables; };
+          specialArgs = {
+            inherit inputs;
+            inherit variables;
+          };
           modules = [
             inputs.home-manager.nixosModules.home-manager
             {
@@ -87,6 +92,11 @@
             }
             #inputs.hjem.nixosModules.default
             (desktopPath + "/configuration.nix")
+            {
+              environment.systemPackages = [
+                helium.packages.${system}.default
+              ];
+            }
           ]
           ++ desktopModules;
         };

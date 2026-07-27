@@ -197,6 +197,11 @@ in {
     ".config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
     "./.config/fuzzel/fuzzel.ini".source = ./../../configfiles/fuzzel/fuzzel.ini;
     "./.config/waybar/config.jsonc".source = ./../../configfiles/waybar/config.jsonc;
+<<<<<<< HEAD
+=======
+    "./.config/waybar/style.css".source = ./../../configfiles/waybar/style.css;
+
+>>>>>>> refs/remotes/origin/main
   };
   programs.zsh.initContent = "cal";
   # Home Manager can also manage your environment variables through

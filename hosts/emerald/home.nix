@@ -47,6 +47,8 @@ in
     "./.config/fuzzel/fuzzel.ini".source = ./../../configfiles/fuzzel/fuzzel.ini;
     "./.config/dolphinrc".source = ./../../configfiles/dolphinrc;
     "./.config/zed/settings.json".source = ./../../configfiles/zed/settings.json;
+    "./.config/waybar/config.jsonc".source = ./../../configfiles/waybar/config.jsonc;
+    "./.config/waybar/style.css".source = ./../../configfiles/waybar/style.css;
   };
   programs.home-manager.enable = true;
 }
