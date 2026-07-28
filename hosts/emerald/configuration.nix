@@ -135,6 +135,7 @@
     NH_HOME_FLAKE = /home/hactuss/dotfiles;
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "radeonsi";
+    RUST_BACKTRACE = 1;
   };
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [

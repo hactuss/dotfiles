@@ -12,6 +12,8 @@
     hjem.url = "github:feel-co/hjem";
     hjem.inputs.nixpkgs.follows = "nixpkgs";
     helium.url = "github:tomsch/helium-nix";
+    nixgl.url = "github:nix-community/nixGL";
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
   ###########################################################################
   outputs =
@@ -19,12 +21,14 @@
       nixpkgs,
       #wrappers,
       helium,
+      nixgl,
       ...
     }@inputs:
     #################################################################
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      overlays = [ nixgl.overlay ];
       variables = import ./variables.nix;
       username = variables.username;
       desktopName = "emerald";
@@ -122,6 +126,7 @@
           ++ thinkpadModules;
         };
       };
+      packages.${system}.default = pkgs;
       ###################################################################
       devShells."x86_64-linux" = {
         svelte = pkgs.mkShell {

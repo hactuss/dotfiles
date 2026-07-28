@@ -253,3 +253,194 @@ rg '/home/hactuss' .
 ```
 
 One of those should pinpoint the offending line.
+
+# 3 
+In a Nix flake, the common way to create "global variables" that every module or file can use is to define them once in `outputs` and pass them to your modules through `specialArgs` (for NixOS) or `extraSpecialArgs` (for Home Manager).
+
+### Example project
+
+```
+.
+├── flake.nix
+├── vars.nix
+├── hosts
+│   └── laptop.nix
+└── modules
+    └── example.nix
+```
+
+### `vars.nix`
+
+```nix
+{
+  username = "alice";
+  hostname = "laptop";
+  timezone = "Europe/Berlin";
+
+  packages = [
+    "git"
+    "vim"
+    "curl"
+  ];
+}
+```
+
+### `flake.nix`
+
+```nix
+{
+  description = "My NixOS config";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  };
+
+  outputs = { self, nixpkgs, ... }@inputs:
+  let
+    system = "x86_64-linux";
+
+    vars = import ./vars.nix;
+  in {
+    nixosConfigurations.${vars.hostname} =
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+
+        specialArgs = {
+          inherit inputs vars;
+        };
+
+        modules = [
+          ./hosts/laptop.nix
+        ];
+      };
+  };
+}
+```
+
+### `hosts/laptop.nix`
+
+```nix
+{ config, pkgs, vars, ... }:
+
+{
+  networking.hostName = vars.hostname;
+  time.timeZone = vars.timezone;
+
+  imports = [
+    ../modules/example.nix
+  ];
+}
+```
+
+### `modules/example.nix`
+
+```nix
+{ pkgs, vars, ... }:
+
+{
+  users.users.${vars.username} = {
+    isNormalUser = true;
+
+    packages = with pkgs; [
+      git
+      vim
+      curl
+    ];
+  };
+}
+```
+
+---
+
+## Passing individual variables
+
+Instead of a `vars` attribute set, you can pass everything directly:
+
+```nix
+let
+  username = "alice";
+  hostname = "laptop";
+in
+{
+  specialArgs = {
+    inherit username hostname;
+  };
+}
+```
+
+Then modules receive:
+
+```nix
+{ username, hostname, ... }:
+
+{
+  networking.hostName = hostname;
+}
+```
+
+---
+
+## If using Home Manager
+
+Pass them with `extraSpecialArgs`:
+
+```nix
+home-manager.lib.homeManagerConfiguration {
+  inherit pkgs;
+
+  extraSpecialArgs = {
+    inherit vars;
+  };
+
+  modules = [
+    ./home.nix
+  ];
+}
+```
+
+Then in `home.nix`:
+
+```nix
+{ vars, ... }:
+
+{
+  home.username = vars.username;
+}
+```
+
+---
+
+### Best practice
+
+Keep all shared configuration in a single attribute set:
+
+```nix
+# vars.nix
+{
+  user = {
+    name = "alice";
+    email = "alice@example.com";
+  };
+
+  system = {
+    hostname = "laptop";
+    timezone = "Europe/Berlin";
+  };
+
+  paths = {
+    dotfiles = "/home/alice/dotfiles";
+  };
+}
+```
+
+Then access it everywhere as:
+
+```nix
+vars.user.name
+vars.user.email
+vars.system.hostname
+vars.system.timezone
+vars.paths.dotfiles
+```
+
+This approach scales well and is the idiomatic way to share configuration across all NixOS and Home Manager modules in a flake.
