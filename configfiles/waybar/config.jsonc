@@ -1,6 +1,6 @@
 {
   "layer": "top",
-  "modules-left": ["niri/workspaces"],
+  "modules-left": ["niri/workspaces", "tray"],
   "modules-center": ["niri/window"],
   "modules-right": [
     "battery",
@@ -126,6 +126,10 @@
       "enable": true,
       "icon-size": 18,
     },
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8,
   },
   // #################################################################
 }

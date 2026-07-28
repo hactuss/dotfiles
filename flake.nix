@@ -2,9 +2,9 @@
   description = "latest Nixos config flake by hactuss";
   ###########################################################################
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     wrappers.url = "github:Lassulus/wrappers";
@@ -14,6 +14,7 @@
     helium.url = "github:tomsch/helium-nix";
     nixgl.url = "github:nix-community/nixGL";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    niri.url = "github:niri-wm/niri";
   };
   ###########################################################################
   outputs =
@@ -126,7 +127,6 @@
           ++ thinkpadModules;
         };
       };
-      packages.${system}.default = pkgs;
       ###################################################################
       devShells."x86_64-linux" = {
         svelte = pkgs.mkShell {

@@ -189,6 +189,7 @@
     cwal
     hellwal
     wallust
+    libdisplay-info
     /*
           (inputs.wrappers.lib.wrapPackage {
             inherit pkgs;
