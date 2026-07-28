@@ -165,7 +165,6 @@
     tmux
     tor-browser
     prismlauncher
-    rofi
     alejandra
     # davinci-resolve
     #xmrig

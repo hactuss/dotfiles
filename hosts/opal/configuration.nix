@@ -99,7 +99,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-services.power-profiles-daemon.enable = false;
   hardware.bluetooth.enable = true;
   systemd.targets.sleep.enable = false;
   systemd.targets.suspend.enable = false;
@@ -279,7 +278,6 @@ services.auto-cpufreq.settings = {
     obsidian
     #giada
     #firefox
-    rofi
     feh
     mpv
     cmake
