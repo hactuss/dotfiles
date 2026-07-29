@@ -23,6 +23,7 @@
       #wrappers,
       helium,
       nixgl,
+      flake-parts,
       ...
     }@inputs:
     #################################################################
@@ -62,6 +63,7 @@
         "dolphin"
         "btop"
         "systemd"
+        "wireshark"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "windowManager"
