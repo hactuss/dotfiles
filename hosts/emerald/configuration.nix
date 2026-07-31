@@ -143,7 +143,7 @@
     RUSTICL_ENABLE = "radeonsi";
     RUST_BACKTRACE = 1;
   };
-  # environment.loginShellInit = "pushd /home/hactuss/dotfiles; git pull; popd;";
+  environment.extraInit = "pushd /home/hactuss/dotfiles; git pull --ff-only; popd;";
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     alacritty
