@@ -41,11 +41,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1784966282,
-        "narHash": "sha256-gROuVKfFdGet8b3Jm4s/oaOU7sjAyXsezzGu2+uMGic=",
+        "lastModified": 1785505839,
+        "narHash": "sha256-Yn7/27hOx5NUnI3s3nvQ+56FIQLH/5OOony3MoqXc38=",
         "owner": "tomsch",
         "repo": "helium-nix",
-        "rev": "19e8ddd7230f6228b59e759d543445bfc97e2eab",
+        "rev": "82b8fd435deec88ed3986712caa905e0ae19a23f",
         "type": "github"
       },
       "original": {
@@ -61,11 +61,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785216864,
-        "narHash": "sha256-QF9moiMJtq6OVOmzJhpjM78tlMAC5J+tvNWaOz4v9wY=",
+        "lastModified": 1785346857,
+        "narHash": "sha256-7pu4iFZMGMdOYFaV+ezdF6XKmcdGOMGzeYkw69nXfe0=",
         "owner": "feel-co",
         "repo": "hjem",
-        "rev": "7dc2f4b1ee69c9ae3f223ab1fa4e95b93f72bc68",
+        "rev": "a0bfffc389b1cf1742ed75bef361395146c3f966",
         "type": "github"
       },
       "original": {
@@ -211,11 +211,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1785133411,
-        "narHash": "sha256-Yjv0WEg39KRYS0rBdTbu6Fc/or/ihAKk13W9sQ6VWd0=",
+        "lastModified": 1785386831,
+        "narHash": "sha256-sPS3CaXH8RAT3FZRuy4VcV47iuYIWMMfa0GbyJKC3o4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2f5a153c270b70cb0f8c11f46d96d6d3bc39f4e3",
+        "rev": "21ea275a7c46aef9d4d6ddc962e6d562e9d94183",
         "type": "github"
       },
       "original": {
