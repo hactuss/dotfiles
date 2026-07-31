@@ -238,7 +238,6 @@
     DEFAULT_EDITOR = "neovim";
     EDITOR = "neovim";
   };
-  # environment.loginShellInit = "pushd /home/hactuss/dotfiles; git pull; popd; exit;";
   environment.systemPackages = with pkgs; [
     brave
     librewolf
