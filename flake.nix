@@ -45,6 +45,7 @@
         "test"
         "test2"
         "Nix/nh"
+        "Nix/updating"
         "ly"
         "neovim"
         "steam"

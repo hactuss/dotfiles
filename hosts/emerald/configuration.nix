@@ -13,7 +13,6 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
-  steam-mod.enable = true;
   #  prism-mod.enable = true;
   # Bootloader.
   boot.loader = {
@@ -60,6 +59,7 @@
     modesetting.enable = true;
     nvidiaSettings = true; # <--- This enables the GUI tool
     package = config.boot.kernelPackages.nvidiaPackages.stable; # or beta/production
+
   };
   # Select internationalisation properties.
   i18n = {
@@ -143,7 +143,7 @@
     RUSTICL_ENABLE = "radeonsi";
     RUST_BACKTRACE = 1;
   };
-  # environment.loginShellInit = "pushd /home/hactuss/dotfiles; git pull; switch; popd;";
+  # environment.loginShellInit = "pushd /home/hactuss/dotfiles; git pull; popd;";
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     alacritty
