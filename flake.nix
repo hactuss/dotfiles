@@ -64,6 +64,7 @@
         "btop"
         "systemd"
         "wireshark"
+        "udisk"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "windowManager"
