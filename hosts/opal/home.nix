@@ -78,7 +78,7 @@ in {
         rebuild-flake = "sudo nixos-rebuild switch --flake /home/hactuss/dotfiles";
       };
     };
-/*
+    /*
     rofi = {
       theme = "DarkBlue";
       plugins = with pkgs; [
@@ -89,7 +89,7 @@ in {
         modes = "window,drun,run,ssh,combi,calc,power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu";
       };
     };
-*/
+    */
     fastfetch = {
       enable = true;
       settings = {

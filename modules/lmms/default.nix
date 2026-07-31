@@ -1,5 +1,5 @@
-{pkgs, ...}:{
-environment.systemPackages = with pkgs; [
- lmms-full
-];
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    lmms-full
+  ];
 }

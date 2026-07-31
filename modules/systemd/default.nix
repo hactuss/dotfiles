@@ -1,12 +1,13 @@
-{...}:{
-systemd.user.services.dofiles-pull = {
-  enable = true;
-  after = [ "network.target" ];
-  wantedBy = [ "multi-user.target" ];
-  description = "Runs git pull on boot";
-  serviceConfig = {
+{...}: {
+  systemd.user.services.dotfiles-pull = {
+    enable = true;
+    after = ["network.target"];
+    wantedBy = ["multi-user.target"];
+    name = "dofiles-pull";
+    description = "Runs git pull on boot";
+    serviceConfig = {
       Type = "simple";
-      ExecStart = ''/home/hactuss/dotfiles/configfiles/boot.sh'';
+      ExecStart = ''pushd /home/hactuss/dotfiles; git pull --ff-only; popd'';
+    };
   };
-};
 }

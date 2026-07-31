@@ -6,8 +6,7 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -108,9 +107,9 @@
 
   # Enable the KDE Plasma Desktop Environment.
   /*
-    services.desktopManager = {
-      plasma6.enable = true;
-    };
+  services.desktopManager = {
+    plasma6.enable = true;
+  };
   */
   # displayManager.sddm.wayland.enable = true;
   services.displayManager.ly = {
@@ -171,7 +170,7 @@
       "users"
       "docker"
     ];
-    packages = with pkgs; [ ];
+    packages = with pkgs; [];
   };
 
   #services.tlp.enable = true;
@@ -352,9 +351,9 @@
   programs.nix-ld.enable = true;
 
   /*
-    services.xmrig = {
-      enable = true;
-    };
+  services.xmrig = {
+    enable = true;
+  };
   */
 
   fonts = {
@@ -378,9 +377,9 @@
     fontconfig = {
       enable = true;
       /*
-        defaultFonts = {
-          monospace = "Jetbrains-mono";
-        };
+      defaultFonts = {
+        monospace = "Jetbrains-mono";
+      };
       */
     };
   };
@@ -392,7 +391,7 @@
   # $ nix search wget
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "hactuss" = import ./home.nix;
     };
@@ -422,7 +421,7 @@
       PasswordAuthentication = true;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ "hactuss" ];
+      AllowUsers = ["hactuss"];
     };
   };
   programs.ssh.askPassword = "askPassword";
