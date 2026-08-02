@@ -181,7 +181,7 @@
   };
 
   services.logind.settings.Login = {
-    HandleLidSwitch = "poweroff";
+    HandleLidSwitch = "lock";
     HandleLidSwitchExternalPower = "lock";
     HandleLidSwitchDocked = "ignore";
   };
@@ -217,6 +217,7 @@
       turbo = "auto";
     };
   };
+  services.power-profiles-daemon.enable = false;
 
   # one of "ignore", "poweroff", "reboot", "halt", "kexec", "suspend", "hibernate", "hybrid-sleep", "suspend-then-hibernate", "lock"
 
@@ -384,8 +385,12 @@
     };
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      packageOverrides = pkgs: {unstable = import <nixos-unstable> {config = config.nixpkgs.config;};};
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
