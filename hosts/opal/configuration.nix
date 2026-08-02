@@ -183,7 +183,7 @@
   services.logind.settings.Login = {
     HandleLidSwitch = "lock";
     HandleLidSwitchExternalPower = "lock";
-    HandleLidSwitchDocked = "ignore";
+    HandleLidSwitchDocked = "lock";
   };
   services.tlp = {
     enable = true;
