@@ -11,7 +11,10 @@
     font-awesome
     nerd-fonts.lilex
     proggyfonts
+    terminus_font
+    terminus_font_ttf
 
     # nerdfonts
   ];
+  # console.font = "ter-v16n";
 }

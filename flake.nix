@@ -66,6 +66,7 @@
         "systemd"
         "wireshark"
         "udisk"
+	# "davinci-resolve"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "niri"
