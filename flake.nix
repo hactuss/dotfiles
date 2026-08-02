@@ -69,7 +69,7 @@
         "davinci-resolve"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
-        "windowManager"
+        "niri"
         "samba"
         "random-packages"
         "neovim"
