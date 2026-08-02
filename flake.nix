@@ -66,14 +66,13 @@
         "systemd"
         "wireshark"
         "udisk"
-        "davinci-resolve"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "niri"
         "samba"
         "random-packages"
         "neovim"
-        "Nix/nh"
+        # "Nix/nh"
         "dolphin"
         "kdeconnect"
       ];
