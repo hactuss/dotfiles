@@ -175,6 +175,7 @@
     #xmrig
     blockbench
     r2modman
+    lunar-client
     unrar
     hollywood
     xwayland-satellite
@@ -222,6 +223,7 @@
         echo "Making request..." >&2
       '';
     })
+    blender
   ];
   #services.asusd
 
