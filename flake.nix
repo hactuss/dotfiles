@@ -66,7 +66,8 @@
         "systemd"
         "wireshark"
         "udisk"
-	# "davinci-resolve"
+        # "davinci-resolve"
+        "kdeconnect"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "niri"
@@ -80,7 +81,7 @@
     in
     #########################################################################
     {
-      # formatter.system = pkgs.alejandra;
+      packages.${system}.default = pkgs.cmatrix;
       nixosConfigurations = {
         # Desktop config
         "${desktopName}" = nixpkgs.lib.nixosSystem {
