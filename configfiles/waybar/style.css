@@ -2,6 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-family: monospace;
     font-size: 13px;
     min-height: 0;
     border: solid transparent 1px;
@@ -13,13 +14,19 @@ window#waybar {
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
     color: white;
 }
+window#niri.empty {
+	background-color: transparent;
+	padding: 0 
+}
 .module {
     padding-left: 1em;
     padding-right: 1em;
     margin-left: 0.25em;
     margin-right: 0.25em;
     background-color: rgba(1, 1, 1, 0.25);
+    
 }
+
 tooltip {
     background: rgba(43, 48, 59, 0.5);
     border: 1px solid rgba(100, 114, 125, 0.5);

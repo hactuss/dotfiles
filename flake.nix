@@ -15,6 +15,8 @@
     nixgl.url = "github:nix-community/nixGL";
     flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:niri-wm/niri";
+        nixvim.url = "github:nix-community/nixvim";
+
   };
   ###########################################################################
   outputs =
@@ -24,8 +26,10 @@
       helium,
       nixgl,
       flake-parts,
+      nixvim, 
       ...
     }@inputs:
+
     #################################################################
     let
       system = "x86_64-linux";
