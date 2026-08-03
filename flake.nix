@@ -42,8 +42,6 @@
       thinkpadPath = hostsPath + "/${thinkpadName}";
       # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
       desktopModules = map (module: modulesPath + "/${module}") [
-        "test"
-        "test2"
         "Nix/nh"
         "Nix/updating"
         "ly"
