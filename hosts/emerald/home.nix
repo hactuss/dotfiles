@@ -39,18 +39,21 @@ in
 
   ];
   programs.swaylock = {
-    package = pkgs.swaylock-fancy;
-    settings = {
-      color = "808080";
-      font-size = 24;
-      indicator-idle-visible = false;
-      indicator-radius = 100;
-      line-color = "ffffff";
-      show-failed-attempts = true;
-    };
+    package = pkgs.swaylock;
+    /*
+      settings = {
+        color = "808080";
+        font-size = 24;
+        indicator-idle-visible = false;
+        indicator-radius = 100;
+        line-color = "ffffff";
+        show-failed-attempts = true;
+        };
+    */
   };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
+  xdg.configFile."swaylock/config".source = ./../../configfiles/swaylock/frappe;
   home.file = {
     "./.bashrc".source = ./../../configfiles/.bashrc;
     "./.config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
