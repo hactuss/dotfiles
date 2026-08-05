@@ -129,6 +129,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "syncthing"
     ];
     packages = with pkgs; [
     ];
@@ -198,6 +199,9 @@
     libdisplay-info
     cbonsai
     cowsay
+    graphviz
+    graphviz-nox
+    rsyncy
     /*
           (inputs.wrappers.lib.wrapPackage {
             inherit pkgs;

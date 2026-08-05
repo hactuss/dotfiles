@@ -70,6 +70,7 @@
         "udisk"
         # "davinci-resolve"
         "kdeconnect"
+	"syncthing"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "niri"
