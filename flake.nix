@@ -15,7 +15,7 @@
     nixgl.url = "github:nix-community/nixGL";
     flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:niri-wm/niri";
-        nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "github:nix-community/nixvim";
 
   };
   ###########################################################################
@@ -26,7 +26,7 @@
       helium,
       nixgl,
       flake-parts,
-      nixvim, 
+      nixvim,
       ...
     }@inputs:
 
@@ -70,7 +70,8 @@
         "udisk"
         # "davinci-resolve"
         "kdeconnect"
-	"syncthing"
+        "syncthing"
+        "thunar"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "niri"
