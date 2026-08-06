@@ -230,7 +230,6 @@
         echo "Making request..." >&2
       '';
     })
-    blender
   ];
   #services.asusd
 
