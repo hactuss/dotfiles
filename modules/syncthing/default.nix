@@ -14,21 +14,28 @@
           autoAcceptFolders = true;
         };
       };
-      folders = {
-        "deltarune" = {
-          path = "/home/hactuss/.steam/steam/steamapps/compatdata/1671210/pfx/drive_c/users/steamuser/AppData/Local/DELTARUNE";
-          devices = [ "Macbook" ];
-        };
-        "undertale" = {
-          path = "~/.config/UNDERTALE";
-          devices = [ "Macbook" ];
-
-        };
-        "Obsidian Vault" = {
-          path = "~/Obsidian Vault";
-          devices = [ "Macbook" ];
+      defaults = {
+        folder = {
+          path = "/home/hactuss";
         };
       };
+      /*
+        folders = {
+          "deltarune" = {
+            path = "/home/hactuss/.steam/steam/steamapps/compatdata/1671210/pfx/drive_c/users/steamuser/AppData/Local/DELTARUNE";
+            devices = [ "Macbook" ];
+          };
+          "undertale" = {
+            path = "~/.config/UNDERTALE";
+            devices = [ "Macbook" ];
+
+          };
+          "Obsidian Vault" = {
+            path = "~/Obsidian Vault";
+            devices = [ "Macbook" ];
+          };
+          };
+      */
       # options = {};
     };
   };
