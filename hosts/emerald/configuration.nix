@@ -202,6 +202,12 @@
     graphviz
     graphviz-nox
     rsyncy
+    qbittorrent
+    qbittorrent-nox
+    qbittorrent-enhanced
+    qbittorrent-enhanced-nox
+
+    # vlc-torrent
     /*
           (inputs.wrappers.lib.wrapPackage {
             inherit pkgs;
