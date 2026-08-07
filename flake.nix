@@ -72,6 +72,7 @@
         "kdeconnect"
         "syncthing"
         "thunar"
+        "bat"
       ];
       thinkpadModules = map (module: modulesPath + "/${module}") [
         "niri"
