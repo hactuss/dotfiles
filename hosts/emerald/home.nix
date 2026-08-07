@@ -4,6 +4,12 @@
 }:
 let
   username = "hactuss";
+  yamis = pkgs.fetchFromBitbucket {
+    owner = "dirn-typo";
+    repo = "yet-another-monochrome-icon-set";
+    rev = "main";
+    hash = "sha256-1UrfH4AH2+tlFgc13X1nacaBzbucPeF8N/1m9gDDf30=";
+  };
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -63,6 +69,10 @@ in
     "./.config/waybar/config.jsonc".source = ./../../configfiles/waybar/config.jsonc;
     "./.config/waybar/style.css".source = ./../../configfiles/waybar/style.css;
     "./.config/syncthing/config.xml".source = ./../../configfiles/syncthing/config.xml;
+    ".local/share/icons/yet-another-monochrome-icon-set" = {
+      source = yamis;
+      recursive = true;
+    };
   };
   programs.home-manager.enable = true;
 }
