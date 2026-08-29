@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  hjem,
   ...
 }: {
   hjem.users.hactuss = {
