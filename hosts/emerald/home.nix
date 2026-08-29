@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-let
+{pkgs, ...}: let
   username = "hactuss";
   yamis = pkgs.fetchFromBitbucket {
     owner = "dirn-typo";
@@ -10,24 +6,23 @@ let
     rev = "main";
     hash = "sha256-1UrfH4AH2+tlFgc13X1nacaBzbucPeF8N/1m9gDDf30=";
   };
-in
-{
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = username;
   home.homeDirectory = "/home/${username}";
   /*
-     gtk doe not work
-    gtk = {
+   gtk doe not work
+  gtk = {
+    enable = true;
+    gtk4 = {
       enable = true;
-      gtk4 = {
-        enable = true;
-        theme = {
-          package = pkgs.gruvbox-dark-gtk;
-          name = "gruvbox dark";
-        };
+      theme = {
+        package = pkgs.gruvbox-dark-gtk;
+        name = "gruvbox dark";
       };
     };
+  };
   */
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -41,19 +36,18 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-
   ];
   programs.swaylock = {
     package = pkgs.swaylock;
     /*
-      settings = {
-        color = "808080";
-        font-size = 24;
-        indicator-idle-visible = false;
-        indicator-radius = 100;
-        line-color = "ffffff";
-        show-failed-attempts = true;
-        };
+    settings = {
+      color = "808080";
+      font-size = 24;
+      indicator-idle-visible = false;
+      indicator-radius = 100;
+      line-color = "ffffff";
+      show-failed-attempts = true;
+      };
     */
   };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
