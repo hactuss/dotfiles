@@ -8,17 +8,6 @@
     border: solid transparent 1px;
     border-radius: 5px;
 }
-*:empty {
-    display: none;
-    min-width: 0;
-    background-color: none;
-}
-*.empty {
-    display: none;
-    min-width: 0;
-    background-color: none;
-}
-
 window#waybar {
     background: rgba(43, 48, 59, 0);
     color: white;

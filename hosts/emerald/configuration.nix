@@ -143,6 +143,7 @@
     RUST_BACKTRACE = 1;
   };
   #environment.extraInit = "pushd /home/hactuss/dotfiles; git pull --ff-only; popd;";
+  hardware.bluetooth.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     alacritty
@@ -198,6 +199,9 @@
     wallust
     libdisplay-info
     cbonsai
+    unzip
+    coreutils-full
+    blueman
     cowsay
     graphviz
     graphviz-nox

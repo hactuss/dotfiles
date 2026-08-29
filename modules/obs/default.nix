@@ -20,6 +20,7 @@
       obs-vaapi # optional AMD hardware acceleration
       obs-gstreamer
       obs-vkcapture
+      input-overlay
     ];
   };
 }
