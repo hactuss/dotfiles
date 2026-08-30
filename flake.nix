@@ -102,9 +102,10 @@
     #########################################################################
     {
       packages.${system}.default = pkgs.cmatrix;
+
       nixosConfigurations = {
         # Desktop config
-        "${desktopName}" = nixpkgs.lib.nixosSystem {
+        ${desktopName} = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
             inherit my-variables;
@@ -133,7 +134,7 @@
         };
 
         # Thinkpad config
-        opal = nixpkgs.lib.nixosSystem {
+        ${thinkpadName} = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
             inherit my-variables;
