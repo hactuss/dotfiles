@@ -3,7 +3,7 @@
 PS1='\n\[\e[97m\]\[\e[0m\][\u@\h()\w] '
 
 alias ga='git add .';
-alias gc='git commit -am'
+alias gc='alejandra /home/hactuss/dotfiles ; git commit -am'
 alias gs='git status'
 alias gps='git push'
 alias gpl='git pull'

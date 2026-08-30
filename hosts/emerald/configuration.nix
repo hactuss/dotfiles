@@ -24,9 +24,9 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
-    "quiet"
+    #    "quiet"
     "splash"
-    "rd.systemd.show_status=false"
+    #    "rd.systemd.show_status=false"
   ];
 
   networking.hostName = "emerald"; # Define your hostname.
@@ -163,7 +163,6 @@
     screenfetch
     git
     ffmpeg
-    nix-ld
     nixd
     btop
     cmatrix
