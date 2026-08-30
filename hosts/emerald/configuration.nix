@@ -199,6 +199,7 @@
     unzip
     coreutils-full
     cowsay
+    gcc
     /*
         (inputs.wrappers.lib.wrapPackage {
           inherit pkgs;
