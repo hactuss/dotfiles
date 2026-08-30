@@ -234,7 +234,7 @@
   environment.sessionVariables = {
     NH_FLAKE = "/home/hactuss/dotfiles";
     NIXOS_OZONE_WL = "1";
-    DEFAULT_BROWSER = "librewolf";
+    DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
     DEFAULT_EDITOR = "neovim";
     EDITOR = "neovim";
   };
@@ -345,7 +345,6 @@
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     mako # notification system developed by swaywm maintainer
     waypaper
-    coreutils-full
     unrar
   ];
 

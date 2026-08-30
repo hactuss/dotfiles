@@ -172,6 +172,7 @@
     tor-browser
     prismlauncher
     alejandra
+    mpv
     # davinci-resolve
     #xmrig
     r2modman
