@@ -1,18 +1,16 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   pkgs,
   inputs,
+  my-variables,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
-  #  prism-mod.enable = true;
   # Bootloader.
   boot.loader = {
     limine.enable = true;
@@ -20,16 +18,15 @@
     limine.style.wallpaperStyle = "centered";
   };
   boot.consoleLogLevel = 0;
-  #boot.plymouth.enable = true;
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "quiet"
     "splash"
-    "rd.systemd.show_status=false"
+    #"rd.systemd.show_status=false"
   ];
 
-  networking.hostName = "emerald"; # Define your hostname.
+  networking.hostName = my-variables.desktopName; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -44,14 +41,14 @@
     "flakes"
   ];
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = my-variables.timezone;
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       mesa.opencl # Enables Rusticl (OpenCL) support
     ];
   };
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
@@ -61,18 +58,18 @@
   # Select internationalisation properties.
   i18n = {
     /*
-    defaultLocale = "de_DE.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "de_DE.UTF-8";
-      LC_IDENTIFICATION = "de_DE.UTF-8";
-      LC_MEASUREMENT = "de_DE.UTF-8";
-      LC_MONETARY = "de_DE.UTF-8";
-      LC_NAME = "de_DE.UTF-8";
-      LC_NUMERIC = "de_DE.UTF-8";
-      LC_PAPER = "de_DE.UTF-8";
-      LC_TELEPHONE = "de_DE.UTF-8";
-      LC_TIME = "de_DE.UTF-8";
-    };
+      defaultLocale = "de_DE.UTF-8";
+      extraLocaleSettings = {
+        LC_ADDRESS = "de_DE.UTF-8";
+        LC_IDENTIFICATION = "de_DE.UTF-8";
+        LC_MEASUREMENT = "de_DE.UTF-8";
+        LC_MONETARY = "de_DE.UTF-8";
+        LC_NAME = "de_DE.UTF-8";
+        LC_NUMERIC = "de_DE.UTF-8";
+        LC_PAPER = "de_DE.UTF-8";
+        LC_TELEPHONE = "de_DE.UTF-8";
+        LC_TIME = "de_DE.UTF-8";
+      };
     */
     defaultLocale = "de_DE.UTF-8";
     extraLocaleSettings = {
@@ -118,31 +115,24 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.hactuss = {
+  users.users."${my-variables.username}" = {
     isNormalUser = true;
-    description = "hactuss";
     extraGroups = [
       "networkmanager"
       "wheel"
       "syncthing"
     ];
-    packages = with pkgs; [
-    ];
   };
   environment.sessionVariables = {
-    NH_FLAKE = /home/hactuss/dotfiles;
-    NH_OS_FLAKE = /home/hactuss/dotfiles;
-    NH_HOME_FLAKE = /home/hactuss/dotfiles;
+    NH_FLAKE = my-variables.configPath;
+    NH_OS_FLAKE = my-variables.configPath;
+    NH_HOME_FLAKE = my-variables.configPath;
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "radeonsi";
     RUST_BACKTRACE = 1;
   };
   #environment.extraInit = "pushd /home/hactuss/dotfiles; git pull --ff-only; popd;";
-  hardware.bluetooth.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     alacritty
@@ -199,48 +189,40 @@
     libdisplay-info
     cbonsai
     unzip
-    coreutils-full
     blueman
     cowsay
-    graphviz
-    graphviz-nox
-    rsyncy
-    qbittorrent
-    qbittorrent-nox
-    qbittorrent-enhanced
-    qbittorrent-enhanced-nox
 
     # vlc-torrent
     /*
-        (inputs.wrappers.lib.wrapPackage {
-          inherit pkgs;
-          package = pkgs.niri;
-          flags = {
-            "--config" = config;
-          };
-    })
+          (inputs.wrappers.lib.wrapPackage {
+            inherit pkgs;
+            package = pkgs.niri;
+            flags = {
+              "--config" = config;
+            };
+      })
     */
-
-    (inputs.wrappers.lib.wrapPackage {
-      inherit pkgs;
-      package = pkgs.curl;
-      runtimeInputs = [pkgs.jq];
-      env = {
-        CURL_CA_BUNDLE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
-      };
-      flags = {
-        "--silent" = true;
-        "--connect-timeout" = "30";
-      };
-      # Or use args directly for more control:
-      # args = [ "--silent" "--connect-timeout" "30" ];
-      flagSeparator = "="; # Use --flag=value instead of --flag value (default is " ")
-      preHook = ''
-        echo "Making request..." >&2
-      '';
-    })
+    /*
+      (inputs.wrappers.lib.wrapPackage {
+        inherit pkgs;
+        package = pkgs.curl;
+        runtimeInputs = [ pkgs.jq ];
+        env = {
+          CURL_CA_BUNDLE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+        };
+        flags = {
+          "--silent" = true;
+          "--connect-timeout" = "30";
+        };
+        # Or use args directly for more control:
+        # args = [ "--silent" "--connect-timeout" "30" ];
+        flagSeparator = "="; # Use --flag=value instead of --flag value (default is " ")
+        preHook = ''
+          echo "Making request..." >&2
+        '';
+      })
+    */
   ];
-  #services.asusd
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -252,33 +234,34 @@
 
   # List services that you want to enable:
   /*
-  services.xmrig = {
-    enable = true;
-    settings = {
-      autosave = true;
-      cpu = true;
-      opencl = true;
-      cuda = false;
-      pools = [
-        {
-          url = "pool.supportxmr.com:3333";
-          user = "44kBjERLZSR5syNjVyqxthMuZqZ79tPah8GcxsQxoaNP3T1g5qwGLUUGVcmT3o2y6FcBUEhsMesPxCzqR9ueYibBRfpMLeu";
-          keepalive = true;
-          tls = true;
-        }
-      ];
-      donate-level = 0;
-      donate-over-proxy = 0;
+    services.xmrig = {
+      enable = true;
+      settings = {
+        autosave = true;
+        cpu = true;
+        opencl = true;
+        cuda = false;
+        pools = [
+          {
+            url = "pool.supportxmr.com:3333";
+            user = "44kBjERLZSR5syNjVyqxthMuZqZ79tPah8GcxsQxoaNP3T1g5qwGLUUGVcmT3o2y6FcBUEhsMesPxCzqR9ueYibBRfpMLeu";
+            keepalive = true;
+            tls = true;
+          }
+        ];
+        donate-level = 0;
+        donate-over-proxy = 0;
+      };
     };
-  };
   */
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "hactuss" = import ./home.nix;
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit my-variables;
     };
+    users."${my-variables.username}" = import ./home.nix;
+
   };
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
