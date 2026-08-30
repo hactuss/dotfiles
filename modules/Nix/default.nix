@@ -7,6 +7,6 @@
 
   programs.nix-ld = {
     enable = true;
-    libraries = with pkgs; [clangd];
+    libraries = with pkgs; [clang];
   };
 }
