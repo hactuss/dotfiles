@@ -23,7 +23,7 @@
   boot.consoleLogLevel = 0;
   #boot.plymouth.enable = true;
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
   boot.kernelParams = [
     #    "quiet"
     "splash"
@@ -198,6 +198,10 @@
     coreutils-full
     cowsay
     gcc
+    deadnix
+    nix-melt
+    nix-output-monitor
+    nix-du
     /*
         (inputs.wrappers.lib.wrapPackage {
           inherit pkgs;

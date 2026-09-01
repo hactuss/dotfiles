@@ -1,0 +1,52 @@
+trace: Obsolete option `boot.binfmtMiscRegistrations' is used. It was renamed to `boot.binfmt.registrations'.
+trace: Obsolete option `boot.bootMount' is used. It was renamed to `boot.loader.grub.bootDevice'.
+trace: Obsolete option `boot.cleanTmpDir' is used. It was renamed to `boot.tmp.cleanOnBoot'.
+trace: Obsolete option `boot.copyKernels' is used. It was renamed to `boot.loader.grub.copyKernels'.
+trace: Obsolete option `boot.earlyVconsoleSetup' is used. It was renamed to `console.earlySetup'.
+trace: Obsolete option `boot.extraGrubEntries' is used. It was renamed to `boot.loader.grub.extraEntries'.
+trace: Obsolete option `boot.extraGrubEntriesBeforeNixos' is used. It was renamed to `boot.loader.grub.extraEntriesBeforeNixOS'.
+trace: Obsolete option `boot.extraTTYs' is used. It was renamed to `console.extraTTYs'.
+trace: Obsolete option `boot.grubDevice' is used. It was renamed to `boot.loader.grub.device'.
+trace: Obsolete option `boot.grubSplashImage' is used. It was renamed to `boot.loader.grub.splashImage'.
+trace: Obsolete option `boot.initrd.mdadmConf' is used. It was renamed to `boot.swraid.mdadmConf'.
+trace: Obsolete option `boot.initrd.services.swraid.enable' is used. It was renamed to `boot.swraid.enable'.
+trace: Obsolete option `boot.initrd.services.swraid.mdadmConf' is used. It was renamed to `boot.swraid.mdadmConf'.
+trace: Obsolete option `boot.initrd.systemd.enableTpm2' is used. It was renamed to `boot.initrd.systemd.tpm2.enable'.
+evaluation warning: linuxPackages.perf is now perf
+evaluation warning: kernelPackages.system76-power is now pkgs.system76-power
+evaluation warning: kernelPackages.system76-scheduler is now pkgs.system76-scheduler
+trace: Obsolete option `boot.loader.grub.timeout' is used. It was renamed to `boot.loader.timeout'.
+trace: Obsolete option `boot.loader.gummiboot.enable' is used. It was renamed to `boot.loader.systemd-boot.enable'.
+trace: Obsolete option `boot.loader.gummiboot.timeout' is used. It was renamed to `boot.loader.timeout'.
+trace: Obsolete option `boot.loader.limine.forceMbr' is used. It was renamed to `boot.loader.limine.force'.
+trace: Obsolete option `boot.systemd.services' is used. It was renamed to `systemd.services'.
+trace: Obsolete option `boot.systemd.sockets' is used. It was renamed to `systemd.sockets'.
+trace: Obsolete option `boot.systemd.targets' is used. It was renamed to `systemd.targets'.
+trace: Obsolete option `boot.tmpOnTmpfs' is used. It was renamed to `boot.tmp.useTmpfs'.
+trace: Obsolete option `boot.tmpOnTmpfsSize' is used. It was renamed to `boot.tmp.tmpfsSize'.
+trace: Obsolete option `boot.zfs.allowHibernation' is used. It was renamed to `boot.zfs.unsafeAllowHibernation'.
+trace: Obsolete option `documentation.man.generateCaches' is used. It was renamed to `documentation.man.cache.enable'.
+trace: Obsolete option `documentation.man.manualPages' is used. It was renamed to `documentation.man.man-db.manualPages'.
+
+
+terminating due to unexpected unrecoverable internal error: Assertion 'block' failed in std::__exception_ptr::exception_ptr nix::WorkerProto::BasicClientConnection::processStderrReturn(nix::Sink*, nix::Source*, bool, bool) at ../worker-protocol-connection.cc:101
+Nix crashed. This is a bug. Please report this at https://github.com/NixOS/nix/issues with the following information included:
+
+std::terminate() called without exception
+Stack trace:
+ 0# 0x00000000001124AE in nix
+ 1# 0x00000000000C539A in /nix/store/7vafhlh0lmcvi75jfyy09qwr4m3x1ks3-gcc-15.2.0-lib/lib/libstdc++.so.6
+ 2# std::unexpected() in /nix/store/7vafhlh0lmcvi75jfyy09qwr4m3x1ks3-gcc-15.2.0-lib/lib/libstdc++.so.6
+ 3# 0x00000000000E92AF in /nix/store/54g6af2ipi6a6i5v869ixglm4glqxrdn-nix-util-2.34.8/lib/libnixutil.so.2.34.8
+ 4# __wrap___assert_fail in /nix/store/y54kjfh44a9rpjh05wgqi7gzi0xml657-nix-store-2.34.8/lib/libnixstore.so.2.34.8
+ 5# 0x000000000012E13B in /nix/store/y54kjfh44a9rpjh05wgqi7gzi0xml657-nix-store-2.34.8/lib/libnixstore.so.2.34.8
+ 6# 0x00000000003781A6 in /nix/store/y54kjfh44a9rpjh05wgqi7gzi0xml657-nix-store-2.34.8/lib/libnixstore.so.2.34.8
+ 7# 0x00000000003187C7 in /nix/store/y54kjfh44a9rpjh05wgqi7gzi0xml657-nix-store-2.34.8/lib/libnixstore.so.2.34.8
+ 8# nix::RemoteStore::ConnectionHandle::withFramedSink(nix::fun<void (nix::Sink&)>) in /nix/store/y54kjfh44a9rpjh05wgqi7gzi0xml657-nix-store-2.34.8/lib/libnixstore.so.2.34.8
+ 9# nix::RemoteStore::addCAToStore(nix::Source&, std::basic_string_view<char, std::char_traits<char> >, nix::ContentAddressMethod, nix::HashAlgorithm, std::set<nix::StorePath, std::less<nix::StorePath>, std::allocator<nix::StorePath> > const&, nix::RepairFlag) in /nix/store/y54kjfh44a9rpjh05wgqi7gzi0xml657-nix-store-2.34.8/lib/libnixstore.so.2.34.8
+10# nix::RemoteStore::addToStoreFromDump(nix::Source&, std::basic_string_view<char, std::char_traits<char> >, nix::FileSerialisationMethod, nix::ContentAddressMethod, nix::HashAlgorithm, std::set<nix::StorePath, std::less<nix::StorePath>, std::allocator<nix::StorePath> > const&, nix::RepairFlag) in /nix/store/y54kjfh44a9rpjh05wgqi7gzi0xml657-nix-store-2.34.8/lib/libnixstore.so.2.34.8
+11# 0x0000000000366E61 in /nix/store/y54kjfh44a9rpjh05wgqi7gzi0xml657-nix-store-2.34.8/lib/libnixstore.so.2.34.8
+12# 0x00000000001390B2 in /nix/store/54g6af2ipi6a6i5v869ixglm4glqxrdn-nix-util-2.34.8/lib/libnixutil.so.2.34.8
+13# 0x000000000000118F in /nix/store/3a1r7ck5hl0zlbnfi1f21chvfcfmkn5y-boost-1.89.0/lib/libboost_context.so.1.89.0
+
+Abgebrochen                (Speicherabzug geschrieben) nix eval ./#nixosConfigurations
