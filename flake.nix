@@ -87,6 +87,7 @@
       #"thunar"
       #"bat"
       "C"
+      "winboat"
     ];
     thinkpadModules = map (module: modulesPath + "/${module}") [
       "niri"

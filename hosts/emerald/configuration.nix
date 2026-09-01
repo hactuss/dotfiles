@@ -5,6 +5,7 @@
   config,
   pkgs,
   inputs,
+  my-variables,
   ...
 }: {
   imports = [
@@ -29,7 +30,7 @@
     #    "rd.systemd.show_status=false"
   ];
 
-  networking.hostName = "emerald"; # Define your hostname.
+  networking.hostName = my-variables.desktopName; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -122,15 +123,13 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.hactuss = {
+  users.users.${my-variables.username} = {
     isNormalUser = true;
     description = "hactuss";
     extraGroups = [
       "networkmanager"
       "wheel"
       "syncthing"
-    ];
-    packages = with pkgs; [
     ];
   };
   environment.sessionVariables = {
@@ -265,9 +264,12 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "hactuss" = import ./home.nix;
+      ${my-variables.username} = import ./home.nix;
     };
   };
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-40.10.5"
+  ];
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

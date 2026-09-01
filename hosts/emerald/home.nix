@@ -1,5 +1,4 @@
 {pkgs, ...}: let
-  username = "hactuss";
   yamis = pkgs.fetchFromBitbucket {
     owner = "dirn-typo";
     repo = "yet-another-monochrome-icon-set";
@@ -9,8 +8,8 @@
 in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
+  home.username = "hactuss";
+  home.homeDirectory = "/home/hactuss";
   /*
    gtk doe not work
   gtk = {
