@@ -78,6 +78,7 @@
       "winboat"
       "fun"
       "openssh"
+      "hjem"
     ];
     thinkpadModules = map (module: modulesPath + "/${module}") [
       "niri"
@@ -101,22 +102,23 @@
           };
           modules =
             [
-              inputs.home-manager.nixosModules.home-manager
+              # inputs.home-manager.nixosModules.home-manager
+              /*
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.backupFileExtension = "hm-bak";
-                home-manager.users.${username} = {...}: {
+                home-manager.users.${username} = { ... }: {
                   imports = [
                     (desktopPath + "/home.nix")
                   ];
                 };
               }
+              */
               inputs.hjem.nixosModules.default
               (desktopPath + "/configuration.nix")
               {
-                environment.systemPackages = [
-                ];
+                environment.systemPackages = [];
               }
             ]
             ++ desktopModules;
