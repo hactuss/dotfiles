@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-with pkgs;
-[
+{pkgs, ...}:
+with pkgs; [
   alacritty
   freerdp
   flameshot
@@ -37,5 +36,4 @@ with pkgs;
   swaylock-plugin
   swaylock-fancy
   swaylock-effects
-
 ]

@@ -1,5 +1,3 @@
-{
-  ...
-}: {
+{...}: {
   programs.lutris.enable = true;
 }

@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   USERNAME = "hactuss";
 in {
   # Home Manager needs a bit of information about you and the paths it should

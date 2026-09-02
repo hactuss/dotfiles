@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   /*
   options = {
       neovim-mod.enable = lib.mkEnableOption "enables neovim-mod";

@@ -7,8 +7,7 @@
   inputs,
   my-variables,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -53,7 +52,7 @@
       mesa.opencl # Enables Rusticl (OpenCL) support
     ];
   };
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
@@ -63,18 +62,18 @@
   # Select internationalisation properties.
   i18n = {
     /*
-      defaultLocale = "de_DE.UTF-8";
-      extraLocaleSettings = {
-        LC_ADDRESS = "de_DE.UTF-8";
-        LC_IDENTIFICATION = "de_DE.UTF-8";
-        LC_MEASUREMENT = "de_DE.UTF-8";
-        LC_MONETARY = "de_DE.UTF-8";
-        LC_NAME = "de_DE.UTF-8";
-        LC_NUMERIC = "de_DE.UTF-8";
-        LC_PAPER = "de_DE.UTF-8";
-        LC_TELEPHONE = "de_DE.UTF-8";
-        LC_TIME = "de_DE.UTF-8";
-      };
+    defaultLocale = "de_DE.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "de_DE.UTF-8";
+      LC_IDENTIFICATION = "de_DE.UTF-8";
+      LC_MEASUREMENT = "de_DE.UTF-8";
+      LC_MONETARY = "de_DE.UTF-8";
+      LC_NAME = "de_DE.UTF-8";
+      LC_NUMERIC = "de_DE.UTF-8";
+      LC_PAPER = "de_DE.UTF-8";
+      LC_TELEPHONE = "de_DE.UTF-8";
+      LC_TIME = "de_DE.UTF-8";
+    };
     */
     defaultLocale = "de_DE.UTF-8";
     extraLocaleSettings = {
@@ -199,33 +198,33 @@
     gcc
 
     /*
-          (inputs.wrappers.lib.wrapPackage {
-            inherit pkgs;
-            package = pkgs.niri;
-            flags = {
-              "--config" = config;
-            };
-      })
+        (inputs.wrappers.lib.wrapPackage {
+          inherit pkgs;
+          package = pkgs.niri;
+          flags = {
+            "--config" = config;
+          };
+    })
     */
     /*
-      (inputs.wrappers.lib.wrapPackage {
-        inherit pkgs;
-        package = pkgs.curl;
-        runtimeInputs = [pkgs.jq];
-        env = {
-          CURL_CA_BUNDLE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
-        };
-        flags = {
-          "--silent" = true;
-          "--connect-timeout" = "30";
-        };
-        # Or use args directly for more control:
-        # args = [ "--silent" "--connect-timeout" "30" ];
-        flagSeparator = "="; # Use --flag=value instead of --flag value (default is " ")
-        preHook = ''
-          echo "Making request..." >&2
-        '';
-      })
+    (inputs.wrappers.lib.wrapPackage {
+      inherit pkgs;
+      package = pkgs.curl;
+      runtimeInputs = [pkgs.jq];
+      env = {
+        CURL_CA_BUNDLE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+      };
+      flags = {
+        "--silent" = true;
+        "--connect-timeout" = "30";
+      };
+      # Or use args directly for more control:
+      # args = [ "--silent" "--connect-timeout" "30" ];
+      flagSeparator = "="; # Use --flag=value instead of --flag value (default is " ")
+      preHook = ''
+        echo "Making request..." >&2
+      '';
+    })
     */
   ];
   #services.asusd
@@ -240,25 +239,25 @@
 
   # List services that you want to enable:
   /*
-    services.xmrig = {
-      enable = true;
-      settings = {
-        autosave = true;
-        cpu = true;
-        opencl = true;
-        cuda = false;
-        pools = [
-          {
-            url = "pool.supportxmr.com:3333";
-            user = "44kBjERLZSR5syNjVyqxthMuZqZ79tPah8GcxsQxoaNP3T1g5qwGLUUGVcmT3o2y6FcBUEhsMesPxCzqR9ueYibBRfpMLeu";
-            keepalive = true;
-            tls = true;
-          }
-        ];
-        donate-level = 0;
-        donate-over-proxy = 0;
-      };
+  services.xmrig = {
+    enable = true;
+    settings = {
+      autosave = true;
+      cpu = true;
+      opencl = true;
+      cuda = false;
+      pools = [
+        {
+          url = "pool.supportxmr.com:3333";
+          user = "44kBjERLZSR5syNjVyqxthMuZqZ79tPah8GcxsQxoaNP3T1g5qwGLUUGVcmT3o2y6FcBUEhsMesPxCzqR9ueYibBRfpMLeu";
+          keepalive = true;
+          tls = true;
+        }
+      ];
+      donate-level = 0;
+      donate-over-proxy = 0;
     };
+  };
   */
 
   # Open ports in the firewall.

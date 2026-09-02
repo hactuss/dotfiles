@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   #  options = {
   #    desktopManager.enable = lib.mkEnableOption "enables windowManager";
   #  };
