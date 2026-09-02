@@ -7,7 +7,8 @@
   inputs,
   my-variables,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -52,7 +53,7 @@
       mesa.opencl # Enables Rusticl (OpenCL) support
     ];
   };
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
@@ -62,18 +63,18 @@
   # Select internationalisation properties.
   i18n = {
     /*
-    defaultLocale = "de_DE.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "de_DE.UTF-8";
-      LC_IDENTIFICATION = "de_DE.UTF-8";
-      LC_MEASUREMENT = "de_DE.UTF-8";
-      LC_MONETARY = "de_DE.UTF-8";
-      LC_NAME = "de_DE.UTF-8";
-      LC_NUMERIC = "de_DE.UTF-8";
-      LC_PAPER = "de_DE.UTF-8";
-      LC_TELEPHONE = "de_DE.UTF-8";
-      LC_TIME = "de_DE.UTF-8";
-    };
+      defaultLocale = "de_DE.UTF-8";
+      extraLocaleSettings = {
+        LC_ADDRESS = "de_DE.UTF-8";
+        LC_IDENTIFICATION = "de_DE.UTF-8";
+        LC_MEASUREMENT = "de_DE.UTF-8";
+        LC_MONETARY = "de_DE.UTF-8";
+        LC_NAME = "de_DE.UTF-8";
+        LC_NUMERIC = "de_DE.UTF-8";
+        LC_PAPER = "de_DE.UTF-8";
+        LC_TELEPHONE = "de_DE.UTF-8";
+        LC_TIME = "de_DE.UTF-8";
+      };
     */
     defaultLocale = "de_DE.UTF-8";
     extraLocaleSettings = {
@@ -133,9 +134,7 @@
     ];
   };
   environment.sessionVariables = {
-    NH_FLAKE = /home/hactuss/dotfiles;
-    NH_OS_FLAKE = /home/hactuss/dotfiles;
-    NH_HOME_FLAKE = /home/hactuss/dotfiles;
+
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "radeonsi";
     RUST_BACKTRACE = 1;
@@ -144,93 +143,34 @@
   hardware.bluetooth.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    alacritty
-    freerdp
-    flameshot
-    librewolf
-    zed-editor
-    nixfmt
-    seahorse
-    nh
-    ghostty
-    pavucontrol
-    xeyes
-    waypaper
-    feh
-    fuzzel
-    fastfetch
-    onefetch
-    screenfetch
-    git
-    ffmpeg
-    nixd
-    btop
-    cmatrix
-    discord
-    tmux
-    tor-browser
-    prismlauncher
-    alejandra
-    mpv
-    # davinci-resolve
-    #xmrig
-    r2modman
-    unrar
-    hollywood
-    xwayland-satellite
-    # niri wallpaper
-    swaybg
-    swaylock
-    awww
-    imagemagick
-    waybar
-    tree
-    swaylock-plugin
-    swaylock-fancy
-    swaylock-effects
-    # #################
-    pywal16
-    cwal
-    hellwal
-    wallust
-    libdisplay-info
-    cbonsai
-    unzip
-    coreutils-full
-    cowsay
-    gcc
-    deadnix
-    nix-melt
-    nix-output-monitor
-    nix-du
     /*
-        (inputs.wrappers.lib.wrapPackage {
-          inherit pkgs;
-          package = pkgs.niri;
-          flags = {
-            "--config" = config;
-          };
-    })
+          (inputs.wrappers.lib.wrapPackage {
+            inherit pkgs;
+            package = pkgs.niri;
+            flags = {
+              "--config" = config;
+            };
+      })
     */
     /*
-    (inputs.wrappers.lib.wrapPackage {
-      inherit pkgs;
-      package = pkgs.curl;
-      runtimeInputs = [pkgs.jq];
-      env = {
-        CURL_CA_BUNDLE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
-      };
-      flags = {
-        "--silent" = true;
-        "--connect-timeout" = "30";
-      };
-      # Or use args directly for more control:
-      # args = [ "--silent" "--connect-timeout" "30" ];
-      flagSeparator = "="; # Use --flag=value instead of --flag value (default is " ")
-      preHook = ''
-        echo "Making request..." >&2
-      '';
-    })
+      (inputs.wrappers.lib.wrapPackage {
+        inherit pkgs;
+        package = pkgs.curl;
+        runtimeInputs = [pkgs.jq];
+        env = {
+          CURL_CA_BUNDLE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+        };
+        flags = {
+          "--silent" = true;
+          "--connect-timeout" = "30";
+        };
+        # Or use args directly for more control:
+        # args = [ "--silent" "--connect-timeout" "30" ];
+        flagSeparator = "="; # Use --flag=value instead of --flag value (default is " ")
+        preHook = ''
+          echo "Making request..." >&2
+        '';
+      })
     */
   ];
   #services.asusd
@@ -245,37 +185,27 @@
 
   # List services that you want to enable:
   /*
-  services.xmrig = {
-    enable = true;
-    settings = {
-      autosave = true;
-      cpu = true;
-      opencl = true;
-      cuda = false;
-      pools = [
-        {
-          url = "pool.supportxmr.com:3333";
-          user = "44kBjERLZSR5syNjVyqxthMuZqZ79tPah8GcxsQxoaNP3T1g5qwGLUUGVcmT3o2y6FcBUEhsMesPxCzqR9ueYibBRfpMLeu";
-          keepalive = true;
-          tls = true;
-        }
-      ];
-      donate-level = 0;
-      donate-over-proxy = 0;
+    services.xmrig = {
+      enable = true;
+      settings = {
+        autosave = true;
+        cpu = true;
+        opencl = true;
+        cuda = false;
+        pools = [
+          {
+            url = "pool.supportxmr.com:3333";
+            user = "44kBjERLZSR5syNjVyqxthMuZqZ79tPah8GcxsQxoaNP3T1g5qwGLUUGVcmT3o2y6FcBUEhsMesPxCzqR9ueYibBRfpMLeu";
+            keepalive = true;
+            tls = true;
+          }
+        ];
+        donate-level = 0;
+        donate-over-proxy = 0;
+      };
     };
-  };
   */
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      ${my-variables.username} = import ./home.nix;
-    };
-  };
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-40.10.5"
-  ];
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

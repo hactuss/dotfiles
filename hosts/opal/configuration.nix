@@ -389,7 +389,7 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      packageOverrides = pkgs: {unstable = import <nixos-unstable> {config = config.nixpkgs.config;};};
+      packageOverrides = _pkgs: {unstable = import <nixos-unstable> {config = config.nixpkgs.config;};};
     };
   };
 

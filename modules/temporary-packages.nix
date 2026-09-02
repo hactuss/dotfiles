@@ -1,54 +1,41 @@
-{pkgs, ...}:
-with pkgs; [
+{ pkgs, ... }:
+with pkgs;
+[
   alacritty
+  freerdp
   flameshot
   librewolf
   zed-editor
-  nixfmt
-  seahorse
-  nh
   ghostty
   pavucontrol
-  xeyes
+
   waypaper
   feh
   fuzzel
-  fastfetch
   onefetch
-  screenfetch
   git
   ffmpeg
-  nix-ld
-  nixd
+
   btop
-  cmatrix
-  discord
-  tmux
-  tor-browser
   prismlauncher
   alejandra
-  davinci-resolve
-  xmrig
+  mpv
+  # davinci-resolve
+  #xmrig
   r2modman
   unrar
-  hollywood
   xwayland-satellite
+
+  # niri wallpaper
   swaybg
+
   swaylock
   awww
   imagemagick
   waybar
-  tree
+
   swaylock-plugin
   swaylock-fancy
   swaylock-effects
-  pywal16
-  cwal
-  hellwal
-  wallust
-  libdisplay-info
-  cbonsai
-  unzip
-  coreutils-full
-  cowsay
+
 ]
