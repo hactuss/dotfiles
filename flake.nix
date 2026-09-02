@@ -13,7 +13,6 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helium.url = "github:tomsch/helium-nix";
     nixgl.url = "github:nix-community/nixGL";
     # flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:niri-wm/niri";
@@ -22,7 +21,6 @@
   outputs = {
     nixpkgs,
     #wrappers,
-    helium,
     nixgl,
     flake-parts,
     hjem,
@@ -128,7 +126,6 @@
               (desktopPath + "/configuration.nix")
               {
                 environment.systemPackages = [
-                  helium.packages.${system}.default
                 ];
               }
             ]

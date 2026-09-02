@@ -1,10 +1,10 @@
 {
   pkgs,
-  lib,
   hjem,
+  my-variables,
   ...
 }: {
-  hjem.users.hactuss = {
+  hjem.users.${my-variables.username} = {
     directory = "/home/hactuss";
     files = {
     };
