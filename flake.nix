@@ -79,6 +79,7 @@
       "fun"
       "openssh"
       "hjem"
+      "gparted"
     ];
     thinkpadModules = map (module: modulesPath + "/${module}") [
       "niri"
