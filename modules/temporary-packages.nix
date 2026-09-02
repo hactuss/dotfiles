@@ -36,4 +36,5 @@ with pkgs; [
   swaylock-plugin
   swaylock-fancy
   swaylock-effects
+  kdePackages.partitionmanager
 ]
