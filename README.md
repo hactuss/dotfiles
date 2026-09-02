@@ -1,7 +1,5 @@
 # NixOS is good 
 
-All my machines are named after gemstones, because I find that pretty cool.
-
 ## "Emerald" desktop pc i built
 - steam games
 - configuring nixos
@@ -11,10 +9,8 @@ All my machines are named after gemstones, because I find that pretty cool.
 - text editing 
 - surfing on the waves of the web
 
-<!--
-## "Dolomite" generic server setup
-- hosting services
-- Jellyfin
-- Navidrome
-- runs on Emerald for now
--->
+- [x] Hjem 
+- [ ] Dentritic Branch 
+- [ ] Cleaner environment.systemPackages 
+- [ ] Generic machine for light fast installs
+- [ ] Openssh deeper config
