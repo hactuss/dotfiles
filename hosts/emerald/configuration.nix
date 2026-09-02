@@ -134,7 +134,6 @@
     ];
   };
   environment.sessionVariables = {
-
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "radeonsi";
     RUST_BACKTRACE = 1;
@@ -143,6 +142,62 @@
   hardware.bluetooth.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    alacritty
+    freerdp
+    flameshot
+    librewolf
+    zed-editor
+    nixfmt
+    seahorse
+    nh
+    ghostty
+    pavucontrol
+    xeyes
+    waypaper
+    feh
+    fuzzel
+    fastfetch
+    onefetch
+    screenfetch
+    git
+    ffmpeg
+    nixd
+    btop
+    cmatrix
+    discord
+    tmux
+    tor-browser
+    prismlauncher
+    alejandra
+    mpv
+    # davinci-resolve
+    #xmrig
+    r2modman
+    unrar
+    hollywood
+    xwayland-satellite
+    # niri wallpaper
+    swaybg
+    swaylock
+    awww
+    imagemagick
+    waybar
+    tree
+    swaylock-plugin
+    swaylock-fancy
+    swaylock-effects
+    # #################
+    pywal16
+    cwal
+    hellwal
+    wallust
+    libdisplay-info
+    cbonsai
+    unzip
+    coreutils-full
+    cowsay
+    gcc
+
     /*
           (inputs.wrappers.lib.wrapPackage {
             inherit pkgs;
