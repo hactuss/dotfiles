@@ -145,6 +145,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     alacritty
+    freerdp
     flameshot
     librewolf
     zed-editor
@@ -211,7 +212,7 @@
           };
     })
     */
-
+    /*
     (inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
       package = pkgs.curl;
@@ -230,6 +231,7 @@
         echo "Making request..." >&2
       '';
     })
+    */
   ];
   #services.asusd
 

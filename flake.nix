@@ -1,5 +1,5 @@
 {
-  description = "latest Nixos config flake by hactuss";
+  description = "Nixos config flake by hactuss";
   ###########################################################################
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
@@ -7,15 +7,16 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    wrappers.url = "github:Lassulus/wrappers";
-    import-tree.url = "github:denful/import-tree";
-    hjem.url = "github:feel-co/hjem";
-    hjem.inputs.nixpkgs.follows = "nixpkgs";
+    # wrappers.url = "github:Lassulus/wrappers";
+    # import-tree.url = "github:denful/import-tree";
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     helium.url = "github:tomsch/helium-nix";
     nixgl.url = "github:nix-community/nixGL";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    # flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:niri-wm/niri";
-    nixvim.url = "github:nix-community/nixvim";
   };
   ###########################################################################
   outputs = {
@@ -24,7 +25,6 @@
     helium,
     nixgl,
     flake-parts,
-    nixvim,
     hjem,
     ...
   } @ inputs:
@@ -59,8 +59,10 @@
     };
     # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
     desktopModules = map (module: modulesPath + "/${module}") [
-      "Nix/nh"
-      "Nix/updating"
+      "nh"
+      "updating"
+      "nix"
+      "git"
       "ly"
       "neovim"
       "steam"
@@ -70,7 +72,6 @@
       "samba"
       "jellyfin"
       "navidrome"
-      "Nix"
       #"termusic"
       "obsidian"
       #"synthv1"
