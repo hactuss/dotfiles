@@ -14,4 +14,11 @@
     enable = true;
     package = pkgs.xwayland-satellite;
   };
+  services.xserver = {
+    enable = true;
+    xkb = {
+      layout = "de";
+      variant = "deadacute";
+    };
+  };
 }

@@ -40,10 +40,7 @@
   # Enable networking
   security.polkit.enable = true;
   networking.networkmanager.enable = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
   hardware.graphics = {
@@ -82,19 +79,11 @@
   };
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+
   # Enable the KDE Plasma Desktop Environment.
-  programs = {
-    niri.enable = true;
-    #sway.enable = true;
-    #hyprland.enable = true;
-    #waybar.enable = true;
-  };
+
   #services.desktopManager.plasma6.enable = true;
-  programs.xwayland = {
-    enable = true;
-    package = pkgs.xwayland-satellite;
-  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
@@ -132,14 +121,7 @@
       "syncthing"
     ];
   };
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    RUSTICL_ENABLE = "radeonsi";
-    RUST_BACKTRACE = 1;
-  };
-  #environment.extraInit = "pushd /home/hactuss/dotfiles; git pull --ff-only; popd;";
-  hardware.bluetooth.enable = true;
-  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     alacritty
     freerdp

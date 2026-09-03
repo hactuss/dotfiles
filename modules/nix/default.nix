@@ -19,4 +19,15 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-40.10.5"
   ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nixpkgs.config.allowUnfree = true;
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    RUSTICL_ENABLE = "radeonsi";
+    RUST_BACKTRACE = 1;
+  };
+  nix.settings.auto-optimise-store = true;
 }
