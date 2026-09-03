@@ -54,6 +54,7 @@
     };
     # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
     desktopModules = map (module: modulesPath + "/${module}") [
+      # Mandatory
       "nh"
       "updating"
       "nix"
@@ -91,6 +92,23 @@
       "kdeconnect"
       "fun"
     ];
+    allMachineModules = map (module: modulesPath + "/${module}") [
+      "btop"
+      "dolphin"
+      "ghostty"
+      "git"
+      "hjem"
+      "kdeconnect"
+      "librewolf"
+      "ly"
+      "neovim"
+      "niri"
+      "nix"
+      "obsidian"
+      "openssh"
+      "swaylock"
+      "updating"
+    ];
   in
     #########################################################################
     {
@@ -124,7 +142,8 @@
                 environment.systemPackages = [];
               }
             ]
-            ++ desktopModules;
+            ++ desktopModules
+            ++ allMachineModules;
         };
 
         # Thinkpad config
@@ -150,7 +169,8 @@
               }
               ./modules/temporary-packages.nix
             ]
-            ++ thinkpadModules;
+            ++ thinkpadModules
+            ++ allMachineModules;
         };
       };
       ###################################################################
