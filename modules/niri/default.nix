@@ -9,7 +9,7 @@
     #hyprland.enable = true;
     #waybar.enable = true;
   };
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
   programs.xwayland = {
     enable = true;
     package = pkgs.xwayland-satellite;
