@@ -1,3 +1,5 @@
-{
-  programs.ghostty.enable = true;
+{pkgs, ...}: {
+  environment.systemPackages = [
+    pkgs.ghostty
+  ];
 }
