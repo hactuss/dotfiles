@@ -7,7 +7,6 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # wrappers.url = "github:Lassulus/wrappers";
     # import-tree.url = "github:denful/import-tree";
     hjem = {
       url = "github:feel-co/hjem";
@@ -20,7 +19,6 @@
   ###########################################################################
   outputs = {
     nixpkgs,
-    #wrappers,
     nixgl,
     ...
   } @ inputs:
@@ -83,6 +81,7 @@
       "gparted"
       "gtk"
       "thunderbird"
+      "noctalia"
     ];
     thinkpadModules = map (module: modulesPath + "/${module}") [
       "niri"
