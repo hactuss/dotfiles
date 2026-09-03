@@ -273,7 +273,7 @@
     waybar
     #brave
     #vivaldi
-    discord
+    # discord
     #spotify
     libreoffice
     obs-studio
@@ -389,7 +389,9 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      packageOverrides = _pkgs: {unstable = import <nixos-unstable> {config = config.nixpkgs.config;};};
+      packageOverrides = _pkgs: {
+        unstable = import <nixos-unstable> {config = config.nixpkgs.config;};
+      };
     };
   };
 

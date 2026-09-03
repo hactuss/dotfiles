@@ -163,7 +163,7 @@
     nixd
     btop
     cmatrix
-    discord
+    # discord
     tmux
     tor-browser
     prismlauncher
