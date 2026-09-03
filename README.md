@@ -18,3 +18,4 @@
 - [ ] [flake part template](https://github.com/hercules-ci/flake-parts/blob/main/template/default/flake.nix)
 - [ ] noctalica
 - [ ] networking
+- [ ] complete switch to flakeparts
