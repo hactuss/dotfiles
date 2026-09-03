@@ -81,6 +81,7 @@
       "hjem"
       "gparted"
       "gtk"
+      "thunderbird"
     ];
     thinkpadModules = map (module: modulesPath + "/${module}") [
       "niri"

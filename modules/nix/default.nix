@@ -8,6 +8,8 @@
     nix-du
     nixfmt
     nixfmt-tree
+    vulnix
+    nixdoc
   ];
 
   programs.nix-ld = {
