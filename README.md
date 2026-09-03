@@ -14,3 +14,7 @@
 - [ ] Cleaner environment.systemPackages 
 - [ ] Generic machine for light fast installs
 - [ ] Openssh deeper config
+- [ ] [VJ's config](https://github.com/vimjoyer/nixconf)
+- [ ] [flake part template](https://github.com/hercules-ci/flake-parts/blob/main/template/default/flake.nix)
+- [ ] noctalica
+- [ ] networking
