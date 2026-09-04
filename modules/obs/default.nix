@@ -17,6 +17,7 @@
       obs-gstreamer
       obs-vkcapture
       input-overlay
+      # record-rename
     ];
   };
 }
