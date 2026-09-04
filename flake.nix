@@ -15,16 +15,11 @@
     nixgl.url = "github:nix-community/nixGL";
     # flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:niri-wm/niri";
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   ###########################################################################
   outputs = {
     nixpkgs,
     nixgl,
-    stylix,
     ...
   } @ inputs:
   #################################################################
@@ -142,7 +137,6 @@
                 };
               }
               */
-              stylix.nixosModules.stylix
               inputs.hjem.nixosModules.default
               (desktopPath + "/configuration.nix")
               {
