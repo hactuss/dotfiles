@@ -83,6 +83,7 @@
       "thunderbird"
       "noctalia"
       "lmms"
+      "qt"
     ];
     thinkpadModules = map (module: modulesPath + "/${module}") [
       "niri"
