@@ -8,5 +8,6 @@
     exif
     diff-so-fancy
     diffutils
+    stow
   ];
 }
