@@ -84,6 +84,7 @@
       "noctalia"
       "lmms"
       # "qt"
+      "home_inbox"
     ];
     thinkpadModules = map (module: modulesPath + "/${module}") [
       "niri"
