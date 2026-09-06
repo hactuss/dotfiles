@@ -106,6 +106,12 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 8 * 1024; # 8GB
+    }
+  ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
