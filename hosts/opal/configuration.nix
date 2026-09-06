@@ -170,7 +170,6 @@
       "users"
       "docker"
     ];
-    packages = with pkgs; [];
   };
 
   #services.tlp.enable = true;
