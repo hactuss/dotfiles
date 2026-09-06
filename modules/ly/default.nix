@@ -15,7 +15,7 @@
       margin_box_h = 0;
       margin_box_v = 0;
       box_position_h = 0.5;
-      box_position_v = 0.25;
+      box_position_v = 0.2;
       ly_log = "/var/log/ly.log";
       session_log = "/var/log/ly-session.log";
       # lua_animation_file = "${my-variables.configPath}/configfiles/ly/ElemCellAuto.lua";
