@@ -156,6 +156,7 @@
           modules =
             [
               (thinkpadPath + "/configuration.nix")
+              /*
               inputs.home-manager.nixosModules.default
               inputs.home-manager.nixosModules.home-manager
               {
@@ -168,7 +169,9 @@
                   ];
                 };
               }
-              ./modules/temporary-packages.nix
+              */
+              inputs.hjem.nixosModules.default
+              # ./modules/temporary-packages.nix
             ]
             ++ thinkpadModules
             ++ allMachineModules;

@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{pkgs, ...}:{
 with pkgs; [
   alacritty
   freerdp
@@ -37,4 +37,5 @@ with pkgs; [
   swaylock-fancy
   swaylock-effects
   kdePackages.partitionmanager
-]
+];
+}
