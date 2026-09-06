@@ -80,7 +80,6 @@
       "hjem"
       "gparted"
       # "gtk"
-      "thunderbird"
       "noctalia"
       "lmms"
       # "qt"
