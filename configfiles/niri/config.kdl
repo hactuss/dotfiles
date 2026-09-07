@@ -1,27 +1,11 @@
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
-// Check the wiki for a full description of the configuration:
-// https://yalter.github.io/niri/Configuration:-Introduction
-// test if homemanager works
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://yalter.github.io/niri/Configuration:-Input
+prefer-no-csd
 input {
     keyboard {
         xkb {
-            // You can set rules, model, layout, variant and options.
-            // For more information, see xkeyboard-config(7).
-
-            // For example:
             layout "de"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
             // localectl set-x11-keymap.
         }
-
-        // Enable numlock on startup, omitting this setting disables it.
         numlock
     }
 
@@ -268,11 +252,9 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
-// spawn-at-startup "swaybg" "-i" "/home/hactuss/dotfiles/images/W_WIPEOUT_21-1152x768.jpg"
-spawn-at-startup "swaybg" "-i" "/home/hactuss/dotfiles/images/nixos-wallpaper.svg"
-spawn-at-startup "swaybg" "-i" "/home/hactuss/dotfiles/images/uvn3NG-1414473673.jpg"
-
+spawn-sh-at-startup "swaybg -i /home/hactuss/dotfiles/images/nixos-wallpaper.svg"
+spawn-sh-at-startup "swaybg -i /home/hactuss/dotfiles/images/uvn3NG-1414473673.jpg"
+spawn-sh-at-startup "noctalica-shell"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
