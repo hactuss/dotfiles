@@ -1,41 +1,41 @@
-{pkgs, ...}:{
-with pkgs; [
-  alacritty
-  freerdp
-  flameshot
-  librewolf
-  zed-editor
-  ghostty
-  pavucontrol
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    alacritty
+    freerdp
+    flameshot
+    librewolf
+    zed-editor
+    ghostty
+    pavucontrol
 
-  waypaper
-  feh
-  fuzzel
-  onefetch
-  git
-  ffmpeg
+    waypaper
+    feh
+    fuzzel
+    onefetch
+    git
+    ffmpeg
 
-  btop
-  prismlauncher
-  alejandra
-  mpv
-  # davinci-resolve
-  #xmrig
-  r2modman
-  unrar
-  xwayland-satellite
+    btop
+    prismlauncher
+    alejandra
+    mpv
+    # davinci-resolve
+    #xmrig
+    r2modman
+    unrar
+    xwayland-satellite
 
-  # niri wallpaper
-  swaybg
+    # niri wallpaper
+    swaybg
 
-  swaylock
-  awww
-  imagemagick
-  waybar
+    swaylock
+    awww
+    imagemagick
+    waybar
 
-  swaylock-plugin
-  swaylock-fancy
-  swaylock-effects
-  kdePackages.partitionmanager
-];
+    swaylock-plugin
+    swaylock-fancy
+    swaylock-effects
+    kdePackages.partitionmanager
+  ];
 }
