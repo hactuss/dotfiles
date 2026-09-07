@@ -254,7 +254,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-sh-at-startup "swaybg -i /home/hactuss/dotfiles/images/nixos-wallpaper.svg"
 spawn-sh-at-startup "swaybg -i /home/hactuss/dotfiles/images/uvn3NG-1414473673.jpg"
-spawn-sh-at-startup "noctalica-shell"
+spawn-sh-at-startup "noctalia-shell"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
