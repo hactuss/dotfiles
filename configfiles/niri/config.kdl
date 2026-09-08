@@ -251,7 +251,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-sh-at-startup "swaybg -i /home/hactuss/dotfiles/images/nixos-wallpaper.svg"
+// spawn-sh-at-startup "swaybg -i /home/hactuss/dotfiles/images/nixos-wallpaper.svg"
 spawn-sh-at-startup "swaybg -i /home/hactuss/dotfiles/images/uvn3NG-1414473673.jpg"
 spawn-sh-at-startup "noctalia-shell"
 spawn-at-startup "librewolf"
