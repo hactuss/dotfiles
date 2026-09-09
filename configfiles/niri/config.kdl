@@ -256,7 +256,8 @@ spawn-sh-at-startup "swaybg -i /home/hactuss/dotfiles/images/uvn3NG-1414473673.j
 spawn-sh-at-startup "noctalia-shell"
 spawn-at-startup "librewolf"
 spawn-at-startup "obsidian"
-
+spawn-sh-at-startup "zeditor /home/hactuss/dotfiles"
+spawn-at-startup "dolphin"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
