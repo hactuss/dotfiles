@@ -17,4 +17,9 @@
     # nerdfonts
   ];
   # console.font = "ter-v16n";
+  fonts.fontconfig.defaultFonts = {
+    serif = ["Noto Serif"];
+    sansSerif = ["Noto Sans"];
+    monospace = ["Fira Code"];
+  };
 }
