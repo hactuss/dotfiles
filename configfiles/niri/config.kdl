@@ -285,10 +285,18 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
-    off
+    on
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
+     window-open {
+            duration-ms 0
+            curve "ease-out-expo"
+        }
+     window-close {
+             duration-ms 0
+             curve "ease-out-quad"
+         }
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -358,7 +366,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Mod+Enter hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
 
     Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "--clock" "--indicator"; }

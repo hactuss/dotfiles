@@ -79,11 +79,11 @@
       "openssh"
       "hjem"
       "gparted"
-      # "gtk"
       "noctalia"
       "lmms"
-      # "qt"
+      "davinci-resolve"
       "home_inbox"
+      "anki"
     ];
     thinkpadModules = map (module: modulesPath + "/${module}") [
       "niri"
