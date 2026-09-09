@@ -11,3 +11,5 @@ https://nixos.wiki/wiki/Flakes
 
 A lotta useful stuff
 https://wiki.nixos.org/wiki/Applications
+
+https://noogle.dev
