@@ -41,7 +41,7 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = my-variables.timezone;
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -77,6 +77,16 @@
       LC_ALL = "de_DE.UTF-8";
     };
   };
+  /*
+  power.ups = {
+    enable = true;
+    upsmon = {
+      enable = true;
+      user = my-variables.username;
+
+    };
+  };
+  */
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
 

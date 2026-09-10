@@ -2,7 +2,7 @@
   description = "Nixos config flake by hactuss";
   ###########################################################################
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # 26.05
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05"; # 26.05
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -84,6 +84,7 @@
       "davinci-resolve"
       "home_inbox"
       "anki"
+      "qt"
     ];
     thinkpadModules = map (module: modulesPath + "/${module}") [
       "niri"
@@ -110,6 +111,11 @@
       "swaylock"
       "updating"
     ];
+    /*
+    from VJ's config
+    isNixModule = file: builtins.hasExt "nix" && file.name != "flake.nix" && !lib.hasPrefix "_" file.name;
+    importTree = path: lib.toList (lib.fileFilter isNixModule path);
+    */
   in
     #########################################################################
     {
