@@ -2,7 +2,6 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
   pkgs,
   inputs,
   my-variables,
@@ -54,7 +53,8 @@
     open = true;
     modesetting.enable = true;
     nvidiaSettings = true; # <--- This enables the GUI tool
-    package = config.boot.kernelPackages.nvidiaPackages.stable; # or beta/production
+    # package = config.boot.kernelPackages.nvidiaPackages.stable; # or beta/production
+    nvidiaPersistenced = true;
   };
   # Select internationalisation properties.
   i18n = {
