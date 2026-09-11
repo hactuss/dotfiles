@@ -37,5 +37,7 @@
     swaylock-fancy
     swaylock-effects
     kdePackages.partitionmanager
+    regex-tui
+    regex-cli
   ];
 }

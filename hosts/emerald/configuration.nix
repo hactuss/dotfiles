@@ -193,7 +193,8 @@
     coreutils-full
     cowsay
     gcc
-
+    regex-tui
+    regex-cli
     /*
         (inputs.wrappers.lib.wrapPackage {
           inherit pkgs;
