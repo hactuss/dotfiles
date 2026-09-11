@@ -84,7 +84,7 @@
       "davinci-resolve"
       "home_inbox"
       "anki"
-      "qt"
+      #"qt" DO NOT touch that again
     ];
     thinkpadModules = map (module: modulesPath + "/${module}") [
       "niri"
