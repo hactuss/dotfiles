@@ -195,6 +195,7 @@
     gcc
     regex-tui
     regex-cli
+    pstree
     /*
         (inputs.wrappers.lib.wrapPackage {
           inherit pkgs;
