@@ -298,6 +298,8 @@
     pavucontrol
     # cli
     gnupg
+    pcmanfm
+    pcmanfm-qt
     metasploit
     nmap
     netcat
