@@ -51,6 +51,8 @@
     "ly"
     "neovim"
     "niri"
+    "noctalia"
+    "fonts"
     "nix"
     "obsidian"
     "openssh"
