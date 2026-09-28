@@ -196,6 +196,10 @@
     regex-tui
     regex-cli
     pstree
+    termusic
+    thunar
+    pcmanfm
+    btop
     /*
         (inputs.wrappers.lib.wrapPackage {
           inherit pkgs;
@@ -227,6 +231,11 @@
     */
   ];
   #services.asusd
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+  };
+  programs.wireshark = {enable = true; package = pkgs.wireshark;}
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

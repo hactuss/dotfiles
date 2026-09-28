@@ -42,89 +42,17 @@
         desktopPath
         thinkpadPath
         ;
-
       homedir = /home/${username};
       configPath = /${homedir}/dotfiles;
       timezone = "Europe/Berlin";
     };
-    # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
-    desktopModules = map (module: modulesPath + "/${module}") [
-      # Mandatory
-      "nh"
-      "updating"
-      "nix"
-      "git"
-      "ly"
-      "neovim"
-      "steam"
-      "obs"
-      "tailscale"
-      "fonts"
-      "samba"
-      "jellyfin"
-      "navidrome"
-      "obsidian"
-      "swaylock"
-      "dolphin"
-      "btop"
-      "udisk"
-      "kdeconnect"
-      "syncthing"
-      "C"
-      "winboat"
-      "fun"
-      "openssh"
-      "hjem"
-      "gparted"
-      "noctalia"
-      "lmms"
-      "davinci-resolve"
-      "home_inbox"
-      "anki"
-      #"qt" DO NOT touch that again
-    ];
-    thinkpadModules = map (module: modulesPath + "/${module}") [
-      "niri"
-      "samba"
-      "neovim"
-      "dolphin"
-      "kdeconnect"
-      "fun"
-    ];
-    allMachineModules = map (module: modulesPath + "/${module}") [
-      "btop"
-      "dolphin"
-      "ghostty"
-      "git"
-      "hjem"
-      "kdeconnect"
-      "librewolf"
-      "ly"
-      "neovim"
-      "niri"
-      "nix"
-      "obsidian"
-      "openssh"
-      "swaylock"
-      "updating"
-    ];
-    /*
-    from VJ's config
-    isNixModule = file: builtins.hasExt "nix" && file.name != "flake.nix" && !lib.hasPrefix "_" file.name;
-    importTree = path: lib.toList (lib.fileFilter isNixModule path);
-    */
+    modulesimport = import ./modules
   in
-    #########################################################################
     {
-      packages.${system}.default = pkgs.cmatrix;
-
       nixosConfigurations = {
         # Desktop config
         ${desktopName} = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit my-variables;
-          };
+          specialArgs = {inherit inputs;inherit my-variables;};
           modules =
             [
               # inputs.home-manager.nixosModules.home-manager
@@ -142,20 +70,13 @@
               */
               inputs.hjem.nixosModules.default
               (desktopPath + "/configuration.nix")
-              {
-                environment.systemPackages = [];
-              }
-            ]
-            ++ desktopModules
-            ++ allMachineModules;
+              {environment.systemPackages = [];}
+            ]++ modulesimport.desktopModules ++ modulesimport.allMachineModules;
         };
 
         # Thinkpad config
         ${thinkpadName} = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit my-variables;
-          };
+          specialArgs = {inherit inputs;inherit my-variables;};
           modules =
             [
               (thinkpadPath + "/configuration.nix")
@@ -175,9 +96,7 @@
               */
               inputs.hjem.nixosModules.default
               # ./modules/temporary-packages.nix
-            ]
-            ++ thinkpadModules
-            ++ allMachineModules;
+            ]++ modulesimport.thinkpadModules ++ modulesimport.allMachineModules;
         };
       };
     };
