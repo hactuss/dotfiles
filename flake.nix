@@ -1,6 +1,5 @@
 {
   description = "Nixos config flake by hactuss";
-  ###########################################################################
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05"; # 26.05
     home-manager = {
@@ -16,13 +15,11 @@
     # flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:niri-wm/niri";
   };
-  ###########################################################################
   outputs = {
     nixpkgs,
     nixgl,
     ...
   } @ inputs:
-  #################################################################
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -183,24 +180,5 @@
             ++ allMachineModules;
         };
       };
-      ###################################################################
-      devShells.${system} = {
-        /*
-        svelte = pkgs.mkShell {
-          packages = with pkgs; [
-            pnpm
-          ];
-        };
-        rust = pkgs.mkShell {
-          packages = with pkgs; [
-            rustc
-            cargo
-            rust-analyzer
-            clippy
-          ];
-          };
-        */
-      };
-      ##################################################################
     };
 }
