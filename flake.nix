@@ -45,6 +45,7 @@
       configPath = /${homedir}/dotfiles;
       timezone = "Europe/Berlin";
     };
+    vars = import ./modules/variables.nix {};
     modulesimport = import ./modules/default.nix {inherit my-variables;};
   in {
     nixosConfigurations = {
