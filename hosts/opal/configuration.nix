@@ -228,7 +228,6 @@
   # services.h2o.enable = true;
   programs.zsh.autosuggestions.enable = true;
   # programs.niri.enable = true;
-  programs.sway.enable = true;
   virtualisation.docker = {
     enable = true;
   };
