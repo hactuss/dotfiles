@@ -1,4 +1,5 @@
-let system = "x86_64-linux";
+let
+system = "x86_64-linux";
 pkgs = nixpkgs.legacyPackages.${system};
 username = "hactuss";
 desktopName = "emerald";

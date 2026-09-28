@@ -202,6 +202,7 @@
     openssl
     nnn
     zlib
+    dysk
 
     /*
         (inputs.wrappers.lib.wrapPackage {
