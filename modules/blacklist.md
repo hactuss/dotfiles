@@ -10,3 +10,4 @@ Packages that I have tried to work with or implement without success.
 ## Features
 
 - gtk/qt themes, iconpacks via home manager
+- home manager
