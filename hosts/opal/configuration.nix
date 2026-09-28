@@ -287,6 +287,9 @@
     feh
     mpv
     cmake
+    nnn
+    zlib
+    openssl
     #filemanagers choice
     #nautilus
     #nemo

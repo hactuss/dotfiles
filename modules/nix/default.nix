@@ -14,7 +14,7 @@
 
   programs.nix-ld = {
     enable = true;
-    libraries = with pkgs; [clang];
+    libraries = with pkgs; [openssl zlib clang];
   };
   nixpkgs.config.permittedInsecurePackages = [
     "electron-40.10.5"

@@ -192,7 +192,6 @@
     unzip
     coreutils-full
     cowsay
-    gcc
     regex-tui
     regex-cli
     pstree
@@ -201,6 +200,9 @@
     pcmanfm
     btop
     openssl
+    nnn
+    zlib
+
     /*
         (inputs.wrappers.lib.wrapPackage {
           inherit pkgs;
