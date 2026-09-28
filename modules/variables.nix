@@ -1,4 +1,4 @@
-system = "x86_64-linux";
+let system = "x86_64-linux";
 pkgs = nixpkgs.legacyPackages.${system};
 username = "hactuss";
 desktopName = "emerald";
@@ -23,3 +23,6 @@ my-variables = rec {
 homedir = /home/${username};
 configPath = /${homedir}/dotfiles;
 timezone = "Europe/Berlin";
+in {
+
+}
