@@ -19,8 +19,7 @@
     nixpkgs,
     nixgl,
     ...
-  } @ inputs:
-  let
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     username = "hactuss";
@@ -46,58 +45,67 @@
       configPath = /${homedir}/dotfiles;
       timezone = "Europe/Berlin";
     };
-    modulesimport = import ./modules
-  in
-    {
-      nixosConfigurations = {
-        # Desktop config
-        ${desktopName} = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;inherit my-variables;};
-          modules =
-            [
-              # inputs.home-manager.nixosModules.home-manager
-              /*
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.backupFileExtension = "hm-bak";
-                home-manager.users.${username} = { ... }: {
-                  imports = [
-                    (desktopPath + "/home.nix")
-                  ];
-                };
-              }
-              */
-              inputs.hjem.nixosModules.default
-              (desktopPath + "/configuration.nix")
-              {environment.systemPackages = [];}
-            ]++ modulesimport.desktopModules ++ modulesimport.allMachineModules;
+    modulesimport = import ./modules;
+  in {
+    nixosConfigurations = {
+      # Desktop config
+      ${desktopName} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit my-variables;
         };
+        modules =
+          [
+            # inputs.home-manager.nixosModules.home-manager
+            /*
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-bak";
+              home-manager.users.${username} = { ... }: {
+                imports = [
+                  (desktopPath + "/home.nix")
+                ];
+              };
+            }
+            */
+            inputs.hjem.nixosModules.default
+            (desktopPath + "/configuration.nix")
+            {environment.systemPackages = [];}
+          ]
+          ++ modulesimport.desktopModules
+          ++ modulesimport.allMachineModules;
+      };
 
-        # Thinkpad config
-        ${thinkpadName} = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;inherit my-variables;};
-          modules =
-            [
-              (thinkpadPath + "/configuration.nix")
-              /*
-              inputs.home-manager.nixosModules.default
-              inputs.home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.backupFileExtension = "hm-bak";
-                home-manager.users.${username} = {...}: {
-                  imports = [
-                    (thinkpadPath + "/home.nix")
-                  ];
-                };
-              }
-              */
-              inputs.hjem.nixosModules.default
-              # ./modules/temporary-packages.nix
-            ]++ modulesimport.thinkpadModules ++ modulesimport.allMachineModules;
+      # Thinkpad config
+      ${thinkpadName} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit my-variables;
         };
+        modules =
+          [
+            (thinkpadPath + "/configuration.nix")
+            /*
+            inputs.home-manager.nixosModules.default
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-bak";
+              home-manager.users.${username} = {...}: {
+                imports = [
+                  (thinkpadPath + "/home.nix")
+                ];
+              };
+            }
+            */
+            inputs.hjem.nixosModules.default
+            # ./modules/temporary-packages.nix
+          ]
+          ++ modulesimport.thinkpadModules
+          ++ modulesimport.allMachineModules;
       };
     };
+  };
 }

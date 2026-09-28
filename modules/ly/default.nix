@@ -9,7 +9,7 @@
       bigclock = "en";
       clear_password = true;
       blank_box = true;
-      border_fg = "0x0000FF00";
+      border_fg = "0x00000000";
       box_title = "Welcome!";
       #colormix_col1 = ;
       margin_box_h = 0;
