@@ -18,7 +18,6 @@
     "obsidian"
     "swaylock"
     "dolphin"
-    "btop"
     "udisk"
     "kdeconnect"
     "syncthing"
@@ -28,14 +27,36 @@
     "hjem"
     "gparted"
     "noctalia"
-    "lmms"
+    # "lmms"
     "davinci-resolve"
     "home_inbox"
     "anki"
     #"qt" "gtk" DO NOT touch that again
   ];
-  thinkpadModules = map (module: my-variables.modulesPath + "/${module}") ["niri" "samba" "neovim" "dolphin" "kdeconnect" "fun"];
-  allMachineModules = map (module: my-variables.modulesPath + "/${module}") ["btop" "dolphin" "ghostty" "git" "hjem" "kdeconnect" "librewolf" "ly" "neovim" "niri" "nix" "obsidian" "openssh" "swaylock" "updating"];
+  thinkpadModules = map (module: my-variables.modulesPath + "/${module}") [
+    "niri"
+    "samba"
+    "neovim"
+    "dolphin"
+    "kdeconnect"
+    "fun"
+  ];
+  allMachineModules = map (module: my-variables.modulesPath + "/${module}") [
+    "dolphin"
+    "ghostty"
+    "git"
+    "hjem"
+    "kdeconnect"
+    "librewolf"
+    "ly"
+    "neovim"
+    "niri"
+    "nix"
+    "obsidian"
+    "openssh"
+    "swaylock"
+    "updating"
+  ];
   /*
   from VJ's config
   isNixModule = file: builtins.hasExt "nix" && file.name != "flake.nix" && !lib.hasPrefix "_" file.name;

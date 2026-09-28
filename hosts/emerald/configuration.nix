@@ -200,6 +200,7 @@
     thunar
     pcmanfm
     btop
+    openssl
     /*
         (inputs.wrappers.lib.wrapPackage {
           inherit pkgs;
@@ -235,7 +236,10 @@
     enable = true;
     clock24 = true;
   };
-  programs.wireshark = {enable = true; package = pkgs.wireshark;}
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
