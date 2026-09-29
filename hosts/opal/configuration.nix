@@ -26,7 +26,7 @@
 
   boot.loader.limine.enable = true;
   networking.hostName = my-variables.thinkpadName; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -183,12 +183,13 @@
     powertop.enable = true;
   };
 
-  /*services.logind.settings.Login = {
+  /*
+    services.logind.settings.Login = {
     HandleLidSwitch = "lock";
     HandleLidSwitchExternalPower = "lock";
     HandleLidSwitchDocked = "lock";
-  };*/
-
+  };
+  */
 
   services.tlp = {
     enable = true;
