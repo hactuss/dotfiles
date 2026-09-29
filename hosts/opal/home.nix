@@ -85,6 +85,7 @@ in {
       };
     };
     */
+    /*
     fastfetch = {
       enable = true;
       settings = {
@@ -117,7 +118,8 @@ in {
           "media"
         ];
       };
-    };
+    };*/
+
   };
   /*
   gtk = {
@@ -193,7 +195,7 @@ in {
     "./.config/waybar/config.jsonc".source = ./../../configfiles/waybar/config.jsonc;
     "./.config/waybar/style.css".source = ./../../configfiles/waybar/style.css;
   };
-  programs.zsh.initContent = "cal";
+  # programs.zsh.initContent = "cal";
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell

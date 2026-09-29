@@ -19,7 +19,7 @@
     efi.canTouchEfiVariables = true;
     limine.style.wallpaperStyle = "centered";
   };
-  boot.consoleLogLevel = 0;
+  # boot.consoleLogLevel = 0;
   #boot.plymouth.enable = true;
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_6_18;
@@ -116,6 +116,7 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
   swapDevices = [
     {
       device = "/swapfile";
@@ -139,17 +140,17 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
-    freerdp
+    #freerdp
     flameshot
     librewolf
     zed-editor
-    nixfmt
-    seahorse
+    #nixfmt
+    #seahorse
     nh
     ghostty
-    pavucontrol
-    xeyes
-    waypaper
+    #pavucontrol
+    #xeyes
+    #waypaper
     feh
     fuzzel
     fastfetch
@@ -159,10 +160,10 @@
     ffmpeg
     nixd
     btop
-    cmatrix
+    # cmatrix
     # discord
-    tmux
-    tor-browser
+    # tmux
+    # tor-browser
     prismlauncher
     alejandra
     mpv
@@ -170,79 +171,43 @@
     #xmrig
     r2modman
     unrar
-    hollywood
+    #hollywood
     xwayland-satellite
     # niri wallpaper
     swaybg
     swaylock
-    awww
-    imagemagick
-    waybar
-    tree
     swaylock-plugin
     swaylock-fancy
     swaylock-effects
-    # #################
-    pywal16
-    cwal
-    hellwal
-    wallust
+    #awww
+    #imagemagick
+    #waybar
+    tree
+    #pywal16
+    #cwal
+    #hellwal
+    #wallust
     libdisplay-info
-    cbonsai
+    #cbonsai
     unzip
-    coreutils-full
-    cowsay
-    regex-tui
-    regex-cli
+    # coreutils-full
+    #cowsay
+    #regex-tui
+    #regex-cli
     pstree
-    termusic
-    thunar
+    #termusic
+    #thunar
     pcmanfm
-    btop
+
     openssl
     nnn
     zlib
     dysk
     lsd
-    /*
-        (inputs.wrappers.lib.wrapPackage {
-          inherit pkgs;
-          package = pkgs.niri;
-          flags = {
-            "--config" = config;
-          };
-    })
-    */
-    /*
-    (inputs.wrappers.lib.wrapPackage {
-      inherit pkgs;
-      package = pkgs.curl;
-      runtimeInputs = [pkgs.jq];
-      env = {
-        CURL_CA_BUNDLE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
-      };
-      flags = {
-        "--silent" = true;
-        "--connect-timeout" = "30";
-      };
-      # Or use args directly for more control:
-      # args = [ "--silent" "--connect-timeout" "30" ];
-      flagSeparator = "="; # Use --flag=value instead of --flag value (default is " ")
-      preHook = ''
-        echo "Making request..." >&2
-      '';
-    })
-    */
   ];
-  #services.asusd
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-  };
-  programs.wireshark = {
-    enable = true;
-    package = pkgs.wireshark;
-  };
+  # services.asusd
+  # programs.tmux = {enable = true;clock24 = true;};
+  # programs.wireshark = {enable = true;package = pkgs.wireshark;};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

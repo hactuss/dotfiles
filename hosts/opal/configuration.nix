@@ -5,6 +5,7 @@
   config,
   pkgs,
   inputs,
+  my-variables,
   ...
 }: {
   imports = [
@@ -15,17 +16,17 @@
 
   # Bootloader.
   #boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.efiSupport = true;
+  # boot.loader.grub.device = "nodev";
+  # boot.loader.grub.useOSProber = true;
+  # boot.loader.grub.efiSupport = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.splashImage = "/etc/nixos/assets/Jotaro_Thinkpad_2.png";
-  boot.loader.grub.backgroundColor = "#000000";
+  # boot.loader.grub.splashImage = "/etc/nixos/assets/Jotaro_Thinkpad_2.png";
+  # boot.loader.grub.backgroundColor = "#000000";
 
   boot.loader.limine.enable = true;
-  networking.hostName = "opal"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = my-variables.thinkpadName; # Define your hostname.
+  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -81,10 +82,10 @@
   nix.settings.auto-optimise-store = true;
   hardware.trackpoint.enable = true;
   hardware.enableAllHardware = true;
-  hardware.steam-hardware.enable = true;
-  hardware.graphics.enable = true;
+  # hardware.steam-hardware.enable = true;
+  # hardware.graphics.enable = true;
   # Set your time zone.
-  time.timeZone = "Europe/Berlin";
+  time.timeZone = my-variables.timezone;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -114,6 +115,7 @@
   };
   */
   # displayManager.sddm.wayland.enable = true;
+
   services.displayManager.ly = {
     enable = true;
     # https://github.com/fairyglade/ly/blob/master/res/config.ini
@@ -162,7 +164,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.hactuss = {
+  users.users."${my-variables.username}" = {
     shell = pkgs.bash;
     isNormalUser = true;
     description = "hactuss";
@@ -181,11 +183,13 @@
     powertop.enable = true;
   };
 
-  services.logind.settings.Login = {
+  /*services.logind.settings.Login = {
     HandleLidSwitch = "lock";
     HandleLidSwitchExternalPower = "lock";
     HandleLidSwitchDocked = "lock";
-  };
+  };*/
+
+
   services.tlp = {
     enable = true;
     settings = {
@@ -231,6 +235,7 @@
   virtualisation.docker = {
     enable = true;
   };
+
   environment.sessionVariables = {
     NH_FLAKE = "/home/hactuss/dotfiles";
     NIXOS_OZONE_WL = "1";
@@ -242,14 +247,15 @@
     brave
     librewolf
     pulseaudio
-    papirus-nord
-    autotiling-rs
-    deadnix
-    spotify-cli-linux
+    # papirus-nord
+    # autotiling-rs
+    # deadnix
+    # spotify-cli-linux
     #lix
+
     puddletag
-    dzen2
-    libnotify
+    # dzen2
+    # libnotify
     xwayland-satellite
     onefetch
     fuzzel
@@ -261,16 +267,16 @@
     blueman
     unrar
     speedtest
-    exif
-    nixfmt
-    nixfmt-tree
+    # exif
+    #nixfmt
+    #nixfmt-tree
     nh
-    exiftool
-    foremost
+    #exiftool
+    #foremost
     # GUI apps
     #alacritty
     ghostty
-    waybar
+    #waybar
     #brave
     #vivaldi
     # discord
@@ -278,7 +284,7 @@
     libreoffice
     obs-studio
     #krita
-    vlc
+    #vlc
     zed-editor
     obsidian
     #giada
@@ -294,46 +300,46 @@
     #nemo
     #polybarFull
     #lemonbar
-    eww
-    pavucontrol
+    #eww
+    #pavucontrol
     # cli
     gnupg
     pcmanfm
-    pcmanfm-qt
-    metasploit
-    nmap
-    netcat
-    gnome-tweaks
+    #pcmanfm-qt
+    #metasploit
+    #nmap
+    #netcat
+    #gnome-tweaks
     #neovim
     fastfetch
     btop
-    wget
+    # wget
     ly
     yt-dlp
     ffmpeg
     curl
-    tmux
-    pnpm
+    #tmux
+    #pnpm
     alejandra
-    metadata
+    #metadata
     tree
-    wine
-    networkmanager
-    presenterm
-    udev
-    gnupg
-    gparted
+    #wine
+    #networkmanager
+    #presenterm
+    #udev
+    #gnupg
+    #gparted
     #fun stuff
-    cmatrix
-    cowsay
-    cava
-    fortune
-    peaclock
-    tetris
-    cbonsai
-    figlet
-    sl
-    hollywood
+    #cmatrix
+    #cowsay
+    #cava
+    #fortune
+    #peaclock
+    #tetris
+    #cbonsai
+    #figlet
+    #sl
+    #hollywood
     #other
     hardinfo2
     lsd
@@ -343,15 +349,14 @@
     # terminal
     # utility
     brightnessctl
-    alsa-utils
+    #alsa-utils
     # misc
 
     #grim # screenshot functionality
     #slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     mako # notification system developed by swaywm maintainer
-    waypaper
-    unrar
+    # waypaper
     dysk
   ];
 
