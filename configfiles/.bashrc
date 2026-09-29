@@ -1,7 +1,6 @@
 #PS1='\n[\u@\h] '
 #PS1='\n[\u@\h>\w] '
-PS1='\n\[\e[97m\]\[\e[0m\][\u@\h()\w] '
-
+PS1='\n\[\e[97m\]\[\e[0m\][\u@\h()\w $(git branch --show-current 2>/dev/null)] '
 alias ga='git add .';
 alias gc='alejandra $HOME/dotfiles ; git commit -am'
 alias gs='git status'

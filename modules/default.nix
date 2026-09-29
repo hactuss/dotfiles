@@ -1,67 +1,80 @@
-{my-variables, ...}: {
-  # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
-  desktopModules = map (module: my-variables.modulesPath + "/${module}") [
-    # Mandatory
+{ my-variables, ... }: {
+  desktopUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
     "nh"
-    "updating"
-    "nix"
     "git"
-    "ly"
+    "udisk"
+    "fun"
+    "gparted"
+    "home_inbox"
+  ];
+  desktopPrograms = map (module: my-variables.modulesPath + "/programs" + "/${module}") [
     "neovim"
     "steam"
     "obs"
-    "tailscale"
+    "obsidian"
+    "dolphin"
+    "kdeconnect"
+    "winboat"
+    "davinci-resolve"
+    "anki" # "lmms"
+  ];
+  desktopSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
+    "updating"
+    "nix"
+    "ly"
     "fonts"
+    "swaylock"
+    "hjem"
+    "noctalia"
+  ];
+  desktopServices = map (module: my-variables.modulesPath + "/services" + "/${module}") [
+    "tailscale"
     "samba"
     "jellyfin"
     "navidrome"
-    "obsidian"
-    "swaylock"
-    "dolphin"
-    "udisk"
-    "kdeconnect"
     "syncthing"
-    "winboat"
-    "fun"
     "openssh"
-    "hjem"
-    "gparted"
-    "noctalia"
-    # "lmms"
-    "davinci-resolve"
-    "home_inbox"
-    "anki"
-    #"qt" "gtk" DO NOT touch that again
+  ];
+
+  tinkpadSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
+    "niri"
+  ];
+  tinkpadPrograms = map (module: my-variables.modulesPath + "/programs" + "/${module}") [
+    "neovim"
+    "dolphin"
+    "kdeconnect"
+  ];
+  tinkpadServices = map (module: my-variables.modulesPath + "/services" + "/${module}") [
+    "samba"
+  ];
+  tinkpadUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
+    "fun"
   ];
   thinkpadModules = map (module: my-variables.modulesPath + "/${module}") [
-    "niri"
-    "samba"
-    "neovim"
-    "dolphin"
-    "kdeconnect"
-    "fun"
   ];
   allMachineModules = map (module: my-variables.modulesPath + "/${module}") [
-    "dolphin"
-    "ghostty"
-    "git"
-    "hjem"
-    "kdeconnect"
-    "librewolf"
-    "ly"
-    "neovim"
-    "niri"
-    "noctalia"
-    "fonts"
-    "nix"
-    "obsidian"
-    "openssh"
-    "swaylock"
-    "updating"
+    "programs/dolphin"
+    "programs/ghostty"
+    "utils/git"
+    "system/hjem"
+    "programs/kdeconnect"
+    "programs/librewolf"
+    "system/ly"
+    "programs/neovim"
+    "system/niri"
+    "system/noctalia"
+    "system/fonts"
+    "system/nix"
+    "programs/obsidian"
+    "services/openssh"
+    "system/swaylock"
+    "system/updating"
   ];
+  # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
+
   /*
-  from VJ's config
-  isNixModule = file: builtins.hasExt "nix" && file.name != "flake.nix" && !lib.hasPrefix "_" file.name;
-  importTree = path: lib.toList (lib.fileFilter isNixModule path);
+    from VJ's config
+    isNixModule = file: builtins.hasExt "nix" && file.name != "flake.nix" && !lib.hasPrefix "_" file.name;
+    importTree = path: lib.toList (lib.fileFilter isNixModule path);
   */
 }
