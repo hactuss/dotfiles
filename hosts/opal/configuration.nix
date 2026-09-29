@@ -7,8 +7,7 @@
   inputs,
   my-variables,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -58,15 +57,15 @@
   # system.stateVersion = "25.05";
 
   /*
-    system.autoUpgrade = {
-      enable = true;
-      flake = inputs.self.outPath;
-      flags = [
-        "-L"
-      ];
-      dates = "04:00";
-      randomizedDelaySec = "60min";
-    };
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "-L"
+    ];
+    dates = "04:00";
+    randomizedDelaySec = "60min";
+  };
   */
   networking.firewall.allowPing = true;
 
@@ -108,9 +107,9 @@
 
   # Enable the KDE Plasma Desktop Environment.
   /*
-    services.desktopManager = {
-      plasma6.enable = true;
-    };
+  services.desktopManager = {
+    plasma6.enable = true;
+  };
   */
   # displayManager.sddm.wayland.enable = true;
 
@@ -182,11 +181,11 @@
   };
 
   /*
-      services.logind.settings.Login = {
-      HandleLidSwitch = "lock";
-      HandleLidSwitchExternalPower = "lock";
-      HandleLidSwitchDocked = "lock";
-    };
+    services.logind.settings.Login = {
+    HandleLidSwitch = "lock";
+    HandleLidSwitchExternalPower = "lock";
+    HandleLidSwitchDocked = "lock";
+  };
   */
 
   services.tlp = {
@@ -366,9 +365,9 @@
   programs.nix-ld.enable = true;
 
   /*
-    services.xmrig = {
-      enable = true;
-    };
+  services.xmrig = {
+    enable = true;
+  };
   */
 
   fonts = {
@@ -392,9 +391,9 @@
     fontconfig = {
       enable = true;
       /*
-        defaultFonts = {
-          monospace = "Jetbrains-mono";
-        };
+      defaultFonts = {
+        monospace = "Jetbrains-mono";
+      };
       */
     };
   };
@@ -403,7 +402,7 @@
     config = {
       allowUnfree = true;
       packageOverrides = _pkgs: {
-        unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
+        unstable = import <nixos-unstable> {config = config.nixpkgs.config;};
       };
     };
   };
@@ -412,7 +411,7 @@
   # $ nix search wget
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "hactuss" = import ./home.nix;
     };
@@ -439,7 +438,7 @@
       PasswordAuthentication = true;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ "hactuss" ];
+      AllowUsers = ["hactuss"];
     };
   };
   programs.ssh.askPassword = "askPassword";

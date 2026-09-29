@@ -1,4 +1,4 @@
-{ my-variables, ... }: {
+{my-variables, ...}: {
   desktopUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
     "nh"
     "git"
@@ -50,8 +50,9 @@
   thinkpadUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
     "fun"
   ];
-  thinkpadModules = map (module: my-variables.modulesPath + "/${module}") [
-  ];
+  thinkpadModules =
+    map (module: my-variables.modulesPath + "/${module}") [
+    ];
   allMachineModules = map (module: my-variables.modulesPath + "/${module}") [
     "programs/dolphin"
     "programs/ghostty"
@@ -73,8 +74,8 @@
   # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
 
   /*
-    from VJ's config
-    isNixModule = file: builtins.hasExt "nix" && file.name != "flake.nix" && !lib.hasPrefix "_" file.name;
-    importTree = path: lib.toList (lib.fileFilter isNixModule path);
+  from VJ's config
+  isNixModule = file: builtins.hasExt "nix" && file.name != "flake.nix" && !lib.hasPrefix "_" file.name;
+  importTree = path: lib.toList (lib.fileFilter isNixModule path);
   */
 }

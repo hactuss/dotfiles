@@ -15,95 +15,94 @@
     # flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:niri-wm/niri";
   };
-  outputs =
-    {
-      nixpkgs,
-      nixgl,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      username = "hactuss";
-      desktopName = "emerald";
-      thinkpadName = "opal";
-      modulesPath = ./modules;
-      hostsPath = ./hosts;
-      configfilesPath = ./configfilesPath;
-      desktopPath = hostsPath + "/${desktopName}";
-      thinkpadPath = hostsPath + "/${thinkpadName}";
-      my-variables = rec {
-        inherit
-          username
-          desktopName
-          thinkpadName
-          modulesPath
-          hostsPath
-          configfilesPath
-          desktopPath
-          thinkpadPath
-          ;
-        homedir = /home/${username};
-        configPath = /${homedir}/dotfiles;
-        timezone = "Europe/Berlin";
-      };
-      vars = import ./modules/variables.nix { };
-      modulesimport = import ./modules/default.nix { inherit my-variables; };
-    in
-    {
-      nixosConfigurations = {
-        # Desktop config
-        ${desktopName} = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit my-variables;
-          };
-          modules = [
+  outputs = {
+    nixpkgs,
+    nixgl,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    username = "hactuss";
+    desktopName = "emerald";
+    thinkpadName = "opal";
+    modulesPath = ./modules;
+    hostsPath = ./hosts;
+    configfilesPath = ./configfilesPath;
+    desktopPath = hostsPath + "/${desktopName}";
+    thinkpadPath = hostsPath + "/${thinkpadName}";
+    my-variables = rec {
+      inherit
+        username
+        desktopName
+        thinkpadName
+        modulesPath
+        hostsPath
+        configfilesPath
+        desktopPath
+        thinkpadPath
+        ;
+      homedir = /home/${username};
+      configPath = /${homedir}/dotfiles;
+      timezone = "Europe/Berlin";
+    };
+    vars = import ./modules/variables.nix {};
+    modulesimport = import ./modules/default.nix {inherit my-variables;};
+  in {
+    nixosConfigurations = {
+      # Desktop config
+      ${desktopName} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit my-variables;
+        };
+        modules =
+          [
             # inputs.home-manager.nixosModules.home-manager
             /*
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.backupFileExtension = "hm-bak";
-                home-manager.users.${username} = { ... }: {
-                  imports = [
-                    (desktopPath + "/home.nix")
-                  ];
-                };
-              }
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-bak";
+              home-manager.users.${username} = { ... }: {
+                imports = [
+                  (desktopPath + "/home.nix")
+                ];
+              };
+            }
             */
             inputs.hjem.nixosModules.default
             (desktopPath + "/configuration.nix")
-            { environment.systemPackages = [ ]; }
+            {environment.systemPackages = [];}
           ]
           ++ modulesimport.desktopPrograms
           ++ modulesimport.desktopSystem
           ++ modulesimport.desktopServices
           ++ modulesimport.desktopUtils
           ++ modulesimport.allMachineModules;
-        };
+      };
 
-        # Thinkpad config
-        ${thinkpadName} = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit my-variables;
-          };
-          modules = [
+      # Thinkpad config
+      ${thinkpadName} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit my-variables;
+        };
+        modules =
+          [
             (thinkpadPath + "/configuration.nix")
             /*
-              inputs.home-manager.nixosModules.default
-              inputs.home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.backupFileExtension = "hm-bak";
-                home-manager.users.${username} = {...}: {
-                  imports = [
-                    (thinkpadPath + "/home.nix")
-                  ];
-                };
-              }
+            inputs.home-manager.nixosModules.default
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-bak";
+              home-manager.users.${username} = {...}: {
+                imports = [
+                  (thinkpadPath + "/home.nix")
+                ];
+              };
+            }
             */
             inputs.hjem.nixosModules.default
             # ./modules/temporary-packages.nix
@@ -113,7 +112,7 @@
           ++ modulesimport.thinkpadServices
           ++ modulesimport.thinkpadUtils
           ++ modulesimport.allMachineModules;
-        };
       };
     };
+  };
 }

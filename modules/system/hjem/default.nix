@@ -1,4 +1,4 @@
-{ my-variables, ... }: {
+{my-variables, ...}: {
   hjem = {
     clobberByDefault = true;
     users.${my-variables.username} = {
