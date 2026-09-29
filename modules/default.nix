@@ -36,18 +36,18 @@
     "openssh"
   ];
 
-  tinkpadSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
+  thinkpadSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
     "niri"
   ];
-  tinkpadPrograms = map (module: my-variables.modulesPath + "/programs" + "/${module}") [
+  thinkpadPrograms = map (module: my-variables.modulesPath + "/programs" + "/${module}") [
     "neovim"
     "dolphin"
     "kdeconnect"
   ];
-  tinkpadServices = map (module: my-variables.modulesPath + "/services" + "/${module}") [
+  thinkpadServices = map (module: my-variables.modulesPath + "/services" + "/${module}") [
     "samba"
   ];
-  tinkpadUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
+  thinkpadUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
     "fun"
   ];
   thinkpadModules = map (module: my-variables.modulesPath + "/${module}") [
