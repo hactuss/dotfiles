@@ -15,14 +15,11 @@
   ];
 
   # Bootloader.
-  #boot.loader.grub.enable = true;
   # boot.loader.grub.device = "nodev";
   # boot.loader.grub.useOSProber = true;
   # boot.loader.grub.efiSupport = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.grub.splashImage = "/etc/nixos/assets/Jotaro_Thinkpad_2.png";
-  # boot.loader.grub.backgroundColor = "#000000";
 
   boot.loader.limine.enable = true;
   networking.hostName = my-variables.thinkpadName; # Define your hostname.
@@ -88,7 +85,7 @@
   time.timeZone = my-variables.timezone;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "de_DE.UTF-8";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
@@ -243,6 +240,8 @@
     DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
     DEFAULT_EDITOR = "neovim";
     EDITOR = "neovim";
+    PAGER = "neovim";
+    LANG = "de_DE.UTF-8";
   };
   environment.systemPackages = with pkgs; [
     brave

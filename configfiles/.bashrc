@@ -7,7 +7,7 @@ alias gc='alejandra $HOME/dotfiles ; git commit -am'
 alias gs='git status'
 alias gps='git push'
 alias gpl='git pull'
-alias switch='ga ; sudo nixos-rebuild switch --flake $HOME/dotfiles --impure'
+alias switch='pushd $HOME/dotfiles; ga ; sudo nixos-rebuild switch --flake $HOME/dotfiles --impure; popd;'
 alias cp='cp -r'
 alias ls='lsd'
 
