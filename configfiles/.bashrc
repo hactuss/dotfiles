@@ -9,6 +9,7 @@ alias gps='git push'
 alias gpl='git pull'
 alias switch='ga ; sudo nixos-rebuild switch --flake $HOME/dotfiles --impure'
 alias cp='cp -r'
+alias ls='lsd'
 
 #if [[$- == *i* ]]; then
 ##	cal
