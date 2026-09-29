@@ -336,6 +336,7 @@
     hollywood
     #other
     hardinfo2
+    lsd
 
     # dependencies
     # gui apps
@@ -351,6 +352,7 @@
     mako # notification system developed by swaywm maintainer
     waypaper
     unrar
+    dysk
   ];
 
   # environment.

@@ -203,7 +203,7 @@
     nnn
     zlib
     dysk
-
+    lsd
     /*
         (inputs.wrappers.lib.wrapPackage {
           inherit pkgs;
