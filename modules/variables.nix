@@ -24,5 +24,6 @@ let
   homedir = /home/${username};
   configPath = /${homedir}/dotfiles;
   timezone = "Europe/Berlin";
-in {
+in
+{
 }

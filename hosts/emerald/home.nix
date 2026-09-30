@@ -2,23 +2,24 @@
   pkgs,
   my-variables,
   ...
-}: {
+}:
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${my-variables.username}";
   home.homeDirectory = "/home/${my-variables.username}";
   /*
-   gtk doe not work
-  gtk = {
-    enable = true;
-    gtk4 = {
+     gtk doe not work
+    gtk = {
       enable = true;
-      theme = {
-        package = pkgs.gruvbox-dark-gtk;
-        name = "gruvbox dark";
+      gtk4 = {
+        enable = true;
+        theme = {
+          package = pkgs.gruvbox-dark-gtk;
+          name = "gruvbox dark";
+        };
       };
     };
-  };
   */
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -36,31 +37,30 @@
   programs.swaylock = {
     package = pkgs.swaylock;
     /*
-    settings = {
-      color = "808080";
-      font-size = 24;
-      indicator-idle-visible = false;
-      indicator-radius = 100;
-      line-color = "ffffff";
-      show-failed-attempts = true;
-      };
+      settings = {
+        color = "808080";
+        font-size = 24;
+        indicator-idle-visible = false;
+        indicator-radius = 100;
+        line-color = "ffffff";
+        show-failed-attempts = true;
+        };
     */
   };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   /*
-  xdg.configFile."swaylock/config".source = ./../../configfiles/swaylock/frappe;
-  home.file = {
-    "./.bashrc".source = ./../../configfiles/.bashrc;
-    "./.config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
-    "./.gitconfig".source = ./../../configfiles/.gitconfig;
-    "./.config/fuzzel/fuzzel.ini".source = ./../../configfiles/fuzzel/fuzzel.ini;
-    "./.config/dolphinrc".source = ./../../configfiles/dolphinrc;
-    "./.config/zed/settings.json".source = ./../../configfiles/zed/settings.json;
-    "./.config/waybar/config.jsonc".source = ./../../configfiles/waybar/config.jsonc;
-    "./.config/waybar/style.css".source = ./../../configfiles/waybar/style.css;
-    "./.config/syncthing/config.xml".source = ./../../configfiles/syncthing/config.xml;
-    };
+    xdg.configFile."swaylock/config".source = ./../../configfiles/swaylock/frappe;
+    home.file = {
+      "./.bashrc".source = ./../../configfiles/.bashrc;
+      "./.config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
+      "./.gitconfig".source = ./../../configfiles/.gitconfig;
+      "./.config/fuzzel/fuzzel.ini".source = ./../../configfiles/fuzzel/fuzzel.ini;
+      "./.config/dolphinrc".source = ./../../configfiles/dolphinrc;
+      "./.config/zed/settings.json".source = ./../../configfiles/zed/settings.json;
+      "./.config/waybar/config.jsonc".source = ./../../configfiles/waybar/config.jsonc;
+      "./.config/waybar/style.css".source = ./../../configfiles/waybar/style.css;
+      "./.config/syncthing/config.xml".source = ./../../configfiles/syncthing/config.xml;
+      };
   */
-  programs.home-manager.enable = true;
 }
