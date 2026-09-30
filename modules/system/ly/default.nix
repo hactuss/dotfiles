@@ -17,6 +17,8 @@
       box_position_h = 0.5;
       box_position_v = 0.2;
       ly_log = "/var/log/ly.log";
+      battery_id = "BAT0";
+      lang = "de";
     };
   };
 }

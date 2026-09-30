@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     nil
     nixd
@@ -14,7 +18,11 @@
 
   programs.nix-ld = {
     enable = true;
-    libraries = with pkgs; [openssl zlib clang];
+    libraries = with pkgs; [
+      openssl
+      zlib
+      clang
+    ];
   };
   nixpkgs.config.permittedInsecurePackages = [
     "electron-40.10.5"
@@ -23,11 +31,18 @@
     "nix-command"
     "flakes"
   ];
-  nixpkgs.config.allowUnfree = true;
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     RUSTICL_ENABLE = "radeonsi";
     RUST_BACKTRACE = 1;
   };
   nix.settings.auto-optimise-store = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      packageOverrides = _pkgs: {
+        unstable = import <nixos-unstable> {config = config.nixpkgs.config;};
+      };
+    };
+  };
 }

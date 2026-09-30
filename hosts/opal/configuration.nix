@@ -2,7 +2,6 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
   pkgs,
   inputs,
   my-variables,
@@ -11,6 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # /etc/nixos/hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -69,14 +69,6 @@
   */
   networking.firewall.allowPing = true;
 
-  nix = {
-    settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-  };
-
-  nix.settings.auto-optimise-store = true;
   hardware.trackpoint.enable = true;
   hardware.enableAllHardware = true;
   # hardware.steam-hardware.enable = true;
@@ -112,18 +104,6 @@
   };
   */
   # displayManager.sddm.wayland.enable = true;
-
-  services.displayManager.ly = {
-    enable = true;
-    # https://github.com/fairyglade/ly/blob/master/res/config.ini
-    settings = {
-      animation = "matrix";
-      battery_id = "BAT0";
-      bigclock = "en";
-      show_tty = true;
-      lang = "de";
-    };
-  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -172,67 +152,12 @@
       "docker"
     ];
   };
-
-  #services.tlp.enable = true;
-  services.thermald.enable = true;
-  powerManagement = {
-    enable = true;
-    powertop.enable = true;
-  };
-
-  /*
-    services.logind.settings.Login = {
-    HandleLidSwitch = "lock";
-    HandleLidSwitchExternalPower = "lock";
-    HandleLidSwitchDocked = "lock";
-  };
-  */
-
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-      CPU_MIN_PERF_ON_AC = 0;
-      CPU_MAX_PERF_ON_AC = 100;
-      CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 20;
-
-      # Optional helps save long term battery health
-      START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
-      STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
-      TLP_DEFAULT_MODE = "BAT";
-      TLP_PERSISTENT_DEFAULT = 1;
-    };
-  };
-  services.auto-cpufreq.enable = true;
-  services.auto-cpufreq.settings = {
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-    };
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
-  };
-  services.power-profiles-daemon.enable = false;
-
-  # one of "ignore", "poweroff", "reboot", "halt", "kexec", "suspend", "hibernate", "hybrid-sleep", "suspend-then-hibernate", "lock"
-
   programs.zsh.enable = true;
   #programs.zsh.shellInit = "echo Kernel by Linus Torvalds | cowsay -f tux";
   # services.tor.enable = true;
   # services.h2o.enable = true;
   programs.zsh.autosuggestions.enable = true;
   # programs.niri.enable = true;
-  virtualisation.docker = {
-    enable = true;
-  };
 
   environment.sessionVariables = {
     NH_FLAKE = "/home/${my-variables.username}/dotfiles";
@@ -362,50 +287,11 @@
 
   # environment.
 
-  programs.nix-ld.enable = true;
-
   /*
   services.xmrig = {
     enable = true;
   };
   */
-
-  fonts = {
-    packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk-sans
-
-      liberation_ttf
-      fira-code
-      fira-code-symbols
-      mplus-outline-fonts.githubRelease
-      dina-font
-      proggyfonts
-      jetbrains-mono
-      nerd-fonts.fira-code
-      nerd-fonts.droid-sans-mono
-    ];
-
-    enableGhostscriptFonts = true;
-    enableDefaultPackages = true;
-    fontconfig = {
-      enable = true;
-      /*
-      defaultFonts = {
-        monospace = "Jetbrains-mono";
-      };
-      */
-    };
-  };
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      packageOverrides = _pkgs: {
-        unstable = import <nixos-unstable> {config = config.nixpkgs.config;};
-      };
-    };
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -431,18 +317,6 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    ports = [
-      5432
-      22
-    ];
-    settings = {
-      PasswordAuthentication = true;
-      KbdInteractiveAuthentication = false;
-      PermitRootLogin = "no";
-      AllowUsers = ["${my-variables.username}"];
-    };
-  };
+
   programs.ssh.askPassword = "askPassword";
 }

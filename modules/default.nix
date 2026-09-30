@@ -26,6 +26,7 @@
     "swaylock"
     "hjem"
     "noctalia"
+    "niri"
   ];
   desktopServices = map (module: my-variables.modulesPath + "/services" + "/${module}") [
     "tailscale"
@@ -39,6 +40,7 @@
   thinkpadSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
     "niri"
     "fonts"
+    "thermalcontrol.nix"
   ];
   thinkpadPrograms = map (module: my-variables.modulesPath + "/programs" + "/${module}") [
     "neovim"
@@ -74,6 +76,7 @@
     "services/openssh"
     "system/swaylock"
     "system/updating"
+    "services/docker"
   ];
   # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
 

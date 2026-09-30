@@ -48,6 +48,7 @@
   };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
+  /*
   xdg.configFile."swaylock/config".source = ./../../configfiles/swaylock/frappe;
   home.file = {
     "./.bashrc".source = ./../../configfiles/.bashrc;
@@ -59,6 +60,7 @@
     "./.config/waybar/config.jsonc".source = ./../../configfiles/waybar/config.jsonc;
     "./.config/waybar/style.css".source = ./../../configfiles/waybar/style.css;
     "./.config/syncthing/config.xml".source = ./../../configfiles/syncthing/config.xml;
-  };
+    };
+  */
   programs.home-manager.enable = true;
 }
