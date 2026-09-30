@@ -314,8 +314,8 @@
       "linkLightAndDarkWallpapers": true,
       "fillMode": "crop",
       "fillColor": "#000000",
-      "useSolidColor": false,
-      "solidColor": "#1a1a2e",
+      "useSolidColor": true,
+      "solidColor": "#8e76ad",
       "automationEnabled": false,
       "wallpaperChangeMode": "random",
       "randomIntervalSec": 300,
@@ -340,7 +340,7 @@
       "wallhavenSorting": "relevance",
       "wallhavenOrder": "desc",
       "wallhavenCategories": "111",
-      "wallhavenPurity": "100",
+      "wallhavenPurity": "000",
       "wallhavenRatios": "",
       "wallhavenApiKey": "",
       "wallhavenResolutionMode": "atleast",
@@ -701,7 +701,7 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "eDP-1": "/nix/store/jh5slqq36mdc5wr7pzdbkynh0xiq66kw-noctalia-shell-4.7.6/share/noctalia-shell/Assets/Wallpaper/noctalia.png"
+      "eDP-1": "solid://#8e76ad"
     },
     "desktopWidgetsEditMode": false,
     "display": {
