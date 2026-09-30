@@ -1,8 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  my-variables,
+  ...
+}: {
   services.navidrome = {
     enable = true;
     openFirewall = true;
-    user = "hactuss";
+    user = "${my-variables.username}";
     settings = {
       Address = "0.0.0.0";
       Port = 4533;

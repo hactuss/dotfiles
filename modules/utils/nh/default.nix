@@ -1,6 +1,6 @@
-{...}: {
+{my-variables, ...}: {
   programs.nh = {
     enable = true;
-    flake = "/home/hactuss/dotfiles";
+    flake = "/home/${my-variables.username}/dotfiles";
   };
 }

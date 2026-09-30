@@ -130,7 +130,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${my-variables.username} = {
     isNormalUser = true;
-    description = "hactuss";
+    description = "${my-variables.username}";
     extraGroups = [
       "networkmanager"
       "wheel"

@@ -164,7 +164,7 @@
   users.users."${my-variables.username}" = {
     shell = pkgs.bash;
     isNormalUser = true;
-    description = "hactuss";
+    description = "${my-variables.username}";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -235,7 +235,7 @@
   };
 
   environment.sessionVariables = {
-    NH_FLAKE = "/home/hactuss/dotfiles";
+    NH_FLAKE = "/home/${my-variables.username}/dotfiles";
     NIXOS_OZONE_WL = "1";
     DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
     DEFAULT_EDITOR = "neovim";
@@ -411,9 +411,12 @@
   # $ nix search wget
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit my-variables;
+    };
     users = {
-      "hactuss" = import ./home.nix;
+      "${my-variables.username}" = import ./home.nix;
     };
   };
 
@@ -438,7 +441,7 @@
       PasswordAuthentication = true;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = ["hactuss"];
+      AllowUsers = ["${my-variables.username}"];
     };
   };
   programs.ssh.askPassword = "askPassword";

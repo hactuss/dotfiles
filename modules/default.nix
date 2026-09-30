@@ -38,6 +38,7 @@
 
   thinkpadSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
     "niri"
+    "fonts"
   ];
   thinkpadPrograms = map (module: my-variables.modulesPath + "/programs" + "/${module}") [
     "neovim"
@@ -46,6 +47,9 @@
   ];
   thinkpadServices = map (module: my-variables.modulesPath + "/services" + "/${module}") [
     "samba"
+    "syncthing"
+    "tailscale"
+    "openssh"
   ];
   thinkpadUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
     "fun"

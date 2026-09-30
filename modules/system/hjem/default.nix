@@ -3,7 +3,7 @@
     clobberByDefault = true;
     users.${my-variables.username} = {
       enable = true;
-      directory = "/home/hactuss";
+      directory = "/home/${my-variables.username}";
       user = "${my-variables.username}";
       files = {
         "./.bashrc".source = ./../../../configfiles/.bashrc;

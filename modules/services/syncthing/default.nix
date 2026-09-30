@@ -1,16 +1,15 @@
-{...}: {
+{my-variables, ...}: {
   services.syncthing = {
     enable = true;
-    dataDir = "/home/hactuss";
-    configDir = "/home/hactuss/.config/syncthing";
-    user = "hactuss";
+    dataDir = "/home/${my-variables.username}";
+    configDir = "/home/${my-variables.username}/.config/syncthing";
+    user = "${my-variables.username}";
     openDefaultPorts = true;
     /*
     settings = {
       gui = {
-        user = "hactuss";
+        user = "${my-variables.username}";
         password = "password";
-        theme = "black";
       };
       devices = {
         "Macbook" = {
@@ -32,7 +31,6 @@
         "/home/hactuss/undertale" = {
           path = "~/.config/UNDERTALE";
           devices = [ "Macbook" ];
-
         };
         "/home/hactuss/Obsidian Vault" = {
           path = "~/Obsidian Vault";

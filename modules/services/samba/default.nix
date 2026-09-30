@@ -1,4 +1,4 @@
-{
+{my-variables, ...}: {
   services = {
     samba = {
       enable = true;
@@ -8,12 +8,12 @@
 
         "emerald-mine" = {
           "path" = "/";
-          "valid users" = "hactuss";
+          "valid users" = "${my-variables.username}";
           "public" = "yes";
           "writable" = "yes";
           "browsable" = "yes";
           "read only" = "no";
-          "force user" = "hactuss";
+          "force user" = "${my-variables.username}";
         };
       };
     };

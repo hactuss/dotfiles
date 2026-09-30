@@ -1,8 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  my-variables,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "hactuss";
-  home.homeDirectory = "/home/hactuss";
+  home.username = "${my-variables.username}";
+  home.homeDirectory = "/home/${my-variables.username}";
   /*
    gtk doe not work
   gtk = {
