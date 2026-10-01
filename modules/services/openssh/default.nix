@@ -1,4 +1,4 @@
-{ my-variables, ... }: {
+{my-variables, ...}: {
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
@@ -10,7 +10,7 @@
       PasswordAuthentication = true;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ "${my-variables.username}" ];
+      AllowUsers = ["${my-variables.username}"];
     };
   };
 }

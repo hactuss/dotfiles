@@ -6,8 +6,7 @@
   inputs,
   my-variables,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -58,15 +57,15 @@
   # system.stateVersion = "25.05";
 
   /*
-    system.autoUpgrade = {
-      enable = true;
-      flake = inputs.self.outPath;
-      flags = [
-        "-L"
-      ];
-      dates = "04:00";
-      randomizedDelaySec = "60min";
-    };
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "-L"
+    ];
+    dates = "04:00";
+    randomizedDelaySec = "60min";
+  };
   */
   networking.firewall.allowPing = true;
 
@@ -100,9 +99,9 @@
 
   # Enable the KDE Plasma Desktop Environment.
   /*
-    services.desktopManager = {
-      plasma6.enable = true;
-    };
+  services.desktopManager = {
+    plasma6.enable = true;
+  };
   */
   # displayManager.sddm.wayland.enable = true;
 
@@ -288,9 +287,9 @@
   # environment.
 
   /*
-    services.xmrig = {
-      enable = true;
-    };
+  services.xmrig = {
+    enable = true;
+  };
   */
 
   # List packages installed in system profile. To search, run:

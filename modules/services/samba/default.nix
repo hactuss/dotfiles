@@ -1,4 +1,4 @@
-{ my-variables, ... }: {
+{my-variables, ...}: {
   services = {
     samba = {
       enable = true;

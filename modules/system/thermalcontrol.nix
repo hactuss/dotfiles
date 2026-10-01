@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   #services.tlp.enable = true;
   services.thermald.enable = true;
   powerManagement = {
@@ -7,11 +7,11 @@
   };
 
   /*
-      services.logind.settings.Login = {
-      HandleLidSwitch = "lock";
-      HandleLidSwitchExternalPower = "lock";
-      HandleLidSwitchDocked = "lock";
-    };
+    services.logind.settings.Login = {
+    HandleLidSwitch = "lock";
+    HandleLidSwitchExternalPower = "lock";
+    HandleLidSwitchDocked = "lock";
+  };
   */
 
   services.tlp = {
