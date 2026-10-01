@@ -1,8 +1,5 @@
 # Blacklist
-
 ## Packages
-
-Packages that I have tried to work with or implement without success.
 
 - [swaywall](https://github.com/cycneuramus/swaywall)
 - [thunderbird](https://www.thunderbird.net/)
@@ -10,4 +7,8 @@ Packages that I have tried to work with or implement without success.
 ## Features
 
 - gtk/qt themes, iconpacks via home manager
-- home manager
+- home manager (full use)
+- nix wrappers
+- stylix
+- nixvim
+- plasma manager
