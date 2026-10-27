@@ -253,9 +253,9 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-sh-at-startup "noctalia-shell"
 spawn-at-startup "librewolf"
-spawn-at-startup "obsidian"
 spawn-sh-at-startup "zeditor /home/hactuss/dotfiles"
-spawn-at-startup "ghostty"
+spawn-at-startup "steam"
+spawn-at-startup "r2modman"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 

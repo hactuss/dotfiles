@@ -160,7 +160,7 @@
     ffmpeg
     nixd
     btop
-ripgrep
+    ripgrep
     # cmatrix
     # discord
     # tmux

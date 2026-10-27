@@ -234,7 +234,7 @@
     #nmap
     #netcat
     #gnome-tweaks
-ripgrep
+    ripgrep
     #neovim
     fastfetch
     btop
