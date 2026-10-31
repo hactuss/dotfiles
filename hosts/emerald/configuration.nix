@@ -205,6 +205,9 @@
     zlib
     dysk
     lsd
+    ripgrep
+    fzf
+    stow
   ];
   # services.asusd
   # programs.tmux = {enable = true;clock24 = true;};
