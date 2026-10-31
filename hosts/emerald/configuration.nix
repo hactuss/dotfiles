@@ -208,6 +208,7 @@
     ripgrep
     fzf
     stow
+    xxd
     _7zz
     _7zz-rar
   ];
