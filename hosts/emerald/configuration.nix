@@ -208,6 +208,8 @@
     ripgrep
     fzf
     stow
+    _7zz
+    _7zz-rar
   ];
   # services.asusd
   # programs.tmux = {enable = true;clock24 = true;};
