@@ -92,8 +92,6 @@
   };
 
   hardware.bluetooth.enable = true;
-  systemd.targets.sleep.enable = false;
-  systemd.targets.suspend.enable = false;
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
 
@@ -295,15 +293,58 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  services.logind.settings.Login = {
+    HandleLidSwitch = "poweroff";
+    HandleLidSwitchExternalPower = "lock";
+    HandleLidSwitchDocked = "ignore";
+  };
+  # one of "ignore", "poweroff", "reboot", "halt", "kexec", "suspend", "hibernate", "hybrid-sleep", "suspend-then-hibernate", "lock"  home-manager = {
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs;
-      inherit my-variables;
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 20;
+
+      # Optional helps save long term battery health
+      START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
+      STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
     };
-    users = {
-      "${my-variables.username}" = import ./home.nix;
+  };
+  services.thermald.enable = true;
+  powerManagement.enable = true;
+  powerManagement.powertop.enable = true;
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
     };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024; # 16 GiB
+    }
+  ];
+
+  extraSpecialArgs = {
+    inherit inputs;
+    inherit my-variables;
+  };
+  users = {
+    "${my-variables.username}" = import ./home.nix;
   };
 
   # Some programs need SUID wrappers, can be configured further or are

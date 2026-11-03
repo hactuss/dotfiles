@@ -14,10 +14,15 @@
     nixgl.url = "github:nix-community/nixGL";
     # flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:niri-wm/niri";
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = {
     nixpkgs,
     nixgl,
+    auto-cpufreq,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -105,6 +110,8 @@
             }
             */
             inputs.hjem.nixosModules.default
+            auto-cpufreq.nixosModules.default
+
             # ./modules/temporary-packages.nix
           ]
           ++ modulesimport.thinkpadPrograms
