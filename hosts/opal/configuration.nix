@@ -332,21 +332,22 @@
       turbo = "auto";
     };
   };
+
   swapDevices = [
     {
       device = "/var/lib/swapfile";
       size = 16 * 1024; # 16 GiB
     }
   ];
-
-  extraSpecialArgs = {
-    inherit inputs;
-    inherit my-variables;
+  home-manager = {
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit my-variables;
+    };
+    users = {
+      "${my-variables.username}" = import ./home.nix;
+    };
   };
-  users = {
-    "${my-variables.username}" = import ./home.nix;
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
