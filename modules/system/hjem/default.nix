@@ -7,7 +7,7 @@
       user = "${my-variables.username}";
       files = {
         "./.bashrc".source = ./../../../configfiles/.bashrc;
-        "./.config/niri/config.kdl".source = ./../../../configfiles/niri/config.kdl;
+        "./.config/niri/config.kdl".source = ./../../../configfiles/niri/config-emerald.kdl;
         "./.gitconfig".source = ./../../../configfiles/.gitconfig;
         "./.config/fuzzel/fuzzel.ini".source = ./../../../configfiles/fuzzel/fuzzel.ini;
         "./.config/dolphinrc".source = ./../../../configfiles/dolphinrc;
