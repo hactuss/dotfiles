@@ -157,7 +157,7 @@
     onefetch
     screenfetch
     git
-    ffmpeg
+    ffmpeg-full
     nixd
     btop
     ripgrep

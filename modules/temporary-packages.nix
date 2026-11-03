@@ -13,7 +13,6 @@
     fuzzel
     onefetch
     git
-    ffmpeg
 
     btop
     prismlauncher
