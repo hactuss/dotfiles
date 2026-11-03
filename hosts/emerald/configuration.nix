@@ -157,7 +157,7 @@
     onefetch
     screenfetch
     git
-    ffmpeg-full
+    (pkgs.ffmpeg-full.override {withUnfree = true;})
     nixd
     btop
     ripgrep

@@ -239,7 +239,7 @@
     # wget
     ly
     yt-dlp
-    ffmpeg
+    (pkgs.ffmpeg-full.override {withUnfree = true;})
     curl
     #tmux
     #pnpm
