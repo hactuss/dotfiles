@@ -135,6 +135,7 @@
       "networkmanager"
       "wheel"
       "syncthing"
+      "samba"
     ];
   };
 
@@ -157,7 +158,9 @@
     onefetch
     screenfetch
     git
-    (pkgs.ffmpeg-full.override {withUnfree = true;})
+    ((pkgs.ffmpeg-full.override {withUnfree = true;}).overrideAttrs (_: {
+      doCheck = false;
+    }))
     nixd
     btop
     ripgrep

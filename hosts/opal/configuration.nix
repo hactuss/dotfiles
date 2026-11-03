@@ -147,7 +147,7 @@
       "networkmanager"
       "wheel"
       "users"
-      "docker"
+      "samba"
     ];
   };
   programs.zsh.enable = true;
@@ -239,7 +239,9 @@
     # wget
     ly
     yt-dlp
-    (pkgs.ffmpeg-full.override {withUnfree = true;})
+    ((pkgs.ffmpeg-full.override {withUnfree = true;}).overrideAttrs (_: {
+      doCheck = false;
+    }))
     curl
     #tmux
     #pnpm
