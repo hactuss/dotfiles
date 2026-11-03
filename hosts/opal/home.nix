@@ -190,7 +190,7 @@
     #"/home/hactuss/.gtkrc-2.0".source = ./homefiles/gtk/2-0.txt;
     #"/home/hactuss/.gtkrc-2.0".force = true;
     ".bashrc".source = ./../../configfiles/.bashrc;
-    ".config/niri/config.kdl".source = ./../../configfiles/niri/config.kdl;
+    ".config/niri/config.kdl".source = ./../../configfiles/niri/config-emerald.kdl;
     "./.config/fuzzel/fuzzel.ini".source = ./../../configfiles/fuzzel/fuzzel.ini;
     "./.config/waybar/config.jsonc".source = ./../../configfiles/waybar/config.jsonc;
     "./.config/waybar/style.css".source = ./../../configfiles/waybar/style.css;
