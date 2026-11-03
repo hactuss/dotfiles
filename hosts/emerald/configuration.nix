@@ -55,6 +55,16 @@
     nvidiaSettings = true; # <--- This enables the GUI tool
     # package = config.boot.kernelPackages.nvidiaPackages.stable; # or beta/production
     nvidiaPersistenced = true;
+    /*
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      amdgpuBusId = "PCI:0:0:0";
+        nvidiaBusId = "PCI:6:0:0";
+    };
+    */
   };
   # Select internationalisation properties.
   i18n = {
@@ -161,6 +171,7 @@
     ((pkgs.ffmpeg-full.override {withUnfree = true;}).overrideAttrs (_: {
       doCheck = false;
     }))
+    pciutils
     nixd
     btop
     ripgrep
@@ -202,7 +213,6 @@
     #termusic
     #thunar
     pcmanfm
-
     openssl
     nnn
     zlib

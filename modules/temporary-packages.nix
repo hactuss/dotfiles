@@ -4,7 +4,6 @@
     freerdp
     flameshot
     librewolf
-    zed-editor
     ghostty
     pavucontrol
 

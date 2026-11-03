@@ -33,7 +33,7 @@
     "samba"
     "jellyfin"
     "navidrome"
-    "syncthing"
+    # "syncthing"
     "openssh"
     "filestuff"
   ];
@@ -50,7 +50,7 @@
   ];
   thinkpadServices = map (module: my-variables.modulesPath + "/services" + "/${module}") [
     "samba"
-    "syncthing"
+    #"syncthing"
     "tailscale"
     "openssh"
     "filestuff"
