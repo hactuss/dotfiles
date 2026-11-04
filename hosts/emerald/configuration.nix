@@ -176,6 +176,7 @@
     nixd
     xmrig-cuda
     xmrig
+    cudaPackages
     btop
     ripgrep
     # cmatrix
