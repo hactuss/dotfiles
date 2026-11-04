@@ -150,6 +150,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    cudaPackages.cudatoolkit
     alacritty
     #freerdp
     flameshot
@@ -173,6 +174,8 @@
     }))
     pciutils
     nixd
+    xmrig-cuda
+    xmrig
     btop
     ripgrep
     # cmatrix
@@ -218,7 +221,6 @@
     zlib
     dysk
     lsd
-    ripgrep
     fzf
     stow
     xxd
