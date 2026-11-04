@@ -16,6 +16,7 @@
         "./.config/waybar/style.css".source = ./../../../configfiles/waybar/style.css;
         # "./.config/syncthing/config.xml".source = ./../../../configfiles/syncthing/config.xml;
         "./.config/swaylock/config".source = ./../../../configfiles/swaylock/frappe;
+        "./.xmrig.json".source = ./../../../configfiles/.xmrig.json;
       };
     };
   };
