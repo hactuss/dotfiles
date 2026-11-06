@@ -151,19 +151,13 @@
     ];
   };
   programs.zsh.enable = true;
-  #programs.zsh.shellInit = "echo Kernel by Linus Torvalds | cowsay -f tux";
-  # services.tor.enable = true;
-  # services.h2o.enable = true;
   programs.zsh.autosuggestions.enable = true;
-  # programs.niri.enable = true;
-
   environment.sessionVariables = {
     NH_FLAKE = "/home/${my-variables.username}/dotfiles";
     NIXOS_OZONE_WL = "1";
     DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
     DEFAULT_EDITOR = "neovim";
     EDITOR = "neovim";
-    #PAGER = "less";
     LANG = "de_DE.UTF-8";
   };
   environment.systemPackages = with pkgs; [
@@ -284,16 +278,9 @@
     mdr
   ];
 
-  # environment.
-
-  /*
-  services.xmrig = {
-    enable = true;
-  };
-  */
+  ##################### Laptop  power settings
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
   services.logind.settings.Login = {
     HandleLidSwitch = "lock";
     HandleLidSwitchExternalPower = "lock";
