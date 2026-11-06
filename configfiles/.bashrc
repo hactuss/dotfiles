@@ -12,7 +12,7 @@ alias ls='lsd'
 
 if [[ "$(uname -n)" == "opal" ]]; then
     PS1='#\[\e[38;5;105m\]\h\[\e[0m\] \[\e[3m\]<\u>\[\e[0m\] \[\e[1m\]\w\[\e[0m\] \\$ '
-elfi [[ "$(uname -n)" == "emerald" ]]; then
+elif [[ "$(uname -n)" == "emerald" ]]; then
     PS1='#\[\e[38;5;121m\]\h\[\e[0m\] \[\e[3m\]<\u>\[\e[0m\] \[\e[1m\]\w\[\e[0m\] \\$ '
 fi
 
