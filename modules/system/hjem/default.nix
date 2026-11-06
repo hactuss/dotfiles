@@ -1,8 +1,4 @@
-{
-  my-variables,
-  pkgs,
-  ...
-}: {
+{my-variables, ...}: {
   hjem = {
     clobberByDefault = true;
     users.${my-variables.username} = {
