@@ -188,8 +188,8 @@
     pscircle
     blueman
     unrar
-    speedtest
     # exif
+    # speedtest
     #nixfmt
     #nixfmt-tree
     nh
@@ -225,7 +225,6 @@
     #eww
     #pavucontrol
     # cli
-    gnupg
     pcmanfm
     #pcmanfm-qt
     #metasploit
@@ -252,7 +251,6 @@
     #networkmanager
     #presenterm
     #udev
-    #gnupg
     #gparted
     #fun stuff
     #cmatrix
@@ -283,6 +281,7 @@
     mako # notification system developed by swaywm maintainer
     # waypaper
     dysk
+    mdr
   ];
 
   # environment.
@@ -296,7 +295,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   services.logind.settings.Login = {
-    HandleLidSwitch = "poweroff";
+    HandleLidSwitch = "lock";
     HandleLidSwitchExternalPower = "lock";
     HandleLidSwitchDocked = "ignore";
   };
@@ -353,10 +352,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
