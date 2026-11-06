@@ -181,7 +181,6 @@
     ripgrep
     # cmatrix
     # discord
-    # tmux
     # tor-browser
     prismlauncher
     alejandra
@@ -229,7 +228,10 @@
     _7zz-rar
   ];
   # services.asusd
-  # programs.tmux = {enable = true;clock24 = true;};
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+  };
   # programs.wireshark = {enable = true;package = pkgs.wireshark;};
 
   # Some programs need SUID wrappers, can be configured further or are
