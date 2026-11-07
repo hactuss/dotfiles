@@ -1,8 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    noctalia-qs
-    noctalia-shell
     quickshell
+    noctalia
 
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome

@@ -1,10 +1,10 @@
 {
   description = "Nixos config flake by hactuss";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05"; # 26.05
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05"; # 26.05
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # import-tree.url = "github:denful/import-tree";

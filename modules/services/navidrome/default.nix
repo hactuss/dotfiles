@@ -16,8 +16,6 @@
       DefaultTheme = "Dark";
       Plugins.Enable = true;
     };
-    plugins = with pkgs.navidromePlugins; [
-      listenbrainz-daily-playlist
-    ];
+    #    withPlugins = with pkgs.navidromePlugins; [listenbrainz-daily-playlist];
   };
 }
