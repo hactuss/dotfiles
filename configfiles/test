@@ -1,0 +1,122 @@
+In KDE Dolphin, UI colors are primarily controlled by `~/.config/kdeglobals`, while Dolphin can select its own color scheme through `~/.config/dolphinrc`.
+
+## 1. dolphinrc – select color scheme
+
+File: `~/.config/dolphinrc`
+
+ini
+
+```ini
+[UiSettings]
+ColorScheme=BreezeDark
+```
+
+Examples:
+
+ini
+
+```ini
+ColorScheme=BreezeDark
+ColorScheme=BreezeLight
+ColorScheme=*
+```
+
+`*` means use the system color scheme.
+
+mail.kde.org
+
++1
+
+## 2. kdeglobals – actual UI colors
+
+File: `~/.config/kdeglobals`
+
+Important color groups:
+
+| Section | Controls |
+| --- | --- |
+| `[Colors:View]` | File view background and text |
+| `[Colors:Window]` | Main window background and text |
+| `[Colors:Button]` | Buttons |
+| `[Colors:Selection]` | Selected files and items |
+| `[Colors:Tooltip]` | Tooltips |
+| `[Colors:Complementary]` | Complementary UI elements |
+| `[Colors:Header]` | Headers |
+| `[Colors:Link]` | Hyperlinks |
+
+## 3\. Important color keys
+
+For example:
+
+ini
+
+```ini
+[Colors:View]
+BackgroundNormal=30,30,30
+BackgroundAlternate=38,38,38
+ForegroundNormal=220,220,220
+ForegroundInactive=160,160,160
+ForegroundLink=100,170,255
+ForegroundVisited=180,140,220
+
+[Colors:Selection]
+BackgroundNormal=50,100,160
+ForegroundNormal=255,255,255
+
+[Colors:Window]
+BackgroundNormal=35,35,35
+ForegroundNormal=220,220,220
+```
+
+RGB values are decimal numbers from 0–255.
+
+## 4\. Where to edit color schemes
+
+System Settings/Color - KDE UserBase Wiki
+
+KDE color schemes
+
+`~/.local/share/color-schemes/`
+
+Files have the extension `.colors`.
+
+The color scheme is the best place to customize Dolphin's background, text, selection and alternating row colors.
+
+KDE Discuss
+
++1
+
+## 5\. Apply changes
+
+After editing:
+
+bash
+
+```bash
+kbuildsycoca6
+```
+
+Then restart Dolphin:
+
+bash
+
+```bash
+kquitapp6 dolphin
+dolphin &
+```
+
+## 6\. Example: dark Dolphin with no alternating row colors
+
+ini
+
+```ini
+[Colors:View]
+BackgroundNormal=30,30,30
+BackgroundAlternate=30,30,30
+ForegroundNormal=220,220,220
+ForegroundInactive=150,150,150
+```
+
+This gives the file list a uniform dark background.
+
+Tip: If you want to customize every aspect of Dolphin independently, edit a copy of your `.colors` theme rather than modifying `kdeglobals` directly. This avoids affecting other KDE applications.
