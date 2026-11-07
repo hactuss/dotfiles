@@ -9,9 +9,13 @@
     libappimage
     resvg
     taglib
+    kdePackages.ark
+    kdePackages.dolphin-plugins
+    ffmpegthumbnailer
+    kdePackages.kdegraphics-thumbnailers
+    qt6Packages.qt6ct
+
+    #kimageformats # : Gimp *.xcf files, *.heic files (with libheif)
+    libappimage # (with kio-extras also installed): embedded *.AppImage icons
   ];
-  environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
-  environment.sessionVariables = {
-    XDG_MENU_PREFIX = "arch- kbuildsycoca6 --noincremental";
-  };
 }
