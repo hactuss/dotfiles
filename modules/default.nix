@@ -43,7 +43,7 @@
     "niri"
     "fonts"
     "thermalcontrol.nix"
-    "hjem/opal.nix"
+    # "hjem/opal.nix"
   ];
   thinkpadPrograms = map (module: my-variables.modulesPath + "/programs" + "/${module}") [
     "neovim"
