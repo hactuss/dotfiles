@@ -161,7 +161,6 @@
     LANG = "de_DE.UTF-8";
   };
   environment.systemPackages = with pkgs; [
-    brave
     librewolf
     # papirus-nord
     # autotiling-rs
@@ -193,7 +192,6 @@
     #alacritty
     ghostty
     #waybar
-    #brave
     #vivaldi
     # discord
     #spotify
