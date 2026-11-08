@@ -228,6 +228,7 @@
     xxd
     _7zz
     _7zz-rar
+    ddrescue
   ];
   # services.asusd
   programs.tmux = {

@@ -36,7 +36,7 @@
     # "syncthing"
     "openssh"
     "filestuff"
-    "xmrig"
+    # "xmrig"
   ];
 
   thinkpadSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
