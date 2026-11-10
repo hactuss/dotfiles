@@ -14,10 +14,6 @@
     inputs.home-manager.nixosModules.default
   ];
 
-  # Bootloader.
-  # boot.loader.grub.device = "nodev";
-  # boot.loader.grub.useOSProber = true;
-  # boot.loader.grub.efiSupport = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -56,17 +52,6 @@
   system.stateVersion = "25.11"; # Did you read the comment?
   # system.stateVersion = "25.05";
 
-  /*
-  system.autoUpgrade = {
-    enable = true;
-    flake = inputs.self.outPath;
-    flags = [
-      "-L"
-    ];
-    dates = "04:00";
-    randomizedDelaySec = "60min";
-  };
-  */
   networking.firewall.allowPing = true;
 
   hardware.trackpoint.enable = true;
@@ -75,7 +60,6 @@
   # hardware.graphics.enable = true;
   # Set your time zone.
   time.timeZone = my-variables.timezone;
-
   # Select internationalisation properties.
   i18n.defaultLocale = "de_DE.UTF-8";
 
@@ -103,7 +87,8 @@
   */
   # displayManager.sddm.wayland.enable = true;
 
-  # Configure keymap in X11
+  /*
+  Configure keymap in X11
   services.xserver = {
     enable = true;
     xkb = {
@@ -111,6 +96,7 @@
       variant = "deadacute";
     };
   };
+  */
   #services.desktopManager.gnome.enable = true;
   # Configure console keymap
   console.keyMap = "de";
@@ -128,15 +114,10 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     jack.enable = true;
-
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     # media-session.enable = true;
   };
-  # hardware.alsa.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${my-variables.username}" = {
@@ -150,14 +131,10 @@
       "samba"
     ];
   };
-  programs.zsh.enable = true;
-  programs.zsh.autosuggestions.enable = true;
   environment.sessionVariables = {
     NH_FLAKE = "/home/${my-variables.username}/dotfiles";
     NIXOS_OZONE_WL = "1";
     DEFAULT_BROWSER = "${pkgs.librewolf}/bin/librewolf";
-    DEFAULT_EDITOR = "neovim";
-    EDITOR = "neovim";
     LANG = "de_DE.UTF-8";
   };
   environment.systemPackages = with pkgs; [
@@ -172,20 +149,20 @@
     # dzen2
     # libnotify
     xwayland-satellite
-    onefetch
+    # onefetch
     fuzzel
     swaybg
 
     powerstat
     flameshot
-    pscircle
+    # pscircle
     blueman
     unrar
     # exif
     # speedtest
     #nixfmt
     #nixfmt-tree
-    nh
+    # nh
     #exiftool
     #foremost
     # GUI apps
@@ -195,8 +172,8 @@
     #vivaldi
     # discord
     #spotify
-    libreoffice
-    obs-studio
+    # libreoffice
+    # obs-studio
     #krita
     #vlc
     zed-editor
@@ -206,8 +183,8 @@
     feh
     mpv
     cmake
-    nnn
-    zlib
+    # nnn
+    # zlib
     openssl
     #filemanagers choice
     #nautilus
@@ -217,7 +194,7 @@
     #eww
     #pavucontrol
     # cli
-    pcmanfm
+    # pcmanfm
     #pcmanfm-qt
     #metasploit
     #nmap
@@ -238,7 +215,7 @@
     #pnpm
     alejandra
     #metadata
-    tree
+    #tree
     #wine
     #networkmanager
     #presenterm
@@ -263,17 +240,17 @@
     # gui apps
     # terminal
     # utility
-    brightnessctl
+    # brightnessctl
     #alsa-utils
     # misc
 
     #grim # screenshot functionality
     #slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    mako # notification system developed by swaywm maintainer
+    # mako # notification system developed by swaywm maintainer
     # waypaper
     dysk
-    mdr
+    #mdr
   ];
 
   ##################### Laptop  power settings
@@ -336,11 +313,5 @@
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-
-  programs.ssh.askPassword = "askPassword";
+  programs.mtr.enable = true;
 }
