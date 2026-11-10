@@ -14,20 +14,19 @@
   ];
   #  prism-mod.enable = true;
   # Bootloader.
-  boot.loader = {
-    limine.enable = true;
-    efi.canTouchEfiVariables = true;
-    limine.style.wallpaperStyle = "centered";
+  boot = {
+    loader = {
+      limine.enable = true;
+      efi.canTouchEfiVariables = true;
+      limine.style.wallpaperStyle = "centered";
+    };
+    kernelPackages = pkgs.linuxPackages_6_18;
+    kernelParams = [
+      #    "quiet"
+      "splash"
+      #    "rd.systemd.show_status=false"
+    ];
   };
-  # boot.consoleLogLevel = 0;
-  #boot.plymouth.enable = true;
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
-  boot.kernelParams = [
-    #    "quiet"
-    "splash"
-    #    "rd.systemd.show_status=false"
-  ];
 
   networking.hostName = my-variables.desktopName; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -134,9 +133,6 @@
     }
   ];
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${my-variables.username} = {
     isNormalUser = true;
@@ -231,48 +227,22 @@
     ddrescue
   ];
   # services.asusd
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-  };
+
   # programs.wireshark = {enable = true;package = pkgs.wireshark;};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # List services that you want to enable:
-  /*
-  services.xmrig = {
-    enable = true;
-    settings = {
-      autosave = true;
-      cpu = true;
-      opencl = true;
-      cuda = false;
-      pools = [
-        {
-          url = "pool.supportxmr.com:3333";
-          user = "44kBjERLZSR5syNjVyqxthMuZqZ79tPah8GcxsQxoaNP3T1g5qwGLUUGVcmT3o2y6FcBUEhsMesPxCzqR9ueYibBRfpMLeu";
-          keepalive = true;
-          tls = true;
-        }
-      ];
-      donate-level = 0;
-      donate-over-proxy = 0;
-    };
-  };
-  */
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

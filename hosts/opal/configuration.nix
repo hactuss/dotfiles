@@ -14,33 +14,36 @@
     inputs.home-manager.nixosModules.default
   ];
 
-  boot.loader.efi.efiSysMountPoint = "/boot";
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader.efi.efiSysMountPoint = "/boot";
+    loader.efi.canTouchEfiVariables = true;
+    loader.limine.enable = true;
+  };
 
-  boot.loader.limine.enable = true;
-  networking.hostName = my-variables.thinkpadName; # Define your hostname.
-  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+  networking = {
+    hostName = my-variables.thinkpadName; # Define your hostname.
+    wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-  #desktopManager.enable = true;
-  # Open ports in the firewall.
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      139
-      445
-      4533
-    ];
-    allowedUDPPorts = [
-      137
-      138
-      4533
-    ];
+    # Configure network proxy if necessary
+    # proxy.default = "http://user:password@proxy:port/";
+    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    # Enable networking
+    networkmanager.enable = true;
+    firewall.allowPing = true;
+    # Open ports in the firewall.
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        139
+        445
+        4533
+      ];
+      allowedUDPPorts = [
+        137
+        138
+        4533
+      ];
+    };
   };
 
   # This value determines the NixOS release from which the default
@@ -52,10 +55,12 @@
   system.stateVersion = "25.11"; # Did you read the comment?
   # system.stateVersion = "25.05";
 
-  networking.firewall.allowPing = true;
+  hardware = {
+    trackpoint.enable = true;
+    enableAllHardware = true;
+    bluetooth.enable = true;
+  };
 
-  hardware.trackpoint.enable = true;
-  hardware.enableAllHardware = true;
   # hardware.steam-hardware.enable = true;
   # hardware.graphics.enable = true;
   # Set your time zone.
@@ -75,7 +80,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  hardware.bluetooth.enable = true;
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
 
