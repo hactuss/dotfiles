@@ -12,8 +12,8 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl.url = "github:nix-community/nixGL";
-    niri.url = "github:niri-wm/niri";
+    # nixgl.url = "github:nix-community/nixGL";
+    # niri.url = "github:niri-wm/niri";
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +21,6 @@
   };
   outputs = {
     nixpkgs,
-    nixgl,
     auto-cpufreq,
     ...
   } @ inputs: let
@@ -50,7 +49,6 @@
       configPath = /${homedir}/dotfiles;
       timezone = "Europe/Berlin";
     };
-    vars = import ./modules/variables.nix {};
     modulesimport = import ./modules/default.nix {inherit my-variables;};
   in {
     nixosConfigurations = {
