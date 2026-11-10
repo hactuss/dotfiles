@@ -5,7 +5,6 @@
 }: {
   environment.systemPackages = with pkgs; [
     nil
-    nixd
     deadnix
     nix-melt
     nix-output-monitor

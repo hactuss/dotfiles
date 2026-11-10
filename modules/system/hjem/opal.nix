@@ -16,7 +16,7 @@
         ".gitconfig".source = ./../../../configfiles/.gitconfig;
         ".config/fuzzel/fuzzel.ini".source = ./../../../configfiles/fuzzel/fuzzel.ini;
         # "./.config/dolphinrc".source = ./../../../configfiles/dolphinrc;
-        ".config/zed/settings.json".source = ./../../../configfiles/zed/settings.json;
+        # ".config/zed/settings.json".source = ./../../../configfiles/zed/settings.json;
         #"./.config/waybar/config.jsonc".source = ./../../../configfiles/waybar/config.jsonc;
         #"./.config/waybar/style.css".source = ./../../../configfiles/waybar/style.css;
         # "./.config/syncthing/config.xml".source = ./../../../configfiles/syncthing/config.xml;

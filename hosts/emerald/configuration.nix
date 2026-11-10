@@ -172,7 +172,6 @@
       doCheck = false;
     }))
     pciutils
-    nixd
     xmrig
     cudatoolkit
     btop
