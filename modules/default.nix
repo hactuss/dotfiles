@@ -1,7 +1,21 @@
 {my-variables, ...}: {
+  allMachineModules = map (module: my-variables.modulesPath + "/${module}") [
+    "programs/dolphin"
+    "programs/ghostty"
+    "utils/git"
+    "programs/librewolf"
+    "system/noctalia"
+    "system/fonts"
+    "system/nix"
+    "programs/obsidian"
+    "services/openssh"
+    "system/swaylock"
+    "system/updating"
+    "services/docker"
+    "system/ly"
+  ];
   desktopUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
     "nh"
-    "git"
     "udisk"
     "fun"
     "gparted"
@@ -20,12 +34,9 @@
   ];
   desktopSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
     "updating"
-    "nix"
     "ly"
-    "fonts"
     "swaylock"
     "hjem"
-    "noctalia"
     "niri"
   ];
   desktopServices = map (module: my-variables.modulesPath + "/services" + "/${module}") [
@@ -41,7 +52,6 @@
 
   thinkpadSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
     "niri"
-    "fonts"
     # "hjem/opal.nix"
     "auto-cpufreq"
   ];
@@ -61,24 +71,6 @@
     "fun"
   ];
 
-  allMachineModules = map (module: my-variables.modulesPath + "/${module}") [
-    "programs/dolphin"
-    "programs/ghostty"
-    "utils/git"
-    "programs/kdeconnect"
-    "programs/librewolf"
-    "programs/neovim"
-    "system/niri"
-    "system/noctalia"
-    "system/fonts"
-    "system/nix"
-    "programs/obsidian"
-    "services/openssh"
-    "system/swaylock"
-    "system/updating"
-    "services/docker"
-    "system/ly"
-  ];
   # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
 
   /*
