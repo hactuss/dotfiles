@@ -7,13 +7,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # import-tree.url = "github:denful/import-tree";
+    import-tree.url = "github:denful/import-tree";
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
-    flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:niri-wm/niri";
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
@@ -78,7 +77,6 @@
             */
             inputs.hjem.nixosModules.default
             (desktopPath + "/configuration.nix")
-            {environment.systemPackages = [];}
           ]
           ++ modulesimport.desktopPrograms
           ++ modulesimport.desktopSystem

@@ -12,3 +12,4 @@
 - stylix
 - nixvim
 - plasma manager
+- flake parts
