@@ -43,6 +43,7 @@
     "niri"
     "fonts"
     # "hjem/opal.nix"
+    "auto-cpufreq"
   ];
   thinkpadPrograms = map (module: my-variables.modulesPath + "/programs" + "/${module}") [
     "neovim"
