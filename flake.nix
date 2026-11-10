@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
-    # flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     niri.url = "github:niri-wm/niri";
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
