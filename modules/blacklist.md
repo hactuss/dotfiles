@@ -13,3 +13,4 @@
 - nixvim
 - plasma manager
 - flake parts
+- dolphin dark theme

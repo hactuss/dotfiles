@@ -133,7 +133,6 @@
   };
   */
 
-  # services.picom.enable = true;
   # https://mynixos.com/home-manager/options/xsession.windowManager.i3.config
   # these set options for i3 dont work, only the imported config files from source
   #xsession.windowManager.i3.enable = true;

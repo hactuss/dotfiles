@@ -26,25 +26,15 @@
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    username = "hactuss";
-    desktopName = "emerald";
-    thinkpadName = "opal";
-    modulesPath = ./modules;
-    hostsPath = ./hosts;
-    configfilesPath = ./configfilesPath;
-    desktopPath = hostsPath + "/${desktopName}";
-    thinkpadPath = hostsPath + "/${thinkpadName}";
     my-variables = rec {
-      inherit
-        username
-        desktopName
-        thinkpadName
-        modulesPath
-        hostsPath
-        configfilesPath
-        desktopPath
-        thinkpadPath
-        ;
+      username = "hactuss";
+      desktopName = "emerald";
+      thinkpadName = "opal";
+      modulesPath = ./modules;
+      hostsPath = ./hosts;
+      configfilesPath = ./configfilesPath;
+      desktopPath = hostsPath + "/${desktopName}";
+      thinkpadPath = hostsPath + "/${thinkpadName}";
       homedir = /home/${username};
       configPath = /${homedir}/dotfiles;
       timezone = "Europe/Berlin";
@@ -53,7 +43,7 @@
   in {
     nixosConfigurations = {
       # Desktop config
-      ${desktopName} = nixpkgs.lib.nixosSystem {
+      ${my-variables.desktopName} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
           inherit my-variables;
@@ -74,7 +64,7 @@
             }
             */
             inputs.hjem.nixosModules.default
-            (desktopPath + "/configuration.nix")
+            (my-variables.desktopPath + "/configuration.nix")
           ]
           ++ modulesimport.desktopPrograms
           ++ modulesimport.desktopSystem
@@ -84,14 +74,14 @@
       };
 
       # Thinkpad config
-      ${thinkpadName} = nixpkgs.lib.nixosSystem {
+      ${my-variables.thinkpadName} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
           inherit my-variables;
         };
         modules =
           [
-            (thinkpadPath + "/configuration.nix")
+            (my-variables.thinkpadPath + "/configuration.nix")
             /*
             inputs.home-manager.nixosModules.default
             inputs.home-manager.nixosModules.home-manager

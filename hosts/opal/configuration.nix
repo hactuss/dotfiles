@@ -122,6 +122,7 @@
     # no need to redefine it in your config for now)
     # media-session.enable = true;
   };
+  security.polkit.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${my-variables.username}" = {

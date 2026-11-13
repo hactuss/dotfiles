@@ -46,7 +46,6 @@
     "navidrome"
     # "syncthing"
     "openssh"
-    "filestuff"
     # "xmrig"
   ];
 
@@ -65,7 +64,6 @@
     #"syncthing"
     "tailscale"
     "openssh"
-    "filestuff"
   ];
   thinkpadUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
     "fun"
