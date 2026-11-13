@@ -176,6 +176,7 @@
     cudatoolkit
     btop
     ripgrep
+    nvd
     # cmatrix
     # discord
     # tor-browser
