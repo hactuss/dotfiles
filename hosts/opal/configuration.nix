@@ -12,13 +12,8 @@
     ./hardware-configuration.nix
     # /etc/nixos/hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+    # (inputs.import-tree ./boot)
   ];
-
-  boot = {
-    loader.efi.efiSysMountPoint = "/boot";
-    loader.efi.canTouchEfiVariables = true;
-    loader.limine.enable = true;
-  };
 
   networking = {
     hostName = my-variables.thinkpadName; # Define your hostname.
