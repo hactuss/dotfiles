@@ -14,7 +14,14 @@
     inputs.home-manager.nixosModules.default
     # (inputs.import-tree ./boot)
   ];
-
+  # Bootloader.
+  boot = {
+    loader = {
+      limine.enable = true;
+      efi.canTouchEfiVariables = true;
+      limine.style.wallpaperStyle = "centered";
+    };
+  };
   networking = {
     hostName = my-variables.thinkpadName; # Define your hostname.
     wireless.enable = true; # Enables wireless support via wpa_supplicant.
