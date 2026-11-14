@@ -14,3 +14,6 @@
 - plasma manager
 - flake parts
 - dolphin dark theme
+
+# Replaced
+- hjem/home-manager config file -> stow

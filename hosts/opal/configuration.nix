@@ -190,6 +190,7 @@
     feh
     mpv
     cmake
+    stow
     # nnn
     # zlib
     openssl
