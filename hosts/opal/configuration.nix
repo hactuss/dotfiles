@@ -6,8 +6,7 @@
   inputs,
   my-variables,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -88,21 +87,21 @@
 
   # Enable the KDE Plasma Desktop Environment.
   /*
-    services.desktopManager = {
-      plasma6.enable = true;
-    };
+  services.desktopManager = {
+    plasma6.enable = true;
+  };
   */
   # displayManager.sddm.wayland.enable = true;
 
   /*
-    Configure keymap in X11
-    services.xserver = {
-      enable = true;
-      xkb = {
-        layout = "de";
-        variant = "deadacute";
-      };
+  Configure keymap in X11
+  services.xserver = {
+    enable = true;
+    xkb = {
+      layout = "de";
+      variant = "deadacute";
     };
+  };
   */
   #services.desktopManager.gnome.enable = true;
   # Configure console keymap
@@ -216,7 +215,7 @@
     # wget
     ly
     yt-dlp
-    ((pkgs.ffmpeg-full.override { withUnfree = true; }).overrideAttrs (_: {
+    ((pkgs.ffmpeg-full.override {withUnfree = true;}).overrideAttrs (_: {
       doCheck = false;
     }))
     curl
@@ -312,15 +311,15 @@
     }
   ];
   /*
-    home-manager = {
-      extraSpecialArgs = {
-        inherit inputs;
-        inherit my-variables;
-      };
-      users = {
-        "${my-variables.username}" = import ./home.nix;
-      };
-      };
+  home-manager = {
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit my-variables;
+    };
+    users = {
+      "${my-variables.username}" = import ./home.nix;
+    };
+    };
   */
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

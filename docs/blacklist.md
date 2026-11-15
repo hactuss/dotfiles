@@ -2,7 +2,7 @@
 ## Packages
 
 - [swaywall](https://github.com/cycneuramus/swaywall)
-- [thunderbird](https://www.thunderbird.net/)
+- thunderbird
 
 ## Features
 
@@ -13,7 +13,7 @@
 - nixvim
 - plasma manager
 - flake parts
-- dolphin dark theme
+- dolphin dark theme :(
 
 # Replaced
 - hjem/home-manager config file -> stow

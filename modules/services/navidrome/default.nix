@@ -1,8 +1,4 @@
-{
-  pkgs,
-  my-variables,
-  ...
-}: {
+{my-variables, ...}: {
   services.navidrome = {
     enable = true;
     openFirewall = true;

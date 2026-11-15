@@ -4,11 +4,6 @@
     screenfetch
     cmatrix
     hollywood
-    pywal16
-    cwal
-    hellwal
-    wallust
-    # libdisplay-info
     cbonsai
     cowsay
   ];
