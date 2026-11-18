@@ -41,29 +41,31 @@
 
   # Set your time zone.
   time.timeZone = my-variables.timezone;
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      mesa.opencl # Enables Rusticl (OpenCL) support
-    ];
-  };
   services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia = {
-    open = true;
-    modesetting.enable = true;
-    nvidiaSettings = true; # <--- This enables the GUI tool
-    # package = config.boot.kernelPackages.nvidiaPackages.stable; # or beta/production
-    nvidiaPersistenced = true;
-    /*
-    prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-      amdgpuBusId = "PCI:0:0:0";
-        nvidiaBusId = "PCI:6:0:0";
+  hardware = {
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        mesa.opencl # Enables Rusticl (OpenCL) support
+      ];
     };
-    */
+    nvidia = {
+      open = true;
+      modesetting.enable = true;
+      nvidiaSettings = true; # <--- This enables the GUI tool
+      # package = config.boot.kernelPackages.nvidiaPackages.stable; # or beta/production
+      nvidiaPersistenced = true;
+      /*
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        amdgpuBusId = "PCI:0:0:0";
+          nvidiaBusId = "PCI:6:0:0";
+      };
+      */
+    };
   };
   # Select internationalisation properties.
   i18n = {
@@ -86,27 +88,13 @@
       LC_ALL = "de_DE.UTF-8";
     };
   };
-  /*
-  power.ups = {
-    enable = true;
-    upsmon = {
-      enable = true;
-      user = my-variables.username;
 
-    };
-  };
-  */
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
 
   # Enable the KDE Plasma Desktop Environment.
 
   #services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-  };
   # Configure console keymap
   console.keyMap = "de";
   services.printing.enable = true;
@@ -232,9 +220,6 @@
     cbonsai
     cowsay
   ];
-  # services.asusd
-
-  # programs.wireshark = {enable = true;package = pkgs.wireshark;};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

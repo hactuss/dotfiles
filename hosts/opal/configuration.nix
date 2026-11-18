@@ -14,7 +14,6 @@
     inputs.home-manager.nixosModules.default
     # (inputs.import-tree ./boot)
   ];
-  # Bootloader.
   boot = {
     loader = {
       limine.enable = true;
@@ -25,10 +24,6 @@
   networking = {
     hostName = my-variables.thinkpadName; # Define your hostname.
     wireless.enable = true; # Enables wireless support via wpa_supplicant.
-
-    # Configure network proxy if necessary
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
     # Enable networking
     networkmanager.enable = true;
     firewall.allowPing = true;
@@ -63,8 +58,6 @@
     bluetooth.enable = true;
   };
 
-  # hardware.steam-hardware.enable = true;
-  # hardware.graphics.enable = true;
   # Set your time zone.
   time.timeZone = my-variables.timezone;
   # Select internationalisation properties.
@@ -82,27 +75,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-
-  # Enable the KDE Plasma Desktop Environment.
-  /*
-  services.desktopManager = {
-    plasma6.enable = true;
-  };
-  */
-  # displayManager.sddm.wayland.enable = true;
-
-  /*
-  Configure keymap in X11
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "de";
-      variant = "deadacute";
-    };
-  };
-  */
   #services.desktopManager.gnome.enable = true;
   # Configure console keymap
   console.keyMap = "de";
@@ -151,7 +123,6 @@
     # deadnix
     # spotify-cli-linux
     #lix
-
     puddletag
     # dzen2
     # libnotify
@@ -159,7 +130,6 @@
     # onefetch
     fuzzel
     swaybg
-
     powerstat
     flameshot
     # pscircle
@@ -243,15 +213,9 @@
     #other
     hardinfo2
     lsd
-
-    # dependencies
-    # gui apps
-    # terminal
-    # utility
     # brightnessctl
     #alsa-utils
     # misc
-
     #grim # screenshot functionality
     #slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
@@ -267,7 +231,7 @@
     cowsay
   ];
 
-  ##################### Laptop  power settings
+  #[ Laptop  power settings]
 
   # List packages installed in system profile. To search, run:
   services.logind.settings.Login = {
@@ -309,13 +273,17 @@
       turbo = "auto";
     };
   };
-
+  # [Swap]
   swapDevices = [
     {
       device = "/var/lib/swapfile";
       size = 16 * 1024; # 16 GiB
     }
   ];
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
   /*
   home-manager = {
     extraSpecialArgs = {
