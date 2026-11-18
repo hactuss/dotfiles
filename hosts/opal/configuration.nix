@@ -189,7 +189,6 @@
       doCheck = false;
     }))
     curl
-    #tmux
     #pnpm
     alejandra
     #metadata
