@@ -259,6 +259,12 @@
     # waypaper
     dysk
     #mdr
+    fastfetch
+    screenfetch
+    cmatrix
+    hollywood
+    cbonsai
+    cowsay
   ];
 
   ##################### Laptop  power settings

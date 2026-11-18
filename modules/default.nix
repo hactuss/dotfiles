@@ -13,30 +13,25 @@
     "services/docker"
     "system/ly"
     "utils/lazygit"
+    "system/niri"
   ];
   desktopUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
-    "nh"
-    "udisk"
-    "fun"
-    "gparted"
+    #"nh"
+    "disk/udisk"
+    "disk/gparted"
     "home_inbox"
   ];
   desktopPrograms = map (module: my-variables.modulesPath + "/programs" + "/${module}") [
     "neovim"
     "steam"
     "obs"
-    "obsidian"
-    "dolphin"
     "kdeconnect"
     "winboat"
     "davinci-resolve"
     "anki" # "lmms"
   ];
   desktopSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
-    "ly"
-    "swaylock"
     "hjem"
-    "niri"
   ];
   desktopServices = map (module: my-variables.modulesPath + "/services" + "/${module}") [
     "tailscale"
@@ -44,32 +39,26 @@
     "jellyfin"
     "navidrome"
     # "syncthing"
-    "openssh"
     # "xmrig"
   ];
 
   thinkpadSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
-    "niri"
     # "hjem/opal.nix"
     "auto-cpufreq"
     "upower"
   ];
   thinkpadPrograms = map (module: my-variables.modulesPath + "/programs" + "/${module}") [
     "neovim"
-    "dolphin"
     "kdeconnect"
   ];
   thinkpadServices = map (module: my-variables.modulesPath + "/services" + "/${module}") [
     "samba"
     #"syncthing"
     "tailscale"
-    "openssh"
   ];
-  thinkpadUtils = map (module: my-variables.modulesPath + "/utils" + "/${module}") [
-    "fun"
-  ];
-
-  # toPath: DEPRECATED. Use /. + "/path" to convert a string into an absolute path. For relative paths, use ./. + "/path".
+  thinkpadUtils =
+    map (module: my-variables.modulesPath + "/utils" + "/${module}") [
+    ];
 
   /*
   from VJ's config

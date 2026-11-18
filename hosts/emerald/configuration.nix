@@ -225,6 +225,12 @@
     _7zz
     _7zz-rar
     ddrescue
+    fastfetch
+    screenfetch
+    cmatrix
+    hollywood
+    cbonsai
+    cowsay
   ];
   # services.asusd
 
