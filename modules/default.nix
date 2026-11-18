@@ -1,13 +1,13 @@
 {my-variables, ...}: {
   allMachineModules = map (module: my-variables.modulesPath + "/${module}") [
     "programs/dolphin"
-    "programs/ghostty"
+    #"programs/ghostty"
     "utils/git"
-    "programs/librewolf"
+    #"programs/librewolf"
     "system/noctalia"
     "system/fonts"
     "system/nix"
-    "programs/obsidian"
+    #"programs/obsidian"
     "services/openssh"
     "system/swaylock"
     "services/docker"
@@ -27,8 +27,8 @@
     "steam"
     "obs"
     "winboat"
-    "davinci-resolve"
-    "anki" # "lmms"
+    #"davinci-resolve"
+    #"anki" # "lmms"
   ];
   desktopSystem = map (module: my-variables.modulesPath + "/system" + "/${module}") [
     "hjem"

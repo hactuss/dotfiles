@@ -137,88 +137,87 @@
     QT_QPA_PLATFORMTHEME_QT6 = "qt6ct";
   };
   environment.systemPackages = with pkgs; [
-    cudaPackages.cudatoolkit
-    alacritty
-    #freerdp
-    flameshot
-    librewolf
-    zed-editor
-    #nixfmt
-    #seahorse
-    nh
-    ghostty
-    #pavucontrol
-    #xeyes
-    #waypaper
-    feh
-    fuzzel
-    fastfetch
-    onefetch
-    screenfetch
-    git
-    ((pkgs.ffmpeg-full.override {withUnfree = true;}).overrideAttrs (_: {
-      doCheck = false;
-    }))
-    pciutils
-    xmrig
-    cudatoolkit
-    btop
-    ripgrep
-    nvd
-    # cmatrix
-    # discord
-    # tor-browser
-    prismlauncher
-    alejandra
-    mpv
-    # davinci-resolve
-    #xmrig
-    r2modman
-    unrar
-    #hollywood
-    xwayland-satellite
-    # niri wallpaper
-    swaybg
-    swaylock
-    swaylock-plugin
-    swaylock-fancy
-    swaylock-effects
-    #awww
-    #imagemagick
-    #waybar
-    tree
-    #pywal16
-    #cwal
-    #hellwal
-    #wallust
-    libdisplay-info
-    #cbonsai
-    unzip
-    # coreutils-full
-    #cowsay
-    #regex-tui
-    #regex-cli
-    pstree
-    #termusic
-    #thunar
-    pcmanfm
-    openssl
-    nnn
-    zlib
-    dysk
-    lsd
-    fzf
-    stow
-    xxd
     _7zz
     _7zz-rar
-    ddrescue
-    fastfetch
-    screenfetch
-    cmatrix
-    hollywood
+    ((pkgs.ffmpeg-full.override {withUnfree = true;}).overrideAttrs (_: {doCheck = false;}))
+    #awww
+    #cbonsai
+    #cmatrix
+    #coreutils-full
+    #cowsay
+    #cwal
+    #discord
+    #freerdp
+    #hellwal
+    #hollywood
+    #imagemagick
+    #niri wallpaper
+    #nixfmt
+    #pavucontrol
+    #pywal16
+    #regex-cli
+    #regex-tui
+    #seahorse
+    #synthv1
+    #termusic
+    #thunar
+    #tor-browser
+    #wallust
+    #waybar
+    #waypaper
+    #xeyes
+    #xmrig
+    alacritty
+    alejandra
+    btop
     cbonsai
+    cmatrix
     cowsay
+    cudaPackages.cudatoolkit
+    cudatoolkit
+    davinci-resolve
+    ddrescue
+    dysk
+    fastfetch
+    fastfetch
+    feh
+    flameshot
+    fuzzel
+    fzf
+    ghostty
+    git
+    hollywood
+    libdisplay-info
+    librewolf
+    lsd
+    mpv
+    nh
+    nnn
+    nvd
+    onefetch
+    openssl
+    pciutils
+    pcmanfm
+    prismlauncher
+    pstree
+    r2modman
+    ripgrep
+    screenfetch
+    screenfetch
+    stow
+    swaybg
+    swaylock
+    swaylock-effects
+    swaylock-fancy
+    swaylock-plugin
+    tree
+    unrar
+    unzip
+    xmrig
+    xwayland-satellite
+    xxd
+    zed-editor
+    zlib
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

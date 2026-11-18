@@ -117,117 +117,118 @@
     LANG = "de_DE.UTF-8";
   };
   environment.systemPackages = with pkgs; [
-    librewolf
-    # papirus-nord
+
+    ((pkgs.ffmpeg-full.override {withUnfree = true;}).overrideAttrs (_: {doCheck = false;}))
+    # alacritty
+    # alsa-utils
+    # anki
+    # anki-sync-server
     # autotiling-rs
-    # deadnix
-    # spotify-cli-linux
-    #lix
-    puddletag
-    # dzen2
-    # libnotify
-    xwayland-satellite
-    # onefetch
-    fuzzel
-    swaybg
-    powerstat
-    flameshot
-    # pscircle
-    blueman
-    unrar
-    # exif
-    # speedtest
-    #nixfmt
-    #nixfmt-tree
-    # nh
-    #exiftool
-    #foremost
-    # GUI apps
-    #alacritty
-    ghostty
-    #waybar
-    #vivaldi
-    # discord
-    #spotify
-    # libreoffice
-    # obs-studio
-    #krita
-    #vlc
-    zed-editor
-    obsidian
-    #giada
-    #firefox
-    feh
-    mpv
-    cmake
-    stow
-    # nnn
-    # zlib
-    openssl
-    #filemanagers choice
-    #nautilus
-    #nemo
-    #polybarFull
-    #lemonbar
-    #eww
-    #pavucontrol
-    # cli
-    # pcmanfm
-    #pcmanfm-qt
-    #metasploit
-    #nmap
-    #netcat
-    #gnome-tweaks
-    ripgrep
-    #neovim
-    fastfetch
-    btop
-    # wget
-    ly
-    yt-dlp
-    ((pkgs.ffmpeg-full.override {withUnfree = true;}).overrideAttrs (_: {
-      doCheck = false;
-    }))
-    curl
-    #pnpm
-    alejandra
-    #metadata
-    #tree
-    #wine
-    #networkmanager
-    #presenterm
-    #udev
-    #gparted
-    #fun stuff
-    #cmatrix
-    #cowsay
-    #cava
-    #fortune
-    #peaclock
-    #tetris
-    #cbonsai
-    #figlet
-    #sl
-    #hollywood
-    #other
-    hardinfo2
-    lsd
     # brightnessctl
-    #alsa-utils
-    # misc
-    #grim # screenshot functionality
-    #slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    # cava
+    # cbonsai
+    # cli
+    # cmatrix
+    # cowsay
+    # deadnix
+    # discord
+    # dzen2
+    # eww
+    # exif
+    # exiftool
+    # figlet
+    # filemanagers choice
+    # firefox
+    # foremost
+    # fortune
+    # fun stuff
+    # giada
+    # gnome-tweaks
+    # gparted
+    # grim # screenshot functionality
+    # GUI apps
+    # hollywood
+    # krita
+    # lemonbar
+    # libnotify
+    # libreoffice
+    # lix
     # mako # notification system developed by swaywm maintainer
+    # mdr
+    # metadata
+    # metasploit
+    # misc
+    # nautilus
+    # nemo
+    # neovim
+    # netcat
+    # networkmanager
+    # nh
+    # nixfmt
+    # nixfmt-tree
+    # nmap
+    # nnn
+    # obs-studio
+    # onefetch
+    # other
+    # papirus-nord
+    # pavucontrol
+    # pcmanfm
+    # pcmanfm-qt
+    # peaclock
+    # pnpm
+    # polybarFull
+    # presenterm
+    # pscircle
+    # sl
+    # slurp # screenshot functionality
+    # speedtest
+    # spotify
+    # spotify-cli-linux
+    # tetris
+    # udev
+    # vivaldi
+    # vlc
+    # waybar
     # waypaper
-    dysk
-    #mdr
-    fastfetch
-    screenfetch
-    cmatrix
-    hollywood
+    # wget
+    # wine
+    # zlib
+    alejandra
+    blueman
+    btop
     cbonsai
+    cmake
+    cmatrix
     cowsay
+    curl
+    dysk
+    fastfetch
+    fastfetch
+    feh
+    flameshot
+    fuzzel
+    ghostty
+    hardinfo2
+    hollywood
+    librewolf
+    lsd
+    ly
+    mpv
+    obsidian
+    openssl
+    powerstat
+    puddletag
+    ripgrep
+    screenfetch
+    stow
+    swaybg
+    tree
+    unrar
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    xwayland-satellite
+    yt-dlp
+    zed-editor
   ];
 
   #[ Laptop  power settings]
